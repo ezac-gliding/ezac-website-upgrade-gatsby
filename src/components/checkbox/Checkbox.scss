@@ -1,0 +1,82 @@
+@import 'src/styles/constants.scss';
+
+$checkbox-size: 24px;
+$border-size: 2px;
+$border-offset: 3px;
+$radius: $checkbox-size;
+
+.checkbox-container {
+  position: relative;
+  min-width: 30px;
+  min-height: 30px;
+
+  &.blue {
+    .checkbox::after {
+      border-color: $light-blue;
+    }
+
+    .checkbox::before {
+      background-color: $light-blue;
+    }
+  }
+
+  .control {
+    position: relative;
+    opacity: 0;
+    z-index: 3;
+    cursor: pointer;
+
+    width: $checkbox-size;
+    height: $checkbox-size;
+
+    &:checked {
+      & ~ .checkbox {
+        &::before {
+          top: calc(#{$border-size} + #{$border-offset});
+          left: calc(#{$border-size} + #{$border-offset});
+          width: calc(#{$checkbox-size} - (#{$border-size} * 2) - (#{$border-offset} * 2));
+          height: calc(#{$checkbox-size} - (#{$border-size} * 2) - (#{$border-offset} * 2));
+        }
+      }
+    }
+  }
+
+  .checkbox {
+    &::after {
+      content: '';
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      opacity: 1;
+      visibility: visible;
+
+      width: $checkbox-size;
+      height: $checkbox-size;
+
+      border: $border-size solid white;
+      border-radius: $radius;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: calc(#{$checkbox-size} / 2);
+      left: calc(#{$checkbox-size} / 2);
+      z-index: 2;
+      opacity: 1;
+      visibility: visible;
+
+      width: 0;
+      height: 0;
+
+      background-color: white;
+      border-radius: $radius;
+
+      transition: all 0.2s ease-in-out;
+    }
+  }
+}

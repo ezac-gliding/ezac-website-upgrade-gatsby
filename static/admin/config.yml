@@ -1,0 +1,21 @@
+# For production:
+backend:
+  name: github
+  repo: ezac-gliding/ezac-website-upgrade-gatsby
+  branch: main
+  commit_messages:
+    create: 'Create {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Delete {{collection}} “{{slug}}”'
+    uploadMedia: '[skip ci] Upload “{{path}}”'
+    deleteMedia: '[skip ci] Delete “{{path}}”'
+
+# For local dev:
+# backend:
+#   name: proxy
+#   proxy_url: http://localhost:8081/api/v1
+
+media_folder: static/assets
+public_folder: assets
+
+collections:
