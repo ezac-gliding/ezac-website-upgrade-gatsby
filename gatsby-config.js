@@ -15,13 +15,6 @@ module.exports = {
         path: `${__dirname}/src/img`,
       },
     },
-    `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        icon: 'src/img/Logo_Original.svg',
-      },
-    },
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
