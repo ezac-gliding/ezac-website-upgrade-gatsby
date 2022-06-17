@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: `EZAC`,
@@ -8,6 +10,12 @@ module.exports = {
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-react-helmet",
+    {
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        src: path.join(__dirname, 'src'),
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

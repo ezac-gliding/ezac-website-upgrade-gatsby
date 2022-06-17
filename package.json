@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "develop": "gatsby develop",
-    "start": "gatsby develop",
+    "start": "rm -rf ./.cache && npm run develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
@@ -23,5 +23,14 @@
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
     "sass": "^1.52.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.17.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "gatsby-plugin-root-import": "^2.0.8"
   }
 }

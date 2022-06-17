@@ -1,0 +1,48 @@
+.instructor-container {
+  margin: 0 30px;
+  margin-top: 20px;
+  margin-bottom: 100px;
+  text-align: center;
+
+  h3 {
+    font-size: 24px;
+    font-weight: 900;
+  }
+
+  h4 {
+    font-size: 20px;
+    font-weight: 300;
+  }
+
+  .instructor-picture-container {
+    position: relative;
+    margin: 20px auto;
+
+    width: 220px;
+    height: 220px;
+
+    .instructor-picture {
+      background-color: #e2e2e2;
+      border-radius: 100%;
+      overflow: hidden;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    .belt-container {
+      position: absolute;
+      bottom: 30px;
+      right: 10px;
+    }
+  }
+
+  .quote-text {
+    font-size: 18px;
+    line-height: 34px;
+    font-weight: 100;
+    font-style: italic;
+  }
+}
