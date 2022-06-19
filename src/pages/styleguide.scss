@@ -1,0 +1,36 @@
+@import 'src/styles/constants.scss';
+
+.styleguide {
+  .color-palette {
+    margin: 20px 0;
+    display: flex;
+
+    span {
+      display: block;
+      width: 52px;
+      height: 52px;
+
+      background-color: #bbbbbb;
+
+      &.primary {
+        background-color: $ezac-bright-blue;
+      }
+
+      &.secondary {
+        background-color: $ezac-bright-yellow;
+      }
+
+      &.dark-blue {
+        background-color: $ezac-dark-blue;
+      }
+
+      &.blue {
+        background-color: $ezac-blue;
+      }
+
+      &.red {
+        background-color: $ezac-red;
+      }
+    }
+  }
+}
