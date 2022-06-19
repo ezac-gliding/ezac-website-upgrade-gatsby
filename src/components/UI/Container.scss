@@ -7,24 +7,19 @@
     padding: 0 20px;
   }
 
-  &.dark {
-    background-color: $black;
-    color: white;
-  }
-
   &.red {
-    background-color: $red;
+    background-color: $ezac-red;
     color: white;
   }
 
   &.light-blue {
-    background-color: $light-blue;
-    color: $dark-blue;
+    background-color: $ezac-bright-blue;
+    color: white;
   }
 
   &.dark-blue {
-    background-color: $dark-blue;
-    color: $light-blue;
+    background-color: $ezac-dark-blue;
+    color: white;
   }
 
   &.offset-from-top {
