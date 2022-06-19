@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import Header from 'src/components/header/Header';
-import Container from 'src/components/ui/Container';
+import Container from 'src/components/UI/Container';
 import './styleguide.scss';
 import 'src/styles/reset.scss';
 import 'src/styles/general.scss';
