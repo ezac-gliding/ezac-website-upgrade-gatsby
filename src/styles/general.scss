@@ -12,6 +12,7 @@ html {
   font-size: 16px;
   line-height: 16px;
   color: black;
+  background-color: #F5F5F5;
 }
 
 a {
@@ -48,11 +49,12 @@ h2 {
   margin: 20px 0;
   font-size: 30px;
   font-weight: 900;
+  z-index: 0;
 
   color: $ezac-dark-blue;
 
   // The yellow strip underneath the title is described here
-  &:before {
+  &:after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -81,10 +83,6 @@ p {
   strong {
     font-weight: 900;
   }
-}
-
-.page {
-  overflow: hidden;
 }
 
 /* Forms
