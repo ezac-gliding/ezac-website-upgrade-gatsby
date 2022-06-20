@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="http://localhost:8000/static/EZAC_logo-8bf28ce4b2a291307415ff87b34d0a04.svg" width="180" />
+  <a href="https://fastidious-wisp-aa687c.netlify.app/">
+    <img alt="EZAC" src="https://fastidious-wisp-aa687c.netlify.app/static/EZAC_logo-8bf28ce4b2a291307415ff87b34d0a04.svg" width="180" />
   </a>
 </p>
 <h1 align="center">
