@@ -28,7 +28,7 @@ button.button, a.button {
 
   &:hover, &:active {
     background-color: white;
-    color: $black;
+    color: black;
   }
 
   &:focus {
@@ -36,14 +36,14 @@ button.button, a.button {
   }
 
   &.light {
-    color: $black;
+    color: black;
     background-color: transparent;
 
     border: 2px solid black;
     border-radius: 5px;
 
     &:hover, &:active {
-      background-color: $black;
+      background-color: black;
       color: white;
     }
   }
@@ -57,10 +57,10 @@ a.button {
   width: fit-content;
 
   &:hover {
-    color: $black;
+    color: black;
 
     &:link, &:visited {
-      color: $black;
+      color: black;
     }
   }
 

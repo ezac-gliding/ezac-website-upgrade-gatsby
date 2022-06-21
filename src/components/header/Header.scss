@@ -27,7 +27,7 @@ $menu-button-color-light: #292929;
     background-color: rgba(0, 0, 0, 0.3);
 
     @media only screen and (min-width: 800px) {
-      background-color: $black;
+      background-color: black;
     }
   }
 
@@ -129,13 +129,13 @@ $menu-button-color-light: #292929;
       padding: 20px;
 
       opacity: 0;
-      background-color: $black;
+      background-color: black;
 
       &.light {
         background-color: white;
 
         a {
-          color: $black;
+          color: black;
         }
       }
 
@@ -155,7 +155,7 @@ $menu-button-color-light: #292929;
         background-color: unset;
 
         &.light ul li a {
-          color: $black;
+          color: black;
         }
       }
 
