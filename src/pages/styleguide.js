@@ -8,8 +8,8 @@ import 'src/styles/general.scss';
 
 export default function StyleGuide() {
   return (
-    <div className="page styleguide">
-      <Header lightMode />
+    <div className="styleguide">
+      <Header />
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#0469FF" />

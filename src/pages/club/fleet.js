@@ -7,8 +7,8 @@ import 'src/styles/general.scss';
 
 export default function FleetPage() {
   return (
-    <div className="page home">
-      <Header lightMode />
+    <div className="home">
+      <Header />
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#0469FF" />
