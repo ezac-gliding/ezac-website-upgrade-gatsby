@@ -8,8 +8,15 @@ module.exports = {
     author: `@ezac-dream-team`,
   },
   plugins: [
-    "gatsby-plugin-sass",
-    "gatsby-plugin-react-helmet",
+    'gatsby-plugin-sass',
+    'gatsby-plugin-react-helmet',
+    'gatsby-transformer-json',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/data/`,
+      },
+    },
     {
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
