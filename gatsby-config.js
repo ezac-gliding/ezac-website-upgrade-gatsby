@@ -11,6 +11,12 @@ module.exports = {
     "gatsby-plugin-sass",
     "gatsby-plugin-react-helmet",
     {
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+      resolve: 'gatsby-plugin-netlify-cms',
+    },
+    {
       resolve: "gatsby-plugin-root-import",
       options: {
         src: path.join(__dirname, 'src'),
