@@ -27,7 +27,7 @@ export default ({
         {wing_area}
         m
         <sup>
-          2
+          &#178;
         </sup>
       </p>
     </div>
