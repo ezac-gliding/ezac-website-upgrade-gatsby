@@ -1,7 +1,6 @@
 @import 'src/styles/constants.scss';
 
-$menu-button-color: #dddddd;
-$menu-button-color-light: #292929;
+$menu-button-color: $ezac-dark-blue;
 
 .site-header {
   padding: 10px 0;
@@ -10,18 +9,6 @@ $menu-button-color-light: #292929;
   z-index: 100;
 
   transition: 0.3s ease-in-out;
-
-  &.light {
-    background-color: white;
-
-    &.shown {
-      background-color: unset;
-
-      @media only screen and (min-width: 800px) {
-        background-color: white;
-      }
-    }
-  }
 
   &.shown {
     background-color: rgba(0, 0, 0, 0.3);
@@ -70,14 +57,6 @@ $menu-button-color-light: #292929;
         background-color: $menu-button-color;
         z-index: 100;
         border-radius: 5px;
-
-        &.light {
-          background-color: $menu-button-color-light;
-
-          &:before, &:after {
-            background-color: $menu-button-color-light;
-          }
-        }
 
         &:before, &:after {
           display: block;
@@ -129,15 +108,7 @@ $menu-button-color-light: #292929;
       padding: 20px;
 
       opacity: 0;
-      background-color: black;
-
-      &.light {
-        background-color: white;
-
-        a {
-          color: black;
-        }
-      }
+      background-color: white;
 
       transition: 0.3s ease-in-out;
 
@@ -153,10 +124,6 @@ $menu-button-color-light: #292929;
         height: unset;
 
         background-color: unset;
-
-        &.light ul li a {
-          color: black;
-        }
       }
 
       &.open {
@@ -184,7 +151,7 @@ $menu-button-color-light: #292929;
 
           a {
             box-sizing: border-box;
-            color: white;
+            color: $ezac-dark-blue;
             font-weight: 100;
             text-transform: uppercase;
             font-size: 28px;

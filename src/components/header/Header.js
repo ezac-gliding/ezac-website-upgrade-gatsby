@@ -5,9 +5,7 @@ import Container from 'src/components/UI/Container';
 import './Header.scss';
 import logo from 'src/img/EZAC_logo.svg';
 
-export default ({
-  lightMode,
-}) => {
+export default function Header() {
   const [menuIsOpen, setMenuOpen] = useState(false);
   const scrollPosition = useScroll();
 
@@ -17,22 +15,18 @@ export default ({
 
   const closeMenu = () => {
     setMenuOpen(false);
-  }
-
-  const style = {
-    backgroundColor: scrollPosition > 0 ? 'rgba(0, 0, 0, 0.5)' : 'transparent',
   };
 
   return (
-    <header className={`site-header ${scrollPosition > 0 ? 'shown' : ''} ${lightMode ? 'light' : ''}`}>
+    <header className={`site-header ${scrollPosition > 0 ? 'shown' : ''}`}>
       <Container className="no-spacing">
         <Link to="/">
           <img className="header-logo" src={logo} alt="logo" />
         </Link>
-        <button onClick={toggleMenu} className={`menu-button ${menuIsOpen ? 'open' : ''}`}>
-          <span className={`navicon ${lightMode ? 'light' : ''}`}/>
+        <button type="button" onClick={toggleMenu} className={`menu-button ${menuIsOpen ? 'open' : ''}`}>
+          <span className="navicon" />
         </button>
-        <nav className={`${menuIsOpen ? 'open' : ''} ${lightMode ? 'light' : ''}`}>
+        <nav className={`${menuIsOpen ? 'open' : ''}`}>
           <ul>
             <li>
               <Link activeClassName="active" onClick={closeMenu} to="/">Home</Link>
@@ -53,5 +47,5 @@ export default ({
         </nav>
       </Container>
     </header>
-  )
+  );
 }
