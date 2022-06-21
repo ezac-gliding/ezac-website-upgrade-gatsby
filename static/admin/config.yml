@@ -23,10 +23,10 @@ collections:
     extension: "json"
     label: "Gliders"
     label_singular: "Glider"
-    summary: "{{type}}-{{callsign}}"
+    summary: "{{type}} ({{callsign}})"
     folder: "src/data/gliders"
     create: true
-    slug: "{{id}}-{{slug}}"
+    slug: "{{type}}-{{manufacturer}}-{{callsign}}"
     fields:
       - {label: "Manufacturer", name: "manufacturer", widget: "string"}
       - {label: "Type", name: "type", widget: "string"}
