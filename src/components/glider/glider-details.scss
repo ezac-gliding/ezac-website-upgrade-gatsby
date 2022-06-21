@@ -1,0 +1,53 @@
+@import 'src/styles/constants.scss';
+
+.glider-detail-card {
+  position: relative;
+  padding: 30px;
+  width: 390px;
+
+  background-color: $ezac-dark-blue;
+  color: white;
+
+  z-index: 1000;
+
+  h1.type {
+    margin: 0;
+    font-size: 34px;
+    line-height: unset;
+    color: white;
+  }
+
+  .glide-ratio-number {
+    margin: 0;
+    font-size: 48px;
+  }
+
+  h2::after {
+    visibility: hidden;
+  }
+
+  .manufacturer, .glide-ratio-number {
+    margin-bottom: 25px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .data-group {
+    display: flex;
+    justify-content: flex-start;
+
+    var {
+      display: block;
+      font-size: 18px;
+      width: 210px;
+    }
+  }
+
+  .yellow {
+    color: $ezac-bright-yellow;
+  }
+}

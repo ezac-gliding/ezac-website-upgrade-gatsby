@@ -1,0 +1,40 @@
+@import 'src/styles/constants.scss';
+
+.glider-container {
+  width: 33%;
+
+  h3 {
+    margin-bottom: 5px;
+    font-size: 34px;
+    color: $ezac-dark-blue;
+    font-weight: bold;
+  }
+
+  h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: $ezac-dark-blue;
+    font-weight: 400;
+  }
+
+  .blueprint-container {
+    padding: 10px;
+    width: 100%;
+    transition: background-color 0.2s ease-in-out;
+
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      transition: filter 0.3s ease-in-out;
+    }
+
+    &:hover {
+      background-color: $ezac-blue;
+
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+}
