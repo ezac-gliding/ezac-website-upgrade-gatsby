@@ -45,7 +45,7 @@ export default ({
           />
         )}
       >
-        <div onClick={() => setDetailOpen(!detailIsOpen)} className="blueprint-container">
+        <div onClick={() => setDetailOpen(!detailIsOpen)} className={`blueprint-container ${detailIsOpen ? 'open' : ''}`}>
           <img src={getURL(`../${blueprint}`)} alt={type} />
         </div>
       </Popover>
