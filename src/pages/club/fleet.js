@@ -24,6 +24,8 @@ const query = graphql`
         wing_area
         wing_aspect
         type
+        order
+        scale
       }
     }
   }
@@ -37,7 +39,7 @@ export default function FleetPage() {
   } = useStaticQuery(query);
 
   return (
-    <div className="home">
+    <div className="fleet">
       <Header />
       <Helmet>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -49,11 +51,13 @@ export default function FleetPage() {
       <Page className="offset-from-top">
         <h2 className="top-title">Ontdek onze vloot</h2>
 
-        {
-          gliders.map((gliderData) => (
-            <Glider key={gliderData.id} data={gliderData} />
-          ))
-        }
+        <div className="glider-grid">
+          {
+            gliders.sort(({ order: orderA }, { order: orderB }) => orderA - orderB).map((gliderData) => (
+              <Glider key={gliderData.id} data={gliderData} />
+            ))
+          }
+        </div>
       </Page>
 
     </div>

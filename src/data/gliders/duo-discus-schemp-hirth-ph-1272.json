@@ -9,5 +9,7 @@
   "type": "Duo Discus",
   "callsign": "PH-1272",
   "max-speed": "263",
-  "fuselage-length": "8.73"
+  "fuselage-length": "8.73",
+  "scale": 100,
+  "order": 0
 }

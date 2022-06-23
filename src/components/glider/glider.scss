@@ -1,7 +1,8 @@
 @import 'src/styles/constants.scss';
 
 .glider-container {
-  width: 33%;
+  margin: 0 4px 20px 4px;
+  width: calc(33% - 8px);
 
   h3 {
     margin-bottom: 5px;
@@ -13,13 +14,17 @@
   h4 {
     margin-bottom: 10px;
     font-size: 18px;
-    color: $ezac-dark-blue;
+    color: $ezac-blue;
     font-weight: 400;
   }
 
   .blueprint-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 10px;
     width: 100%;
+    height: 148px;
     transition: background-color 0.2s ease-in-out;
     border-radius: 4px;
     overflow: hidden;

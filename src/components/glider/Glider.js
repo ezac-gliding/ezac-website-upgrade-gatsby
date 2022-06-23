@@ -16,9 +16,14 @@ export default ({
     type,
     wing_area,
     wing_aspect,
+    scale,
   },
 }) => {
   const [detailIsOpen, setDetailOpen] = useState(false);
+
+  const blueprintStyle = {
+    padding: `10px ${110 - scale}px`,
+  };
 
   return (
     <div className="glider-container">
@@ -45,7 +50,7 @@ export default ({
           />
         )}
       >
-        <div onClick={() => setDetailOpen(!detailIsOpen)} className={`blueprint-container ${detailIsOpen ? 'open' : ''}`}>
+        <div style={blueprintStyle} onClick={() => setDetailOpen(!detailIsOpen)} className={`blueprint-container ${detailIsOpen ? 'open' : ''}`}>
           <img src={getURL(`../${blueprint}`)} alt={type} />
         </div>
       </Popover>

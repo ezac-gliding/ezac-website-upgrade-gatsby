@@ -1,5 +1,11 @@
-.home {
+.fleet {
   .top-title {
     margin-bottom: 50px;
+  }
+
+  .glider-grid {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 }

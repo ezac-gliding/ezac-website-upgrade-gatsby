@@ -39,3 +39,5 @@ collections:
       - {label: "Empty Weight (kg)", name: "empty-weight", widget: "string", required: false}
       - {label: "Max Speed (km/h)", name: "max-speed", widget: "string", required: false}
       - {label: "Min Sink (m/s)", name: "min-sink", widget: "string", required: false}
+      - {label: "Scaling (%)", name: "scale", widget: "number", default: 100, required: true}
+      - {label: "Order (lower is first)", name: "order", widget: "number", default: 0, required: true}

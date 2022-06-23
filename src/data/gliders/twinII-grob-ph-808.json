@@ -1,0 +1,15 @@
+{
+  "glide-ratio": 36.5,
+  "min-sink": "0.64",
+  "wing-area": "17.8",
+  "manufacturer": "Grob",
+  "blueprint": "assets/twinII.svg",
+  "empty-weight": "390",
+  "wing-aspect": "17.1",
+  "type": "Twin II",
+  "callsign": "PH-808",
+  "max-speed": "250",
+  "fuselage-length": "8.18",
+  "scale": 90,
+  "order": 2
+}

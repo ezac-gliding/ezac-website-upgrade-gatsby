@@ -1,0 +1,15 @@
+{
+  "glide-ratio": 17,
+  "min-sink": "0.85",
+  "wing-area": "14.2",
+  "manufacturer": "Schneider",
+  "blueprint": "assets/baby.svg",
+  "empty-weight": "170",
+  "wing-aspect": "13",
+  "type": "Grunau Baby",
+  "callsign": "PH-213",
+  "max-speed": "150",
+  "fuselage-length": "6.09",
+  "scale": 80,
+  "order": 999
+}
