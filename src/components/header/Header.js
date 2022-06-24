@@ -32,16 +32,16 @@ export default function Header() {
               <Link activeClassName="active" onClick={closeMenu} to="/">Home</Link>
             </li>
             <li>
-              <Link activeClassName="active" onClick={closeMenu} to="/club">Onze Club</Link>
+              <Link partiallyActive activeClassName="active" onClick={closeMenu} to="/club">Onze Club</Link>
             </li>
             <li>
-              <Link activeClassName="active" onClick={closeMenu} to="/prices">Tarieven</Link>
+              <Link partiallyActive activeClassName="active" onClick={closeMenu} to="/prices">Tarieven</Link>
             </li>
             <li>
-              <Link activeClassName="active" onClick={closeMenu} to="/contact">Contact</Link>
+              <Link partiallyActive activeClassName="active" onClick={closeMenu} to="/contact">Contact</Link>
             </li>
             <li>
-              <Link activeClassName="active" onClick={closeMenu} to="/leden">Leden</Link>
+              <Link partiallyActive activeClassName="active" onClick={closeMenu} to="/leden">Leden</Link>
             </li>
           </ul>
         </nav>
