@@ -11,10 +11,11 @@ $menu-button-color: $ezac-dark-blue;
   transition: 0.3s ease-in-out;
 
   &.shown {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.1);
 
     @media only screen and (min-width: 800px) {
-      background-color: black;
+      background-color: white;
+      box-shadow: $material-shadow-subtle;
     }
   }
 

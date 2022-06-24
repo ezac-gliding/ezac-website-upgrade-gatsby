@@ -22,7 +22,7 @@ export default ({
   const [detailIsOpen, setDetailOpen] = useState(false);
 
   const blueprintStyle = {
-    padding: `10px ${110 - scale}px`,
+    width: `${scale}%`,
   };
 
   return (
@@ -50,8 +50,8 @@ export default ({
           />
         )}
       >
-        <div style={blueprintStyle} onClick={() => setDetailOpen(!detailIsOpen)} className={`blueprint-container ${detailIsOpen ? 'open' : ''}`}>
-          <img src={getURL(`../${blueprint}`)} alt={type} />
+        <div onClick={() => setDetailOpen(!detailIsOpen)} className={`blueprint-container ${detailIsOpen ? 'open' : ''}`}>
+          <img style={blueprintStyle} src={getURL(`../${blueprint}`)} alt={type} />
         </div>
       </Popover>
     </div>

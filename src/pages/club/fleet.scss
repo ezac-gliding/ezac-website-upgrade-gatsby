@@ -1,11 +1,17 @@
 .fleet {
   .top-title {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+
+    @media only screen and (min-width: 800px) {
+      margin-bottom: 50px;
+    }
   }
 
   .glider-grid {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    @media only screen and (min-width: 800px) {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
   }
 }

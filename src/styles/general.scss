@@ -12,7 +12,11 @@ html {
   font-size: 16px;
   line-height: 16px;
   color: black;
-  background-color: #F5F5F5;
+
+  // Mobile does not have gray background altogether
+  @media only screen and (min-width: 800px) {
+    background-color: $background-color;
+  }
 }
 
 a {
