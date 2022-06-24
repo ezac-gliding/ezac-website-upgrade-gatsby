@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'src/components/button/Button';
 import './glider-details.scss';
 
 export default ({
@@ -13,16 +14,17 @@ export default ({
     wing_area,
     wing_aspect,
   },
+  closeDetails,
 }) => (
   <div className="glider-detail-card">
     <h1 className="type">{type}</h1>
     <p className="manufacturer">{manufacturer}</p>
 
-    <p className="yellow">Best glide ratio</p>
+    <p className="yellow">Beste glijgetal</p>
     <h2 className="yellow glide-ratio-number">{glide_ratio}</h2>
 
     <div className="data-group">
-      <var>Wing area</var>
+      <var>Vleugeloppervlakte</var>
       <p>
         {wing_area}
         m
@@ -40,7 +42,7 @@ export default ({
     </div>
 
     <div className="data-group">
-      <var>Fuselage length</var>
+      <var>Lengte romp</var>
       <p>
         {fuselage_length}
         m
@@ -48,7 +50,7 @@ export default ({
     </div>
 
     <div className="data-group">
-      <var>Empty weight</var>
+      <var>Gewicht in lege toestand</var>
       <p>
         {empty_weight}
         kg
@@ -56,7 +58,7 @@ export default ({
     </div>
 
     <div className="data-group">
-      <var>Max speed</var>
+      <var>Maximale snelheid</var>
       <p>
         {max_speed}
         km/h
@@ -64,11 +66,13 @@ export default ({
     </div>
 
     <div className="data-group">
-      <var>Min sink</var>
+      <var>Minste dalen</var>
       <p>
         {min_sink}
         m/s
       </p>
     </div>
+
+    <Button onClick={closeDetails}>Sluiten</Button>
   </div>
 );

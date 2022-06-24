@@ -36,17 +36,19 @@ export default ({
         positions={['bottom', 'left', 'right']} // preferred positions by priority
         padding={10}
         content={(
-          <GliderDetails data={{
-            empty_weight,
-            fuselage_length,
-            glide_ratio,
-            manufacturer,
-            max_speed,
-            min_sink,
-            type,
-            wing_area,
-            wing_aspect,
-          }}
+          <GliderDetails
+            data={{
+              empty_weight,
+              fuselage_length,
+              glide_ratio,
+              manufacturer,
+              max_speed,
+              min_sink,
+              type,
+              wing_area,
+              wing_aspect,
+            }}
+            closeDetails={() => setDetailOpen(false)}
           />
         )}
       >
