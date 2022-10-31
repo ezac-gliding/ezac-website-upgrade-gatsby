@@ -41,7 +41,7 @@ export default function Header() {
               <Link partiallyActive activeClassName="active" onClick={closeMenu} to="/contact">Contact</Link>
             </li>
             <li>
-              <Link partiallyActive activeClassName="active" onClick={closeMenu} to="/leden">Leden</Link>
+              <a href="https://ezac.nl">Leden</a>
             </li>
           </ul>
         </nav>
