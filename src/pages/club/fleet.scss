@@ -1,13 +1,10 @@
 .fleet {
   .top-title {
     margin-bottom: 30px;
-
-    @media only screen and (min-width: 800px) {
-      margin-bottom: 50px;
-    }
   }
 
   .glider-grid {
+    margin-top: 20px;
     @media only screen and (min-width: 800px) {
       display: flex;
       justify-content: flex-start;

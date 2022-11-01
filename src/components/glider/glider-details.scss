@@ -2,15 +2,21 @@
 
 .glider-detail-card {
   position: relative;
+  margin-top: 20px;
   padding: 30px;
-  width: 390px;
-  border-radius: 4px;
+  border-radius: 0;
   overflow: hidden;
 
   background-color: $ezac-dark-blue;
   color: white;
 
   z-index: 1000;
+
+  @media only screen and (min-width: 800px) {
+    margin-top: 0;
+    width: 390px;
+    border-radius: 4px;
+  }
 
   h1.type {
     margin: 0;
@@ -36,6 +42,7 @@
     margin: 0;
     font-size: 18px;
     line-height: 26px;
+    color: white;
   }
 
   .data-group {
@@ -47,6 +54,10 @@
       font-size: 18px;
       width: 240px;
     }
+  }
+
+  .specific-details {
+    margin-bottom: 20px;
   }
 
   .yellow {
