@@ -8,6 +8,6 @@ export default ({
   <div className="club-value-container">
     <h3>{title}</h3>
     <span className="bullet" />
-    <p>{ children }</p>
+    <p>{children}</p>
   </div>
 );

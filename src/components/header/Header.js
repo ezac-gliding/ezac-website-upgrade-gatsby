@@ -6,7 +6,9 @@ import useViewport from 'hooks/useViewport';
 import './Header.scss';
 import logo from 'src/img/EZAC_logo.svg';
 
-export default function Header() {
+export default function Header({
+  appearAt = 0,
+}) {
   const [menuIsOpen, setMenuOpen] = useState(false);
   const scrollPosition = useScroll();
   const {
@@ -22,7 +24,7 @@ export default function Header() {
   };
 
   return (
-    <header className={`site-header ${scrollPosition > 0 ? 'shown' : ''}`}>
+    <header className={`site-header ${scrollPosition > appearAt ? 'shown' : ''}`}>
       <Container className="no-spacing">
         <Link to="/">
           <img className="header-logo" src={logo} alt="logo" />
