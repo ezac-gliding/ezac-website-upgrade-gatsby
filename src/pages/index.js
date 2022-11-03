@@ -33,7 +33,7 @@ export default function Index() {
         <title>EZAC</title>
       </Helmet>
 
-      <Hero appearAt={120} scrollPosition={scrollPosition} />
+      <Hero appearAt={80} scrollPosition={scrollPosition} />
 
       <Page>
         <div style={valueStyle} className="club-values">
@@ -52,6 +52,29 @@ export default function Index() {
             Je hoeft ook niet op voorhand de theorie te volgen. In het zweefvliegen stap je samen met instructeur in een tweezitter, en ga je dus direct aan de slag met de opleiding.
           </ClubValue>
         </div>
+
+        <h2>Welkom op de EZAC</h2>
+        <h3>Onze club</h3>
+        <p>
+          EZAC, oftewel de Eerste Zeeuws-Vlaamse Aero Club, is een zweefvliegclub met als thuisveld Axel.
+          We hebben een schitterend vliegveld gelegen in het natuurgebied de Smitschorre, een flinke vloot
+          met de modernste zweefvliegtuigen, een gezellige kantine en een eigen verenigingscamping.
+        </p>
+
+        <h3>Meevliegen</h3>
+        <p>
+          Als u wilt, kunt met een van onze ervaren vliegers meevliegen, of iemand anders een doopvlucht cadeau doen.
+          Reserveer tijdig en op voorhand, want de beschikbare timeslots gaan er snel door.
+        </p>
+
+        <h3>Leer zelf zweefvliegen</h3>
+        <p>
+          Zweefvliegen is een geweldige en voordelige manier van vliegen. Zonder motor vliegen we op de kracht
+          van de natuur van thermiekbel naar thermiekbel, soms uren en honderden kilometers ver. Ook zonder wind en thermiek
+          kan een zweefvliegtuig vliegen, maar dan niet zo lang. Bij ons kan u genieten van een volledige opleiding.
+          Je stapt in met een instructeur die je wegwijs maakt in deze prachtige sport. De EZAC is er voor zowel Nederlandse
+          als Belgische zweefvliegers.
+        </p>
       </Page>
     </div>
   );
