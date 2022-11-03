@@ -39,17 +39,17 @@ export default function Index() {
         <div style={valueStyle} className="club-values">
           <ClubValue appearAt={120} title="Teamwork">
             Een sport zoals zweefvliegen kan niet bestaan zonder
-            <strong> een goede samenwerking tussen clubleden.</strong>
+            <strong> een goede samenwerking tussen clubleden. </strong>
+          </ClubValue>
+          <ClubValue appearAt={120} title="Instructie">
+            Er is
+            <strong> geen extra kost voor instructie. </strong>
+            Je hoeft ook niet op voorhand de theorie te volgen. In het zweefvliegen stap je samen met instructeur in een tweezitter, en ga je dus direct aan de slag met de opleiding.
           </ClubValue>
           <ClubValue appearAt={120} title="Minutengeld">
             Het lidgeld is een
             <strong> all-in-formule, </strong>
             wat wilt zeggen dat je niet betaalt voor starts, noch voor het aantal minuten die je vliegt op een bepaald type
-          </ClubValue>
-          <ClubValue appearAt={120} title="Instructie">
-            Er is
-            <strong> geen extra kost voor instructie.</strong>
-            Je hoeft ook niet op voorhand de theorie te volgen. In het zweefvliegen stap je samen met instructeur in een tweezitter, en ga je dus direct aan de slag met de opleiding.
           </ClubValue>
         </div>
 

@@ -2,19 +2,14 @@
 
 .hero-container {
   width: 100%;
-  height: 700px;
+  height: 500px;
   background-image: url('./EHAX_sky.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  // filter: saturate(80%) hue-rotate(15deg);
 
-  &.show {
-    height: 500px;
-    
-    .hero-box {
-      opacity: 1;
-    }
+  @media only screen and (min-width: 800px) {
+    height: 700px;
   }
 
   .wrapper {
@@ -22,34 +17,39 @@
     margin: 0 auto;
     max-width: 980px;
   }
+}
 
-  .hero-box {
+.hero-box {
+  padding: 30px;
+  width: 100%;
+
+  border-radius: 0;
+
+  background-color: $ezac-dark-blue;
+
+  @media only screen and (min-width: 800px) {
     opacity: 0;
-    position: absolute;
     top: 160px;
     left: 40px;
-    padding: 30px;
+    position: absolute;
     width: 420px;
-
     border-radius: 10px;
+  }
 
-    background-color: $ezac-dark-blue;
+  h1 {
+    margin: 0 0 20px 0;
+    font-size: 42px;
+    line-height: 48px;
+    color: white;
+  }
 
-    h1 {
-      margin: 0 0 20px 0;
-      font-size: 42px;
-      line-height: 48px;
-      color: white;
-    }
+  p {
+    font-size: 18px;
+    line-height: 28px;
+    color: white;
+  }
 
-    p {
-      font-size: 18px;
-      line-height: 28px;
-      color: white;
-    }
-
-    button {
-      width: 100%;
-    }
+  button {
+    width: 100%;
   }
 }

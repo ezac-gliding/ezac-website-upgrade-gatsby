@@ -112,7 +112,7 @@ $menu-button-color: $ezac-dark-blue;
       width: 100vw;
       height: 100vh;
       margin: 0;
-      padding: 20px 0;
+      padding: 20px;
 
       opacity: 0;
       background-color: white;
@@ -120,6 +120,7 @@ $menu-button-color: $ezac-dark-blue;
       transition: 0.3s ease-in-out;
 
       @media only screen and (min-width: 800px) {
+        padding: 20px 0;
         display: flex;
         position: inherit;
         top: unset;
