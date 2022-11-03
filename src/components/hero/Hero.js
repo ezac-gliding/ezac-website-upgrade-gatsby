@@ -8,7 +8,7 @@ export default ({
   appearAt,
 }) => {
   const heroBoxStyle = useMemo(() => ({
-    top: `${320 + (scrollPosition / 5)}px`,
+    top: `${Math.min(320 + (scrollPosition / 5), 400)}px`,
     opacity: fadeInAt(scrollPosition, appearAt),
   }), [scrollPosition]);
 
