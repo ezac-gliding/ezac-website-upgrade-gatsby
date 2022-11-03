@@ -1,0 +1,26 @@
+@import 'src/styles/constants.scss';
+
+$bullet-radius: 20px;
+
+.club-value-container {
+  width: 250px;
+  text-align: center;
+
+  h3 {
+    font-size: 34px;
+    font-weight: bold;
+  }
+
+  .bullet {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: $bullet-radius;
+    height: $bullet-radius;
+    border-radius: $bullet-radius;
+    background-color: $ezac-bright-yellow
+  }
+
+  p {
+    line-height: 26px;
+  }
+}

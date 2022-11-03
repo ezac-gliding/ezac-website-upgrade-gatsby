@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import useScroll from 'src/hooks/useScroll';
 import { Link } from 'gatsby';
 import Container from 'src/components/UI/Container';
+import useViewport from 'hooks/useViewport';
 import './Header.scss';
 import logo from 'src/img/EZAC_logo.svg';
 
 export default function Header() {
   const [menuIsOpen, setMenuOpen] = useState(false);
   const scrollPosition = useScroll();
+  const {
+    isMobile,
+  } = useViewport();
 
   const toggleMenu = () => {
     setMenuOpen(!menuIsOpen);
@@ -23,9 +27,13 @@ export default function Header() {
         <Link to="/">
           <img className="header-logo" src={logo} alt="logo" />
         </Link>
-        <button type="button" onClick={toggleMenu} className={`menu-button ${menuIsOpen ? 'open' : ''}`}>
-          <span className="navicon" />
-        </button>
+        {
+          isMobile ? (
+            <button type="button" onClick={toggleMenu} className={`menu-button ${menuIsOpen ? 'open' : ''}`}>
+              <span className="navicon" />
+            </button>
+          ) : ''
+        }
         <nav className={`${menuIsOpen ? 'open' : ''}`}>
           <ul>
             <li>

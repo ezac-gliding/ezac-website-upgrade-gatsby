@@ -3,7 +3,7 @@
 $menu-button-color: $ezac-dark-blue;
 
 .site-header {
-  padding: 10px 0;
+  padding: 0;
   width: 100vw;
   position: fixed;
   z-index: 100;
@@ -14,6 +14,7 @@ $menu-button-color: $ezac-dark-blue;
     background-color: rgba(0, 0, 0, 0.1);
 
     @media only screen and (min-width: 800px) {
+      padding: 10px 0;
       background-color: white;
       box-shadow: $material-shadow-subtle;
     }
@@ -26,16 +27,21 @@ $menu-button-color: $ezac-dark-blue;
   .container {
     .wrapper {
       display: flex;
+      justify-content: space-between;
     }
 
     .header-logo {
       width: 40px;
-      padding: 26px 0;
+      padding: 18px 0;
       margin: auto;
+
+      @media only screen and (min-width: 800px) {
+        padding: 26px 0;
+      }
     }
 
     button.menu-button {
-      padding: 28px;
+      padding: 18px 24px;
 
       position: absolute;
       right: 0;
@@ -106,7 +112,7 @@ $menu-button-color: $ezac-dark-blue;
       width: 100vw;
       height: 100vh;
       margin: 0;
-      padding: 20px;
+      padding: 20px 0;
 
       opacity: 0;
       background-color: white;
@@ -138,7 +144,6 @@ $menu-button-color: $ezac-dark-blue;
 
         @media only screen and (min-width: 800px) {
           display: flex;
-
           justify-content: flex-end;
         }
 
