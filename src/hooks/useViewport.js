@@ -13,7 +13,7 @@ export default () => {
 
   useEffect(() => {
     setIsMobile(window.innerWidth < MOBILE_BREAKPOINT_WIDTH);
-    
+
     const handleResize = () => {
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT_WIDTH);
 

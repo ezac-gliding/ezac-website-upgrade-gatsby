@@ -29,6 +29,8 @@ export default ({
     width: `${scale}%`,
   };
 
+  const url = getURL(`../${blueprint}`);
+
   return (
     <div className="glider-container">
       <h3>{type}</h3>
@@ -38,7 +40,7 @@ export default ({
         isMobile ? (
           <>
             <div onClick={() => setDetailOpen(!detailIsOpen)} className={`blueprint-container ${detailIsOpen ? 'open' : ''}`}>
-              <img style={blueprintStyle} src={getURL(`../${blueprint}`)} alt={type} />
+              <img style={blueprintStyle} src={url} alt={type} />
             </div>
             {
               detailIsOpen ? (
@@ -86,7 +88,7 @@ export default ({
             )}
           >
             <div onClick={() => setDetailOpen(!detailIsOpen)} className={`blueprint-container ${detailIsOpen ? 'open' : ''}`}>
-              <img style={blueprintStyle} src={getURL(`../${blueprint}`)} alt={type} />
+              <img style={blueprintStyle} src={url} alt={type} />
             </div>
           </Popover>
         )
