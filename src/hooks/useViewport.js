@@ -9,9 +9,11 @@ const MOBILE_BREAKPOINT_WIDTH = 767;
 export default () => {
   const [viewportWidth, setViewportWidth] = useState(0);
   const [viewportHeight, setViewportHeight] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < MOBILE_BREAKPOINT_WIDTH);
+  const [isMobile, setIsMobile] = useState(0);
 
   useEffect(() => {
+    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT_WIDTH);
+    
     const handleResize = () => {
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT_WIDTH);
 
