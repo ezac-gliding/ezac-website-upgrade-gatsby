@@ -1,0 +1,55 @@
+@import 'src/styles/constants.scss';
+
+.hero-container {
+  width: 100%;
+  height: 500px;
+  background-image: url('./EHAX_sky.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media only screen and (min-width: 800px) {
+    height: 700px;
+  }
+
+  .wrapper {
+    position: relative;
+    margin: 0 auto;
+    max-width: 980px;
+  }
+}
+
+.hero-box {
+  padding: 30px;
+  width: 100%;
+
+  border-radius: 0;
+
+  background-color: $ezac-dark-blue;
+
+  @media only screen and (min-width: 800px) {
+    opacity: 0;
+    top: 160px;
+    left: 40px;
+    position: absolute;
+    width: 420px;
+    border-radius: 10px;
+  }
+
+  h1 {
+    margin: 0 0 20px 0;
+    font-size: 42px;
+    line-height: 48px;
+    color: white;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 28px;
+    color: white;
+  }
+
+  button {
+    width: 100%;
+  }
+}

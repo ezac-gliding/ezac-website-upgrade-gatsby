@@ -1,0 +1,15 @@
+{
+  "glide-ratio": 34,
+  "min-sink": "0.64",
+  "wing-area": "17.95",
+  "manufacturer": "Schleicher",
+  "blueprint": "assets/ask21.svg",
+  "empty-weight": "360",
+  "wing-aspect": "17.1",
+  "type": "ASK-21",
+  "callsign": "PH-713",
+  "max-speed": "280",
+  "fuselage-length": "8.35",
+  "scale": 90,
+  "order": 1
+}

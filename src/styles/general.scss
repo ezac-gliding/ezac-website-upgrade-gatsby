@@ -12,6 +12,11 @@ html {
   font-size: 16px;
   line-height: 16px;
   color: black;
+
+  // Mobile does not have gray background altogether
+  @media only screen and (min-width: 800px) {
+    background-color: $background-color;
+  }
 }
 
 a {
@@ -45,14 +50,15 @@ h2 {
   display: block;
   width: max-content;
   position: relative;
-  margin: 20px 0;
+  margin: 20px 0 40px 0;
   font-size: 30px;
   font-weight: 900;
+  z-index: 0;
 
   color: $ezac-dark-blue;
 
   // The yellow strip underneath the title is described here
-  &:before {
+  &:after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -67,7 +73,7 @@ h2 {
 }
 
 h3 {
-  margin: 10px 0;
+  margin: 20px 0;
   font-size: 20px;
   color: $ezac-blue;
   font-weight: 400;
@@ -75,16 +81,13 @@ h3 {
 
 p {
   margin-bottom: 20px;
-  font-size: 18px;
-  line-height: 30px;
+  font-size: 16px;
+  line-height: 25px;
+  color: $not-quite-black;
 
   strong {
     font-weight: 900;
   }
-}
-
-.page {
-  overflow: hidden;
 }
 
 /* Forms
@@ -161,5 +164,25 @@ form {
         top: 15px;
       }
     }
+  }
+}
+
+/* Low-Profile Scrollbar
+   ========================================================================== */
+
+html {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #c8c8c8;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.01);
   }
 }

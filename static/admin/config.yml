@@ -23,19 +23,21 @@ collections:
     extension: "json"
     label: "Gliders"
     label_singular: "Glider"
-    summary: "{{type}}-{{callsign}}"
+    summary: "{{type}} ({{callsign}})"
     folder: "src/data/gliders"
     create: true
-    slug: "{{id}}-{{slug}}"
+    slug: "{{type}}-{{manufacturer}}-{{callsign}}"
     fields:
       - {label: "Manufacturer", name: "manufacturer", widget: "string"}
       - {label: "Type", name: "type", widget: "string"}
       - {label: "Callsign", name: "callsign", widget: "string"}
       - {label: "Blueprint", name: "blueprint", widget: "image", required: false}
       - {label: "Best Glide Ratio", name: "glide-ratio", widget: "number", required: true}
-      - {label: "Wing Area", name: "wing-area", widget: "string", required: false}
+      - {label: "Wing Area (m2)", name: "wing-area", widget: "string", required: false}
       - {label: "Wing Aspect Ratio", name: "wing-aspect", widget: "string", required: false}
-      - {label: "Fuselage Length", name: "fuselage-length", widget: "string", required: false}
-      - {label: "Empty Weight", name: "empty-weight", widget: "string", required: false}
-      - {label: "Max Speed", name: "max-speed", widget: "string", required: false}
-      - {label: "Min Sink", name: "min-sink", widget: "string", required: false}
+      - {label: "Fuselage Length (m)", name: "fuselage-length", widget: "string", required: false}
+      - {label: "Empty Weight (kg)", name: "empty-weight", widget: "string", required: false}
+      - {label: "Max Speed (km/h)", name: "max-speed", widget: "string", required: false}
+      - {label: "Min Sink (m/s)", name: "min-sink", widget: "string", required: false}
+      - {label: "Scaling (%)", name: "scale", widget: "number", default: 100, required: true}
+      - {label: "Order (lower is first)", name: "order", widget: "number", default: 0, required: true}

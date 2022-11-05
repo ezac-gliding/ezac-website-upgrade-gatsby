@@ -2,12 +2,14 @@
   "glide-ratio": 46,
   "min-sink": "0.58",
   "wing-area": "16.4",
-  "manufacturer": "Schemp & Hirth",
+  "manufacturer": "Schemp-Hirth",
   "blueprint": "assets/duo-discus.svg",
   "empty-weight": "410",
   "wing-aspect": "24.2",
   "type": "Duo Discus",
   "callsign": "PH-1272",
   "max-speed": "263",
-  "fuselage-length": "8.73"
+  "fuselage-length": "8.73",
+  "scale": 100,
+  "order": 0
 }

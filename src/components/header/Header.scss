@@ -1,33 +1,22 @@
 @import 'src/styles/constants.scss';
 
-$menu-button-color: #dddddd;
-$menu-button-color-light: #292929;
+$menu-button-color: $ezac-dark-blue;
 
 .site-header {
-  padding: 10px 0;
+  padding: 0;
   width: 100vw;
   position: fixed;
   z-index: 100;
 
   transition: 0.3s ease-in-out;
 
-  &.light {
-    background-color: white;
-
-    &.shown {
-      background-color: unset;
-
-      @media only screen and (min-width: 800px) {
-        background-color: white;
-      }
-    }
-  }
-
   &.shown {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.1);
 
     @media only screen and (min-width: 800px) {
-      background-color: black;
+      padding: 10px 0;
+      background-color: white;
+      box-shadow: $material-shadow-subtle;
     }
   }
 
@@ -38,16 +27,21 @@ $menu-button-color-light: #292929;
   .container {
     .wrapper {
       display: flex;
+      justify-content: space-between;
     }
 
     .header-logo {
       width: 40px;
-      padding: 26px 0;
+      padding: 18px 0;
       margin: auto;
+
+      @media only screen and (min-width: 800px) {
+        padding: 26px 0;
+      }
     }
 
     button.menu-button {
-      padding: 28px;
+      padding: 18px 24px;
 
       position: absolute;
       right: 0;
@@ -70,14 +64,6 @@ $menu-button-color-light: #292929;
         background-color: $menu-button-color;
         z-index: 100;
         border-radius: 5px;
-
-        &.light {
-          background-color: $menu-button-color-light;
-
-          &:before, &:after {
-            background-color: $menu-button-color-light;
-          }
-        }
 
         &:before, &:after {
           display: block;
@@ -129,19 +115,12 @@ $menu-button-color-light: #292929;
       padding: 20px;
 
       opacity: 0;
-      background-color: black;
-
-      &.light {
-        background-color: white;
-
-        a {
-          color: black;
-        }
-      }
+      background-color: white;
 
       transition: 0.3s ease-in-out;
 
       @media only screen and (min-width: 800px) {
+        padding: 20px 0;
         display: flex;
         position: inherit;
         top: unset;
@@ -153,10 +132,6 @@ $menu-button-color-light: #292929;
         height: unset;
 
         background-color: unset;
-
-        &.light ul li a {
-          color: black;
-        }
       }
 
       &.open {
@@ -170,7 +145,6 @@ $menu-button-color-light: #292929;
 
         @media only screen and (min-width: 800px) {
           display: flex;
-
           justify-content: flex-end;
         }
 
@@ -184,7 +158,7 @@ $menu-button-color-light: #292929;
 
           a {
             box-sizing: border-box;
-            color: white;
+            color: $ezac-dark-blue;
             font-weight: 100;
             text-transform: uppercase;
             font-size: 28px;

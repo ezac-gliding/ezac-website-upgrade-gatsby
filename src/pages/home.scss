@@ -1,0 +1,16 @@
+.home {
+  overflow: hidden;
+
+  .club-values {
+    margin-top: 30px;
+    margin-bottom: 80px;
+
+    @media only screen and (min-width: 800px) {
+      display: flex;
+      margin: 0 auto;
+      justify-content: space-evenly;
+      gap: 20px;
+      margin-top: 60px;
+    }
+  }
+}

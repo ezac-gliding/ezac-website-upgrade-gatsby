@@ -1,0 +1,15 @@
+{
+  "glide-ratio": 40.5,
+  "min-sink": "0.61",
+  "wing-area": "10.5",
+  "manufacturer": "Rolladen Schneider",
+  "blueprint": "assets/ls4.svg",
+  "empty-weight": "238",
+  "wing-aspect": "21.4",
+  "type": "LS4a",
+  "callsign": "PH-878",
+  "max-speed": "270",
+  "fuselage-length": "6.83",
+  "scale": 68,
+  "order": 10
+}
