@@ -19,12 +19,16 @@ export default () => {
       setViewportHeight(window.innerHeight);
     };
 
-    window.addEventListener('resize', handleResize);
+    if (window) {
+      window.addEventListener('resize', handleResize);
+    }
 
     handleResize();
 
     return () => {
-      window.removeEventListener('scroll', handleResize);
+      if (window) {
+        window.removeEventListener('scroll', handleResize);
+      }
     };
   }, []);
 

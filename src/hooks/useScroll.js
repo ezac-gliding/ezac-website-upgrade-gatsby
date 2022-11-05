@@ -18,12 +18,16 @@ export default () => {
       setScrollPosition(scrollTop);
     };
 
-    window.addEventListener('scroll', handleWindowScroll);
+    if (window) {
+      window.addEventListener('scroll', handleWindowScroll);
+    }
 
     return () => {
-      window.removeEventListener('scroll', handleWindowScroll);
+      if (window) {
+        window.removeEventListener('scroll', handleWindowScroll);
+      }
     };
   }, []);
 
   return scrollPosition;
-}
+};
