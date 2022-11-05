@@ -4,7 +4,7 @@
   </a>
 </p>
 <h1 align="center">
-  Eerste Zeeuws Vlaamse Aero Club
+  Eerste Zeeuws-Vlaamse Aero Club
 </h1>
 
 <h3 align="center">
