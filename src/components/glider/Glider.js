@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Popover } from 'react-tiny-popover';
-import GliderDetails from 'src/components/glider/GliderDetails';
-import { getURL } from 'src/util/url';
-import useViewport from 'hooks/useViewport';
+import { getURL } from '../../util/url';
+import useViewport from '../../hooks/useViewport';
+import GliderDetails from './GliderDetails';
 import './glider.scss';
 
 export default ({

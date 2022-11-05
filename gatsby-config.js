@@ -1,4 +1,12 @@
 const path = require('path');
+const fs = require('fs');
+
+const srcDirs = fs.readdirSync(path.resolve(__dirname, 'src'));
+
+const rootDirsConfig = {};
+srcDirs.forEach((srcDir) => {
+  rootDirsConfig[srcDir] = path.resolve(__dirname, 'src', srcDir);
+});
 
 module.exports = {
   siteMetadata: {
@@ -25,9 +33,7 @@ module.exports = {
     },
     {
       resolve: "gatsby-plugin-root-import",
-      options: {
-        src: path.join(__dirname, 'src'),
-      },
+      options: rootDirsConfig,
     },
     {
       resolve: 'gatsby-plugin-manifest',

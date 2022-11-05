@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from 'src/components/button/Button';
+import Button from '../button/Button';
 import './glider-details.scss';
 
 export default ({
