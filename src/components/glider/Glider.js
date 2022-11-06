@@ -29,7 +29,7 @@ export default ({
     width: `${scale}%`,
   };
 
-  const url = getURL(`../${blueprint}`);
+  const url = getURL(`${blueprint}`);
 
   return (
     <div className="glider-container">
