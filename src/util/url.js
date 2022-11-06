@@ -1,7 +1,9 @@
+import { isBrowser } from './browser';
+
 export const getURL = (path) => {
-  if (!window) {
-    return path;
+  if (isBrowser()) {
+    return `${window.location.protocol}//${window.location.host}/${path}`;
   }
 
-  return `${window.location.protocol}//${window.location.host}/${path}`
+  return path;
 };
