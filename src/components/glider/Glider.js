@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Popover } from 'react-tiny-popover';
-import { getURL } from '../../util/url';
 import useViewport from '../../hooks/useViewport';
 import GliderDetails from './GliderDetails';
 import './glider.scss';
@@ -29,7 +28,7 @@ export default ({
     width: `${scale}%`,
   };
 
-  const url = getURL(`${blueprint}`);
+  const url = `/${blueprint}`;
 
   return (
     <div className="glider-container">
