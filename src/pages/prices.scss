@@ -1,0 +1,118 @@
+@import 'src/styles/constants.scss';
+
+.all-prices {
+  display: flex;
+  margin-bottom: 60px;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 60px;
+
+  .price-box {
+    padding: 40px;
+    width: 33.3%;
+    border: 2px solid #00000018;
+    border-radius: 10px;
+    color: $ezac-dark-blue;
+
+    &.blue {
+      background-color: $ezac-blue;
+      color: white;
+
+      h3.price-name {
+        color: white;
+      }
+
+      .feature-list {
+        .feature {
+          p {
+            color: white;
+          }
+        }
+      }
+    }
+
+    h3.price-name {
+      margin-top: 0;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .price {
+      display: block;
+      width: 100%;
+      font-size: 38px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .feature-list {
+      margin-top: 30px;
+
+      .feature {
+        display: flex;
+
+        i {
+          margin-right: 10px;
+          font-size: 16px;
+          line-height: 20px;
+        }
+
+        p {
+          margin-bottom: 10px;
+          font-size: 16px;
+          line-height: 20px;
+          color: $ezac-dark-blue;
+        }
+      }
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.additional-costs-grid {
+  border: 2px solid #0000002b;
+  border-radius: 10px;
+  overflow: hidden;
+
+  table {
+    width: 100%;
+  }
+
+  th,
+  td {
+    padding: 20px 18px;
+    text-align: left;
+  }
+
+  th {
+    background-color: $ezac-blue;
+    color: white;
+    font-weight: bold;
+    border-left: 2px solid #00000020;
+  }
+
+  tr:nth-child(even) {
+    td {
+      background-color: #fafafa;
+
+      &.sidebar-item {
+        background-color: $ezac-dark-blue;
+      }
+    }
+  }
+
+  td.sidebar-item,
+  th.sidebar-item {
+    display: block;
+    background-color: $ezac-dark-blue;
+    color: white;
+    font-weight: bold;
+
+    border-top: 2px solid #00000020;
+  }
+}
