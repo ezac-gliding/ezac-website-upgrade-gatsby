@@ -26,7 +26,6 @@ export default function PricesPage() {
 
       <Page className="offset-from-top">
         <h2>Tarieven</h2>
-        <h3>Word vliegend lid!</h3>
 
         <div className="all-prices">
           <div className="price-box blue">
