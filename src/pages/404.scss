@@ -1,0 +1,30 @@
+.not-found-banner {
+  display: flex;
+  margin: 0 auto;
+  padding-top: 200px;
+  max-width: 580px;
+
+  .text {
+    max-width: 220px;
+
+    h2 {
+      overflow-wrap: break-word;
+      width: unset;
+    }
+
+    p {
+      font-weight: 400;
+      color: #666;
+      line-height: 28px;
+    }
+  }
+
+  h3 {
+    display: block;
+    width: 100%;
+    align-self: flex-start;
+    font-size: 72px;
+    text-align: center;
+    font-weight: bold;
+  }
+}
