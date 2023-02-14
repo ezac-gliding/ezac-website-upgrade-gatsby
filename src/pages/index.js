@@ -17,6 +17,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import './home.scss';
 import 'src/styles/reset.scss';
 import 'src/styles/general.scss';
+import useViewport from 'hooks/useViewport';
 
 const homepageTextsQuery = graphql`
 query {
@@ -32,6 +33,7 @@ query {
 
 export default function Index() {
   const scrollPosition = useScroll();
+  const { isMobile } = useViewport();
 
   const {
     allHomepageTextsJson: {
@@ -61,63 +63,64 @@ export default function Index() {
       </Helmet>
 
       <ParallaxProvider>
+        {
+          isMobile ? '' : (
+            <>
+              <Parallax
+                style={{ top: '320px', left: '50px' }}
+                className="floating-bubble"
+                speed={-16}
+                rotate={[-24, 10]}
+              >
+                <BubbleTwo scale="30vw" fill="#9DC4FF" accent="white" />
+              </Parallax>
+              <Parallax
+                style={{ top: '-210px', left: '-120px' }}
+                className="floating-bubble"
+                speed={-28}
+                rotate={[-40, 40]}
+              >
+                <BubbleOne scale="30vw" fill="#244059" accent="white" />
+              </Parallax>
+              <Parallax
+                style={{ top: '420px', right: '-20px' }}
+                className="floating-bubble"
+                speed={-10}
+                rotate={[24, -10]}
+              >
+                <AngleBubble scale="14vw" fill="#FFF1A7" />
+              </Parallax>
+              <Parallax
+                style={{ top: '80px', right: '-40px' }}
+                className="floating-bubble"
+                speed={-20}
+                rotate={[24, -10]}
+              >
+                <BigSolidBubble scale="30vw" fill="#9DC4FF" />
+              </Parallax>
+              <Parallax
+                style={{ top: '160px', right: '-80px' }}
+                className="floating-bubble"
+                speed={-10}
+                rotate={[24, -10]}
+              >
+                <WavyBubble scale="13vw" fill="white" />
+              </Parallax>
+              <Parallax
+                style={{ top: '-290px', right: '-140px' }}
+                className="floating-bubble"
+                speed={-29}
+                rotate={[24, -10]}
+              >
+                <BubbleThree scale="25vw" fill="#4C6CA4" accent="white" />
+              </Parallax>
+            </>
+          )
+        }
+
+
+        <Hero />
         <Page>
-          <Parallax
-            style={{ top: '320px', left: '50px' }}
-            className="floating-bubble"
-            speed={-16}
-            rotate={[-24, 10]}
-          >
-            <BubbleTwo scale="30vw" fill="#9DC4FF" accent="white" />
-          </Parallax>
-
-          <Parallax
-            style={{ top: '-210px', left: '-120px' }}
-            className="floating-bubble"
-            speed={-28}
-            rotate={[-40, 40]}
-          >
-            <BubbleOne scale="30vw" fill="#244059" accent="white" />
-          </Parallax>
-
-          <Parallax
-            style={{ top: '420px', right: '-20px' }}
-            className="floating-bubble"
-            speed={-10}
-            rotate={[24, -10]}
-          >
-            <AngleBubble scale="14vw" fill="#FFF1A7" />
-          </Parallax>
-
-          <Parallax
-            style={{ top: '80px', right: '-40px' }}
-            className="floating-bubble"
-            speed={-20}
-            rotate={[24, -10]}
-          >
-            <BigSolidBubble scale="30vw" fill="#9DC4FF" />
-          </Parallax>
-
-          <Parallax
-            style={{ top: '160px', right: '-80px' }}
-            className="floating-bubble"
-            speed={-10}
-            rotate={[24, -10]}
-          >
-            <WavyBubble scale="13vw" fill="white" />
-          </Parallax>
-
-          <Parallax
-            style={{ top: '-290px', right: '-140px' }}
-            className="floating-bubble"
-            speed={-29}
-            rotate={[24, -10]}
-          >
-            <BubbleThree scale="25vw" fill="#4C6CA4" accent="white" />
-          </Parallax>
-
-          <Hero />
-
           <p className="call-to-action-text">
             Leer&nbsp;
             <strong>vliegen</strong>
