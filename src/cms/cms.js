@@ -1,6 +1,7 @@
 import CMS from 'netlify-cms-app';
 import { ColorControl, ColorPreview } from 'netlify-cms-widget-colorpicker';
 import GliderPreview from '../components/previews/GliderPreview';
+import HomepageTextPreview from '../components/previews/HomepageTextPreview';
 
 // These are special imports because Netlify CMS actually sucks and I've lured you into using it
 // OK no that's not true but the preview styling really sucks and we have to
@@ -26,3 +27,4 @@ CMS.registerPreviewStyle(previewStyles.toString(), { raw: true });
 
 // Register custom preview components
 CMS.registerPreviewTemplate('glider', GliderPreview);
+CMS.registerPreviewTemplate('homepage-text', HomepageTextPreview);
