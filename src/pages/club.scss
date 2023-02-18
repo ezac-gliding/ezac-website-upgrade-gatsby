@@ -1,0 +1,79 @@
+@import 'src/styles/constants.scss';
+
+.club {
+  .wide-page {
+    padding-top: 60px;
+    overflow: hidden;
+
+    .floating-bubble {
+      position: absolute;
+      z-index: -1;
+    }
+  }
+
+  .wrapper {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .hero {
+    position: relative;
+    background-color: white;
+    padding: 120px 0;
+    z-index: 1;
+
+    .hero-title {
+      font-size: 64px;
+      font-weight: 900;
+      line-height: 70px;
+      text-align: center;
+      color: #314B77;
+
+      strong {
+        font-family: 'Lora', serif;
+        font-size: 70px;
+        color: $ezac-blue;
+      }
+    }
+  }
+
+  .block {
+    position: relative;
+    width: 100%;
+    padding: 40px 0 400px 0;
+
+    &.yellow {
+      background-color: $ezac-pale-yellow;
+    }
+
+    &.blue {
+      background-color: $ezac-pale-blue;
+    }
+
+    .wavy-pattern {
+      position: absolute;
+      top: -32vw;
+    }
+
+    .story-block {
+      position: relative;
+      width: 370px;
+      z-index: 2;
+
+      h3 {
+        font-size: 25px;
+        text-transform: uppercase;
+        color: white;
+        font-weight: 900;
+        line-height: 30px;
+      }
+
+      p {
+        color: white;
+        font-size: 14px;
+        line-height: 26px;
+      }
+    }
+  }
+}
