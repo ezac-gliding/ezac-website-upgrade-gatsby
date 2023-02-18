@@ -8,6 +8,16 @@
     .floating-bubble {
       position: absolute;
       z-index: -1;
+
+      &.image {
+        position: unset;
+      }
+
+      @media only screen and (min-width: 800px) {
+        &.image {
+          position: absolute;
+        }
+      }
     }
   }
 
@@ -15,25 +25,47 @@
     position: relative;
     max-width: 1080px;
     margin: 0 auto;
+    padding: 0 20px;
+
+    @media only screen and (min-width: 1100px) {
+      padding: 0;
+    }
   }
 
   .hero {
     position: relative;
     background-color: white;
-    padding: 120px 0;
+    padding: 120px 20px;
     z-index: 1;
 
+    @media only screen and (min-width: 800px) {
+      padding: 120px 0;
+    }
+
     .hero-title {
-      font-size: 64px;
+      font-size: 32px;
       font-weight: 900;
-      line-height: 70px;
+      line-height: 40px;
       text-align: center;
       color: #314B77;
+      word-wrap: normal;
+      white-space: pre-wrap;
+      word-break: break-word;
+
+      @media only screen and (min-width: 800px) {
+        font-size: 64px;
+        font-weight: 900;
+        line-height: 70px;
+      }
 
       strong {
         font-family: 'Lora', serif;
-        font-size: 70px;
+        font-size: 36px;
         color: $ezac-blue;
+
+        @media only screen and (min-width: 800px) {
+          font-size: 70px;
+        }
       }
     }
   }
@@ -41,7 +73,7 @@
   .block {
     position: relative;
     width: 100%;
-    padding: 40px 0 400px 0;
+    padding: 40px 0 480px 0;
 
     &.yellow {
       background-color: $ezac-pale-yellow;
@@ -52,27 +84,55 @@
     }
 
     .wavy-pattern {
+      display: none;
       position: absolute;
-      top: -32vw;
+      top: -36vw;
+
+      @media only screen and (min-width: 800px) {
+        display: block;
+        top: -34vw;
+      }
     }
 
-    .story-block {
-      position: relative;
-      width: 370px;
-      z-index: 2;
+    .content {
+      display: block;
 
-      h3 {
-        font-size: 25px;
-        text-transform: uppercase;
-        color: white;
-        font-weight: 900;
-        line-height: 30px;
+      @media only screen and (min-width: 800px) {
+        display: flex;
       }
 
-      p {
-        color: white;
-        font-size: 14px;
-        line-height: 26px;
+      &.align-right {
+        @media only screen and (min-width: 800px) {
+          justify-content: flex-end;
+        }
+      }
+
+      .story-block {
+        position: relative;
+        width: 370px;
+        z-index: 2;
+
+        &.dark {
+
+          h3,
+          p {
+            color: #244059;
+          }
+        }
+
+        h3 {
+          font-size: 25px;
+          text-transform: uppercase;
+          color: white;
+          font-weight: 900;
+          line-height: 30px;
+        }
+
+        p {
+          color: white;
+          font-size: 14px;
+          line-height: 26px;
+        }
       }
     }
   }
