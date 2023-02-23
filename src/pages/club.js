@@ -37,7 +37,7 @@ export default function OurClubPage() {
                 isMobile ? '' : (
                   <>
                     <Parallax
-                      style={{ top: '-52px', left: '20px' }}
+                      style={{ top: '-52px', left: '-38px' }}
                       className="floating-bubble"
                       speed={-4}
                       rotate={[-24, 10]}
@@ -45,7 +45,7 @@ export default function OurClubPage() {
                       <OrnamentalBubble scale="50px" fill="#9DC4FF" />
                     </Parallax>
                     <Parallax
-                      style={{ top: '-48px', left: '8px' }}
+                      style={{ top: '-48px', left: '-48px' }}
                       className="floating-bubble"
                       speed={-7}
                       rotate={[-180, -60]}
@@ -91,7 +91,7 @@ export default function OurClubPage() {
             </div>
           </div>
 
-          <div className="block yellow">
+          <div className="block yellow space-below">
             <div className="wrapper">
               <Parallax
                 style={{ top: '-150px', left: '-320px', zIndex: 0 }}
@@ -117,8 +117,8 @@ export default function OurClubPage() {
 
               <Parallax
                 style={{
-                  top: '160px',
-                  right: '400px',
+                  top: '90px',
+                  right: '500px',
                   zIndex: 3,
                 }}
                 className="floating-bubble image"
@@ -129,7 +129,7 @@ export default function OurClubPage() {
                   fill="#244059"
                   x="-300"
                   y={-50}
-                  scale={isMobile ? '75vw' : '700px'}
+                  scale={isMobile ? '75vw' : '500px'}
                   imgScale="1000px"
                   src="/assets/working-together.jpg"
                 />
@@ -171,7 +171,7 @@ export default function OurClubPage() {
                   fill="#244059"
                   x="-100"
                   y={-50}
-                  scale={isMobile ? '75vw' : '440px'}
+                  scale={isMobile ? '75vw' : '540px'}
                   imgScale="800px"
                   src="/assets/westerschelde.jpg"
                 />
