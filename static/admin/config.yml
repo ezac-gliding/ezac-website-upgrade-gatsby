@@ -63,13 +63,35 @@ collections:
     create: true
     slug: "{{commit_author}}-{{title}}-{{commit_date}}"
     fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
       - {label: "Content", name: "content", widget: "markdown", buttons: ["heading-one", "bold"], editor_components: [], required: true}
-      - {label: "Image", name: "img", widget: "image"}
-      - {label: "Image shadow", name: "img-shadow", widget: "boolean", default: true, required: true}
-      - {label: "Image outline (only works when shadow is true)", name: "img-outline", widget: "boolean", default: false, required: true}
-      - label: "Image shadow location"
-        name: "img-shadow-location"
+      - label: "Background"
+        name: "backgroundColor"
+        widget: "select"
+        options: ["white", "#244059", "#fff1a7", "#9DC4FF"]
+        default: "#fff1a7"
+        required: true
+      - label: "Background Bubble"
+        name: "bubble"
         widget: "object"
         fields:
-          - {label: "X position (px)", name: "x", default: 20, widget: "number", required: true}
-          - {label: "Y position (px)", name: "y", default: 20, widget: "number", required: true}
+          - {label: "X position (px)", name: "xOffset", default: 20, widget: "number", required: true}
+          - {label: "Y position (px)", name: "yOffset", default: 20, widget: "number", required: true}
+          - {label: "Rotation start (deg)", name: "rotateStart", default: 0, widget: "number"}
+          - {label: "Rotation end (deg)", name: "rotateEnd", default: 0, widget: "number"}
+          - {label: "Bubble Color", name: "color", options: ["white", "#244059", "#fff1a7", "#9DC4FF"], default: "#244059", widget: "select"}
+          - {label: "Scale (px)", name: "scale", default: 800, widget: "number"}
+      - label: "Image"
+        name: "image"
+        widget: "object"
+        fields:
+          - {label: "File", name: "source", widget: "image"}
+          - {label: "Image shadow", name: "shadow", widget: "boolean", default: true}
+          - {label: "Shadow Color", name: "color", options: ["white", "#244059", "#fff1a7", "#9DC4FF"], default: "#244059", widget: "select", default: true}
+          - {label: "Image position x (px)", name: "imagePosX", default: 0, widget: "number"}
+          - {label: "Image position y (px)", name: "imagePosY", default: 0, widget: "number"}
+          - {label: "X position (px)", name: "xOffset", default: 0, widget: "number"}
+          - {label: "Y position (px)", name: "yOffset", default: 0, widget: "number"}
+          - {label: "Offset image from right", name: "fromRight", widget: "boolean", default: false}
+          - {label: "Image outline (only works when shadow is true)", name: "outline", widget: "boolean", default: false}
+

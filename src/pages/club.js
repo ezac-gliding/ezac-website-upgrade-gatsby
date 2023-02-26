@@ -6,12 +6,54 @@ import OrnamentalBubble from 'components/floating-elements/bubbles/OrnamentalBub
 import ImageBubble from 'components/floating-elements/bubbles/ImageBubble';
 import ImageBubbleAlternate from 'components/floating-elements/bubbles/ImageBubbleAlternate';
 import useViewport from 'hooks/useViewport';
+import { useStaticQuery, graphql } from 'gatsby';
+import ReactMarkdown from 'react-markdown';
 import './club.scss';
 import 'src/styles/reset.scss';
 import 'src/styles/general.scss';
 
+const clubTextsQuery = graphql`
+query {
+  allClubTextsJson {
+    nodes {
+      content
+      id
+      backgroundColor
+      bubble {
+        rotationEnd
+        rotationStart
+        xOffset
+        yOffset
+        parallaxSpeed
+        color
+        fromRight
+        scale
+      }
+      image {
+        outline
+        shadow
+        source
+        color
+        imagePosY
+        imagePosX
+        fromRight
+        xOffset
+        yOffset
+        parallaxSpeed
+      }
+    }
+  }
+}
+`;
+
 export default function OurClubPage() {
   const { isMobile } = useViewport();
+
+  const {
+    allClubTextsJson: {
+      nodes: clubTexts,
+    },
+  } = useStaticQuery(clubTextsQuery);
 
   return (
     <div className="club">
@@ -91,51 +133,67 @@ export default function OurClubPage() {
             </div>
           </div>
 
-          <div className="block yellow space-below">
-            <div className="wrapper">
-              <Parallax
-                style={{ top: '-150px', left: '-320px', zIndex: 0 }}
-                className="floating-bubble"
-                speed={-5}
-                rotate={[-90, -100]}
-              >
-                <OrnamentalBubble scale="880px" fill="#244059" />
-              </Parallax>
+          {
+            clubTexts.map(({
+              id,
+              content,
+              backgroundColor,
+              bubble,
+              image,
+            }) => (
+              <div key={id} className="block space-below" style={{ backgroundColor }}>
+                <div className="wrapper">
+                  <Parallax
+                    style={{
+                      top: bubble.yOffset,
+                      right: bubble.fromRight ? `${bubble.xOffset}px` : 'unset',
+                      left: !bubble.fromRight ? `${bubble.xOffset}px` : 'unset',
+                      zIndex: 0,
+                    }}
+                    className="floating-bubble"
+                    speed={bubble.parallaxSpeed}
+                    rotate={[bubble.rotateStart, bubble.rotateEnd]}
+                  >
+                    <OrnamentalBubble scale={`${bubble.scale}px`} fill={bubble.color} />
+                  </Parallax>
 
-              <div className="content">
-                <div className="story-block">
-                  <h3>WAT MAAKT DE EZAC ZO UNIEK?</h3>
+                  <div className="content">
+                    <div className="story-block">
+                      <ReactMarkdown>
+                        {content}
+                      </ReactMarkdown>
+                    </div>
+                  </div>
 
-                  <p>
-                    De EZAC is een club bestaande uit zowel Nederlandse als Belgische leden. Alles binnen de club, van onderhoud aan de vliegtuigen, de lier, het veld, wordt volledig door haar leden ondernomen zonder betrokkenheid van externe partijen.
-                  </p>
-                  <p>
-                    De club en haar leden ondernemen kortom alles zelf en beschikken ook over de nodige expertise. We leren je graag tijdens het winterwerk meer over die technieken, en je leert zelf bij welk onderhoud er bij een zweefvliegtuig hoort, en hoe je dit in de toekomst zelf kan uitvoeren.
-                  </p>
+                  {
+                    image.source ? (
+                      <Parallax
+                        style={{
+                          top: `${image.yOffset}px`,
+                          right: image.fromRight ? `${image.xOffset}px` : 'unset',
+                          left: !image.fromRight ? `${image.xOffset}px` : 'unset',
+                          zIndex: 3,
+                        }}
+                        className="floating-bubble image"
+                        speed={image.parallaxSpeed}
+                      >
+                        <ImageBubble
+                          hasShadow={image.shadow}
+                          fill={image.color}
+                          x={image.imagePosX}
+                          y={image.imagePosY}
+                          scale={isMobile ? '75vw' : '500px'}
+                          imgScale="1000px"
+                          src={image.source}
+                          outlined={image.outline}
+                        />
+                      </Parallax>
+                    ) : ''
+                  }
                 </div>
               </div>
-
-              <Parallax
-                style={{
-                  top: '90px',
-                  right: '500px',
-                  zIndex: 3,
-                }}
-                className="floating-bubble image"
-                speed={4}
-              >
-                <ImageBubble
-                  hasShadow
-                  fill="#244059"
-                  x="-300"
-                  y={-50}
-                  scale={isMobile ? '75vw' : '500px'}
-                  imgScale="1000px"
-                  src="/assets/working-together.jpg"
-                />
-              </Parallax>
-            </div>
-          </div>
+            ))
+          }
 
           <div className="block blue">
             <Parallax
