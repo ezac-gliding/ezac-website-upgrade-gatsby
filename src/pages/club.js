@@ -81,7 +81,7 @@ export default function OurClubPage() {
       <div className="wide-page">
         <ParallaxProvider>
           <div className="hero">
-            <div className="wrapper">
+            <div className="wrapper no-padding">
               {
                 isMobile ? '' : (
                   <>
@@ -152,7 +152,7 @@ export default function OurClubPage() {
               wavyPattern,
               spaceBelow,
             }) => (
-              <div key={id} className="block" style={{ backgroundColor, paddingBottom: spaceBelow }}>
+              <div key={id} className="block" style={{ backgroundColor, paddingBottom: isMobile ? 380 : spaceBelow }}>
                 {
                   wavyPattern ? (
                     <Parallax
@@ -182,10 +182,10 @@ export default function OurClubPage() {
                       top: bubble.yOffset,
                       right: bubble.fromRight ? `${bubble.xOffset}px` : 'unset',
                       left: !bubble.fromRight ? `${bubble.xOffset}px` : 'unset',
-                      zIndex: 3,
+                      zIndex: isMobile ? 0 : 3, // On mobile you want images to be seen instead of having the bubble in your face
                     }}
                     className="floating-bubble"
-                    speed={bubble.parallaxSpeed}
+                    speed={isMobile ? 0 : bubble.parallaxSpeed}
                     rotate={[bubble.rotateStart, bubble.rotateEnd]}
                   >
                     <OrnamentalBubble scale={`${bubble.scale}px`} fill={bubble.color} />
@@ -209,7 +209,7 @@ export default function OurClubPage() {
                           zIndex: 3,
                         }}
                         className="floating-bubble image"
-                        speed={image.parallaxSpeed}
+                        speed={isMobile ? 0 : image.parallaxSpeed}
                       >
                         {
                           image.useAlternate ? (

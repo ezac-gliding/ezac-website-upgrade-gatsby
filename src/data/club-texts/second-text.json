@@ -22,7 +22,7 @@
     "shadow": true,
     "imagePosX": -300,
     "imagePosY": -50,
-    "xOffset": 1100,
+    "xOffset": 1000,
     "yOffset": -80,
     "fromRight": true,
     "outline": false,
