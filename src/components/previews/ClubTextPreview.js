@@ -2,7 +2,7 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import OrnamentalBubble from '../floating-elements/bubbles/OrnamentalBubble';
 import ImageBubble from '../floating-elements/bubbles/ImageBubble';
-// import ImageBubbleAlternate from '../floating-elements/bubbles/ImageBubbleAlternate';
+import ImageBubbleAlternate from '../floating-elements/bubbles/ImageBubbleAlternate';
 
 export default ({
   entry,
@@ -41,16 +41,31 @@ export default ({
               }}
               className="floating-bubble image"
             >
-              <ImageBubble
-                hasShadow={entry.getIn(['data', 'image', 'shadow'])}
-                fill={entry.getIn(['data', 'image', 'color'])}
-                x={entry.getIn(['data', 'image', 'imagePosX'])}
-                y={entry.getIn(['data', 'image', 'imagePosY'])}
-                scale="500px"
-                imgScale="1000px"
-                src={entry.getIn(['data', 'image', 'source'])}
-                outlined={entry.getIn(['data', 'image', 'outline'])}
-              />
+              {
+                entry.getIn('data', 'image', 'useAlternate') ? (
+                  <ImageBubbleAlternate
+                    hasShadow={entry.getIn(['data', 'image', 'shadow'])}
+                    fill={entry.getIn(['data', 'image', 'color'])}
+                    x={entry.getIn(['data', 'image', 'imagePosX'])}
+                    y={entry.getIn(['data', 'image', 'imagePosY'])}
+                    scale="500px"
+                    imgScale="1000px"
+                    src={entry.getIn(['data', 'image', 'source'])}
+                    outlined={entry.getIn(['data', 'image', 'outline'])}
+                  />
+                ) : (
+                  <ImageBubble
+                    hasShadow={entry.getIn(['data', 'image', 'shadow'])}
+                    fill={entry.getIn(['data', 'image', 'color'])}
+                    x={entry.getIn(['data', 'image', 'imagePosX'])}
+                    y={entry.getIn(['data', 'image', 'imagePosY'])}
+                    scale="500px"
+                    imgScale="1000px"
+                    src={entry.getIn(['data', 'image', 'source'])}
+                    outlined={entry.getIn(['data', 'image', 'outline'])}
+                  />
+                )
+              }
             </div>
           ) : ''
         }

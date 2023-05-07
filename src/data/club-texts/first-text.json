@@ -1,6 +1,10 @@
 {
   "backgroundColor": "#FFF1A7",
   "content": "# Wat maakt de EZAC zo uniek?\n\nDe EZAC is een club bestaande uit zowel Nederlandse als Belgische leden. Alles binnen de club, van onderhoud aan de vliegtuigen, de lier, het veld, **wordt volledig door haar leden ondernomen** zonder betrokkenheid van externe partijen.\n\nDe club en haar leden ondernemen kortom alles zelf en beschikken ook over de nodige expertise. We leren je graag tijdens het winterwerk meer over die technieken, en je leert zelf bij welk onderhoud er bij een zweefvliegtuig hoort, en hoe je dit in de toekomst zelf kan uitvoeren.",
+  "alignRight": false,
+  "textColor": "white",
+  "spaceBelow": 280,
+  "order": 0,
   "bubble": {
     "scale": 880,
     "xOffset": -320,
@@ -12,6 +16,7 @@
     "fromRight": false
   },
   "image": {
+    "useAlternate": false,
     "source": "assets/working-together.jpg",
     "shadow": true,
     "imagePosX": -300,
