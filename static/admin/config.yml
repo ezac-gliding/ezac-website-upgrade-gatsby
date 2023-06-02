@@ -41,3 +41,15 @@ collections:
       - {label: "Min Sink (m/s)", name: "min-sink", widget: "string", required: false}
       - {label: "Scaling (%)", name: "scale", widget: "number", default: 100, required: true}
       - {label: "Order (lower is first)", name: "order", widget: "number", default: 0, required: true}
+
+  - name: "homepage-texts"
+    extension: "json"
+    label: "Homepage Texts"
+    label_singular: "Homepage Text"
+    summary: "{{commit_author}} - ({{title}})"
+    folder: "src/data/homepage-texts"
+    create: true
+    slug: "{{commit_author}}-{{title}}-{{commit_date}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Text", name: "text", widget: "text"}

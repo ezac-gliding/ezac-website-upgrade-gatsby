@@ -1,5 +1,65 @@
+@import 'src/styles/constants.scss';
+
 .home {
   overflow: hidden;
+  position: relative;
+
+  .floating-bubble {
+    position: absolute;
+    z-index: -999;
+  }
+
+  .call-to-action-text {
+    margin-top: 40px;
+    font-size: 38px;
+    font-weight: bold;
+    color: $ezac-dark-navy;
+    text-align: center;
+    line-height: 48px;
+
+    @media only screen and (min-width: 800px) {
+      margin-top: 0;
+      font-size: 64px;
+    }
+
+    strong {
+      position: relative;
+      font-family: 'Lora', serif;
+      font-size: 42px;
+      color: $ezac-blue;
+
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        z-index: -1;
+
+        width: 100%;
+        height: 8px;
+        border-radius: 12px;
+        background-color: $ezac-bright-yellow;
+
+        @media only screen and (min-width: 800px) {
+          font-size: 70px;
+          bottom: 0;
+          height: 12px;
+        }
+      }
+
+      @media only screen and (min-width: 800px) {
+        font-size: 70px;
+      }
+    }
+  }
+
+  .cta-button {
+    display: block;
+    margin: 40px auto 120px auto;
+
+    @media only screen and (min-width: 800px) {
+      margin: 80px auto;
+    }
+  }
 
   .club-values {
     margin-top: 30px;

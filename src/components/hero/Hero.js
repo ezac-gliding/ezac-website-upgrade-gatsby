@@ -1,47 +1,12 @@
-import React, { useMemo } from 'react';
-import Button from 'src/components/button/Button';
-import { fadeInAt } from 'util/animation';
-import useViewport from 'src/hooks/useViewport';
+import React from 'react';
 import './Hero.scss';
 
-export default ({
-  scrollPosition,
-  appearAt,
-}) => {
-  const {
-    isMobile,
-  } = useViewport();
-
-  const heroBoxStyle = useMemo(() => ({
-    left: isMobile ? '0' : '40px',
-    top: isMobile ? `${400 - (scrollPosition / 3)}px` : `${Math.min(320 + (scrollPosition / 5), 400)}px`,
-    opacity: isMobile ? 1 : fadeInAt(scrollPosition, appearAt),
-  }), [scrollPosition]);
-
-  return (
-    <>
-      <div className="hero-container">
-        {
-          isMobile ? '' : (
-            <div className="wrapper">
-              <div style={heroBoxStyle} className="hero-box">
-                <h1>Leren vliegen aan de EZAC?</h1>
-                <p>Kom proeven van de prachtige sport! Meld je aan voor een eerste proefvlucht, of voor de doop van een familie-lid</p>
-                <Button>Ontdek de tarieven</Button>
-              </div>
-            </div>
-          )
-        }
-      </div>
-      {
-        isMobile ? (
-          <div className="hero-box">
-            <h1>Leren vliegen aan de EZAC?</h1>
-            <p>Kom proeven van de prachtige sport! Meld je aan voor een eerste proefvlucht, of voor de doop van een familie-lid</p>
-            <Button>Ontdek de tarieven</Button>
-          </div>
-        ) : ''
-      }
-    </>
-  );
-};
+export default () => (
+  <div className="hero-container">
+    <div className="video-container">
+      <svg className="play-button" width="68" height="77" viewBox="0 0 68 77" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M65.5 34.1699C68.8333 36.0944 68.8333 40.9056 65.5 42.8301L7.75001 76.1721C4.41667 78.0966 0.249996 75.691 0.249996 71.842L0.249999 5.15803C0.25 1.30903 4.41667 -1.09661 7.75 0.827892L65.5 34.1699Z" fill="white" />
+      </svg>
+    </div>
+  </div>
+);

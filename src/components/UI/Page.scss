@@ -14,13 +14,11 @@
 
   .wrapper {
     padding: 20px 20px 40px 20px;
-    background-color: white;
 
     @media only screen and (min-width: 800px) {
-      padding: 20px 50px 60px 50px;
+      padding: 120px 50px 60px 50px;
       margin: 0 auto;
-      max-width: 980px;
-      box-shadow: $material-shadow-small;
+      max-width: 1080px;
     }
   }
 }

@@ -1,6 +1,10 @@
 @import 'src/styles/constants.scss';
 
-button.button, a.button {
+button.button,
+a.button {
+  position: relative;
+  top: 0;
+  left: 0;
   margin-top: 20px;
   padding: 18px 20px;
   min-width: 150px;
@@ -9,12 +13,12 @@ button.button, a.button {
   text-transform: uppercase;
   font-weight: 900;
 
-  color: $ezac-dark-blue;
+  color: #00000099;
   background-color: $ezac-bright-yellow;
   border: none;
-  border-radius: 50px;
+  border-radius: 5px;
 
-  box-shadow: $sharp-subtle-shadow;
+  box-shadow: 0 4px 0 #c1a100;
 
   cursor: pointer;
 
@@ -22,7 +26,8 @@ button.button, a.button {
     color: white;
     background-color: $ezac-bright-blue;
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       background-color: lighten($ezac-bright-blue, 10);
     }
   }
@@ -31,17 +36,20 @@ button.button, a.button {
     opacity: 0.5;
     cursor: not-allowed;
 
-    &:hover, &:active {
-      color: unset;
-      background-color: unset;
+    &:active {
+      top: 0;
+      box-shadow: 0 4px 0 #c1a100;
+      ;
     }
   }
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     background-color: lighten($ezac-bright-yellow, 10);
   }
 
   &:active {
+    top: 4px;
     box-shadow: none;
   }
 
@@ -49,27 +57,27 @@ button.button, a.button {
     outline: none;
   }
 
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 a.button {
-  color: white;
   display: block;
   width: fit-content;
 
   &:hover {
     color: black;
 
-    &:link, &:visited {
+    &:link,
+    &:visited {
       color: black;
     }
   }
 
   &:link {
-    color: white;
+    color: #00000099;
   }
 
   &:visited {
-    color: white;
+    color: #00000099;
   }
 }
