@@ -92,6 +92,23 @@
       background-color: $ezac-pale-blue;
     }
 
+    &.fleet {
+      .content {
+        justify-content: space-around;
+      }
+
+      img {
+        margin: 40px 0;
+        max-width: 320px;
+      }
+
+      .content .story-block {
+        h1 {
+          color: $ezac-dark-navy;
+        }
+      }
+    }
+
     .wavy-pattern {
       display: none;
       position: absolute;
@@ -125,7 +142,7 @@
         max-width: unset;
         z-index: 2;
 
-        @media only screen and (min-width: 760px) {
+        @media only screen and (min-width: 560px) {
           max-width: 370px;
         }
 

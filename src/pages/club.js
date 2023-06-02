@@ -246,7 +246,7 @@ export default function OurClubPage() {
             ))
           }
 
-          <div className="block">
+          <div className="block fleet" style={{ backgroundColor: 'white' }}>
             <div className="wrapper">
               <div className="content">
                 <div className="story-block">
@@ -254,6 +254,12 @@ export default function OurClubPage() {
                   <p>Neem een kijkje naar wat we in huis hebben van vliegtuigen in onze hangaars.</p>
                   <ButtonLink href="./club/fleet" className="cta-button">Ontdek onze vloot</ButtonLink>
                 </div>
+
+                {
+                  !isMobile ? (
+                    <img alt="ASK-21" src="assets/ask21.svg" />
+                  ) : ''
+                }
               </div>
             </div>
           </div>
