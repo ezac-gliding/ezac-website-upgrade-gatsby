@@ -1,0 +1,14 @@
+.image-bubble {
+  position: relative;
+
+  .image, .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .shadow {
+    top: 20px;
+    left: 20px;
+  }
+}
