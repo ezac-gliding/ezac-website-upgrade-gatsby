@@ -122,3 +122,68 @@
     }
   }
 }
+
+.price-container {
+  position: relative;
+  width: 230px;
+
+  .bubble {
+    position: absolute;
+    z-index: -1;
+  }
+
+  .title {
+    width: 100%;
+    margin-top: 75px;
+    text-align: center;
+
+    h3.price-name {
+      color: white;
+    }
+  }
+
+  h3.price-name {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .price {
+    color: white;
+    display: block;
+    width: 100%;
+    font-size: 38px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .feature-list {
+    margin-top: 130px;
+    text-align: center;
+
+    .feature {
+      display: flex;
+      justify-content: center;
+
+      i {
+        margin-right: 10px;
+        font-size: 16px;
+        line-height: 20px;
+      }
+
+      p {
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 20px;
+        color: $ezac-dark-blue;
+      }
+    }
+  }
+}
+
+.flex-container {
+  display: flex;
+}

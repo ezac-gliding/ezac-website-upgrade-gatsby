@@ -110,3 +110,25 @@ collections:
           - {label: "Offset image from right", name: "fromRight", widget: "boolean", default: false}
           - {label: "Image outline (only works when shadow is true)", name: "outline", widget: "boolean", default: false}
           - {label: "Use alternate bubble type", name: "useAlternate", widget: "boolean", default: false}
+
+  - name: "prices"
+    extension: "json"
+    label: "Prices"
+    label_singular: "Price"
+    summary: "{{commit_author}} - ({{title}})"
+    folder: "src/data/prices"
+    create: true
+    slug: "{{commit_author}}-{{title}}-{{commit_date}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Price", name: "price", widget: "number"}
+      - {label: "Currency", name: "currency", widget: "select", options: ["£", "€", "$"], default: "€"}
+      - {label: "Color", name: "color", widget: "color", default: "#314B77"}
+      - name: "features"
+        label: "Features"
+        widget: "list"
+        fields:
+          - {label: "Description", name: "description", widget: "string"}
+        default: []
+      - {label: "Order", name: "order", widget: "number", default: 0}
+      - {label: "Orientation", name: "orientation", widget: "number", default: 0}

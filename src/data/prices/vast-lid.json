@@ -1,0 +1,22 @@
+{
+  "order": 0,
+  "title": "Vliegend lid",
+  "price": "810",
+  "currency": "€",
+  "color": "#314B77",
+  "features": [
+    {
+      "description": "All-in tarief"
+    },
+    {
+      "description": "Geen minutengeld"
+    },
+    {
+      "description": "Geen kosten per lierstart"
+    },
+    {
+      "description": "Gratis instructie"
+    }
+  ],
+  "orientation": 12
+}

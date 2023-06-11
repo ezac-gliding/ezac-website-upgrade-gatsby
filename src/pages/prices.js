@@ -1,4 +1,5 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Header from 'src/components/header/Header';
 import './prices.scss';
@@ -6,8 +7,34 @@ import 'src/styles/reset.scss';
 import 'src/styles/general.scss';
 import Page from 'components/UI/Page';
 import Button from 'components/button/Button';
+import OrnamentalBubble from 'components/floating-elements/bubbles/OrnamentalBubble';
+
+const pricesQuery = graphql`
+query {
+  allPricesJson {
+    nodes {
+      id
+      title
+      price
+      features {
+        description
+      }
+      currency
+      order
+      orientation
+      color
+    }
+  }
+}
+`;
 
 export default function PricesPage() {
+  const {
+    allPricesJson: {
+      nodes: prices,
+    },
+  } = useStaticQuery(pricesQuery);
+
   return (
     <div className="prices-page">
       <Header />
@@ -24,54 +51,51 @@ export default function PricesPage() {
         <title>EZAC | Tarieven</title>
       </Helmet>
 
-      <Page className="offset-from-top">
-        <h2>Tarieven</h2>
+      <Page>
+        <div className="top-title">
+          <h2>Onze tarieven</h2>
+          <p>Ontdek onze tarieven en bijkomende kosten van het zweefvliegen</p>
+        </div>
 
         <div className="all-prices">
-          <div className="price-box blue">
-            <h3 className="price-name">Vliegend lid</h3>
-            <span className="price">€810</span>
-            <div className="feature-list">
-              <div className="feature">
-                <i className="material-symbols-outlined">check_circle</i>
-                <p>All-in tarief</p>
-              </div>
-              <div className="feature">
-                <i className="material-symbols-outlined">check_circle</i>
-                <p>Geen minutengeld</p>
-              </div>
-              <div className="feature">
-                <i className="material-symbols-outlined">check_circle</i>
-                <p>Geen kosten per lierstart</p>
-              </div>
-              <div className="feature">
-                <i className="material-symbols-outlined">check_circle</i>
-                <p>Gratis instructie</p>
-              </div>
+          {
+            prices.sort(({ order: orderA }, { order: orderB }) => orderA - orderB).map(({
+              id,
+              title,
+              price,
+              currency,
+              features,
+              color,
+              orientation,
+            }) => (
+              <div key={id} className="price-container">
+                <div className="bubble" style={{ transform: `rotate(${orientation}deg)` }}>
+                  <OrnamentalBubble scale="230px" fill={color} />
+                </div>
 
-              <Button>Lid worden</Button>
-            </div>
-          </div>
-          <div className="price-box">
-            <h3 className="price-name">Tienrittenkaart</h3>
-            <span className="price">€355</span>
-            <div className="feature-list">
-              <div className="feature">
-                <i className="material-symbols-outlined">check_circle</i>
-                <p>10 instructie vluchten</p>
-              </div>
-              <div className="feature">
-                <i className="material-symbols-outlined">check_circle</i>
-                <p>Bepaal of de sport iets voor jou is</p>
-              </div>
-              <div className="feature">
-                <i className="material-symbols-outlined">check_circle</i>
-                <p>Keuze om daarna bij te betalen en lidmaatschap te vervolledigen</p>
-              </div>
+                <div className="title">
+                  <h3 className="price-name">{title}</h3>
+                  <span className="price">
+                    {currency}
+                    {price}
+                  </span>
+                </div>
 
-              <Button>Lees meer</Button>
-            </div>
-          </div>
+                <div className="feature-list">
+                  {
+                    features.map(({ description }) => (
+                      <div key={`${id}-${description}`} className="feature">
+                        <i className="material-symbols-outlined">check_circle</i>
+                        <p>{description}</p>
+                      </div>
+                    ))
+                  }
+
+                  <Button>Lid worden</Button>
+                </div>
+              </div>
+            ))
+          }
         </div>
 
         <h3>Bijkomende kosten</h3>
@@ -79,7 +103,7 @@ export default function PricesPage() {
           Naast uw lidmaatschap bij de EZAC zijn er nog een aantal verplichte kosten buiten de club waarvan u op de hoogte moet zijn.
           Namelijk: De medische keuring en het lidmaatschap bij de KNVvL. Dit brengen we samen met jou in orde wanneer je je aanmeldt als vliegend lid.
           Voor de opleiding zelf hoef je je niet meteen medisch te keuren, maar het is beter dat je dit wel al doet.
-          Zo weet je ook of je in orde bent om solo te mogen vliegen. Vanaf je solo gaat vliegen en voor je brevet is de medische keuring namelijk vereist. 
+          Zo weet je ook of je in orde bent om solo te mogen vliegen. Vanaf je solo gaat vliegen en voor je brevet is de medische keuring namelijk vereist.
         </p>
 
         <div className="additional-costs-grid">
