@@ -6,6 +6,7 @@ import 'src/styles/reset.scss';
 import 'src/styles/general.scss';
 import Page from 'components/UI/Page';
 import Button from 'components/button/Button';
+import Footer from 'components/footer/Footer';
 
 export default function PricesPage() {
   return (
@@ -138,6 +139,7 @@ export default function PricesPage() {
           zodat je dan volwaardig lid wordt.
         </p>
       </Page>
+      <Footer />
     </div>
   );
 }

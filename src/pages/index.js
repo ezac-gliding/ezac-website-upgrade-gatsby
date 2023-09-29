@@ -12,6 +12,7 @@ import BubbleThree from 'components/floating-elements/bubbles/BubbleThree';
 import BigSolidBubble from 'components/floating-elements/bubbles/BigSolidBubble';
 import WavyBubble from 'components/floating-elements/bubbles/WavyBubble';
 import AngleBubble from 'components/floating-elements/bubbles/AngleBubble';
+import Footer from 'components/footer/Footer';
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import { useStaticQuery, graphql } from 'gatsby';
 import './home.scss';
@@ -159,6 +160,7 @@ export default function Index() {
           }
         </Page>
       </ParallaxProvider>
+      <Footer />
     </div>
   );
 }
