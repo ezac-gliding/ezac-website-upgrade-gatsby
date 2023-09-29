@@ -54,7 +54,7 @@ export default function PricesPage() {
       <Page>
         <div className="top-title">
           <h2>Onze tarieven</h2>
-          <p>Ontdek onze tarieven en bijkomende kosten van het zweefvliegen</p>
+          <p>Ontdek de tarieven en kosten van het zweefvliegen</p>
         </div>
 
         <div className="all-prices">
@@ -98,69 +98,81 @@ export default function PricesPage() {
           }
         </div>
 
-        <h3>Bijkomende kosten</h3>
-        <p>
-          Naast uw lidmaatschap bij de EZAC zijn er nog een aantal verplichte kosten buiten de club waarvan u op de hoogte moet zijn.
-          Namelijk: De medische keuring en het lidmaatschap bij de KNVvL. Dit brengen we samen met jou in orde wanneer je je aanmeldt als vliegend lid.
-          Voor de opleiding zelf hoef je je niet meteen medisch te keuren, maar het is beter dat je dit wel al doet.
-          Zo weet je ook of je in orde bent om solo te mogen vliegen. Vanaf je solo gaat vliegen en voor je brevet is de medische keuring namelijk vereist.
-        </p>
+        <h3>Kostenplaatje</h3>
+        <section className="costs-section">
+          <div className="explanation">
+            <p>
+              Naast je lidmaatschap bij de EZAC zijn er nog een aantal kosten buiten de club.
+              De medische keuring en de verzekering (KNVvL). Dit moet je zelf in orde brengen buiten de club, maar we helpen je daarme graag op weg.
+              De verzekering is jaarlijks en de medische keuring is meerdere jaren geldig afhankelijk van je leeftijd.
+            </p>
 
-        <div className="additional-costs-grid">
-          <table>
-            <thead>
-              <tr>
-                <th className="sidebar-corner"> </th>
-                <th>Leden tot 19</th>
-                <th>Leden vanaf 19</th>
-                <th>Leden vanaf 40 jaar</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="sidebar-item">KNVvL (verzekering)</td>
-                <td>€122,25</td>
-                <td>€194,00</td>
-                <td>€194,00</td>
-              </tr>
-              <tr>
-                <td className="sidebar-item">Medische keuring</td>
-                <td>€80-120 (per 5 jaar)</td>
-                <td>€80-120 (per 5 jaar)</td>
-                <td>€80-120 (per 3 jaar)</td>
-              </tr>
-              <tr>
-                <td className="sidebar-item">Totaalplaatje per jaar</td>
-                <td>€932,25</td>
-                <td>€1024,00</td>
-                <td>€1054,00</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+            <p>
+              We hebben de totale kost opgesomd in een kostenplaatje. De totale kostprijs van je eerste jaar ligt iets hoger omwille van het eenmalige entreegeld en de medische keuring.
+              Meeste van de vaste leden betalen iets rond de €1.000 jaarlijks. Daarin zitten alle andere kosten meteen ook vervat, en hoef je niet extra te betalen per start of per minuut, wat in andere clubs vaak wel het geval is.
+            </p>
 
-        <h3>Is zweefvliegen duur?</h3>
-        <p>
-          Het antwoord op de vraag is relatief. Vliegen blijft natuurlijk een zeer indrukwekkende sport met of zonder motor.
-          Om je een idee te geven: De vliegopleiding met een motor-vliegtuig is vaak €140-200 per uur met een instructeur. De meesten ronden de opleiding af
-          als de teller rond de €10.000 a €12.000 staat. Daarmee kan je minstens 10 jaar naar hartelust op de clubvloot vliegen bij ons!
-          Tevens heb je bij ons, als je dit ambieert, sneller je theorie en praktijk-examen achter de rug. Bij motorvliegen vlieg je vaak in langere, rechte stukken.
-          Velen stoppen er dan ook mee omdat er na een tijdje minder uitdaging aan is.
-        </p>
+            <p className="small-letters">
+              * Verzekering kost €122,25 voor leden tot 19 jaar.
+            </p>
+            <p className="small-letters">
+              ** Medische keuring is 5 jaar geldig tot 40 jaar. Daarna is het per 3 jaar geldig.
+            </p>
+          </div>
 
-        <p>
-          Het zweefvliegen daarentegen verveelt helemaal niet, elke vlucht is een strijd om boven te blijven, een dans met de krachten van de natuur.
-          Je kan je grenzen blijven verleggen en deelnemen aan competities (hiervoor mag men ook de clubvloot benutten).
-        </p>
+          <div className="additional-costs-grid">
+            <div className="additional-cost">
+              <h3>KNVvL (verzekering)</h3>
+              <span className="price">€194*</span>
+            </div>
 
-        <h3>De tienrittenkaart</h3>
-        <p>
-          De contributie voor een volledig jaar is natuurlijk wel heel wat als je nog niet zeker weet of deze sport iets voor je is. Dat weten wij ook, en daarom is er een tienrittenkaart.
-          Meeste van onze startende leden kiezen hier voor. Dit zorgt er voor dat je voor 10
-          instructie-starts kunt zien of de sport iets voor je is. Daarna kan je voor jezelf bepalen
-          of je je lidmaatschap wilt vervolledigen. Je betaalt dan gewoon het resterende bedrag bij
-          zodat je dan volwaardig lid wordt.
-        </p>
+            <div className="additional-cost">
+              <h3>Medische keuring</h3>
+              <span className="price">€80**</span>
+            </div>
+
+            <div className="additional-cost">
+              <h3>Entreegeld (eenmalig + intropakket)</h3>
+              <span className="price">€126</span>
+            </div>
+
+            <div className="additional-cost">
+              <h3>Totale kostprijs eerste jaar</h3>
+              <span className="price">€1.250</span>
+            </div>
+
+            {/* <table>
+              <thead>
+                <tr>
+                  <th className="sidebar-corner"> </th>
+                  <th>Leden tot 19</th>
+                  <th>Leden vanaf 19</th>
+                  <th>Leden vanaf 40 jaar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="sidebar-item">KNVvL (verzekering)</td>
+                  <td>€122,25</td>
+                  <td>€194,00</td>
+                  <td>€194,00</td>
+                </tr>
+                <tr>
+                  <td className="sidebar-item">Medische keuring</td>
+                  <td>€80-120 (per 5 jaar)</td>
+                  <td>€80-120 (per 5 jaar)</td>
+                  <td>€80-120 (per 3 jaar)</td>
+                </tr>
+                <tr>
+                  <td className="sidebar-item">Totaalplaatje per jaar</td>
+                  <td>€932,25</td>
+                  <td>€1024,00</td>
+                  <td>€1054,00</td>
+                </tr>
+              </tbody>
+            </table> */}
+          </div>
+        </section>
       </Page>
     </div>
   );
