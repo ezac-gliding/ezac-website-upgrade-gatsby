@@ -6,11 +6,47 @@ footer.footer {
   background-color: $ezac-pale-blue;
   color: $ezac-dark-blue;
 
+  .disclaimer {
+    p {
+      margin: 5px 0;
+      font-size: 10px;
+      line-height: 14px;
+      color: $ezac-dark-blue;
+    }
+  }
+
+  .logo-and-nav {
+    display: block;
+
+    .logo {
+      max-width: 160px;
+
+      img {
+        width: 40px;
+        margin-bottom: 16px;
+      }
+
+      .eye-catcher {
+        margin-bottom: 45px;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: "Lora", serif;
+        color: $ezac-dark-blue;
+        line-height: 22px;
+      }
+    }
+
+    @media only screen and (min-width: 800px) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
   .wrapper {
     display: block;
     position: relative;
     margin: 0 auto;
-    max-width: 1300px;
+    max-width: 980px;
 
     @media only screen and (min-width: 800px) {
       display: flex;
@@ -38,7 +74,8 @@ footer.footer {
           margin-top: 0;
         }
 
-        a, a:visited {
+        a,
+        a:visited {
           font-weight: normal;
           color: $ezac-dark-blue;
 
@@ -53,7 +90,7 @@ footer.footer {
   .right-side {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
 
   .socials {
@@ -79,14 +116,6 @@ footer.footer {
     img {
       margin-right: 10px;
       width: 40px;
-    }
-  }
-
-  .disclaimer {
-    p {
-      margin: 5px 0;
-      font-size: 14px;
-      line-height: 20px;
     }
   }
 }

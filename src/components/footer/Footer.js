@@ -9,6 +9,16 @@ export default () => (
   <footer className="footer">
     <div className="wrapper">
       <div className="logo-and-nav">
+        <div className="logo">
+          <Link to="/">
+            <img className="header-logo" src={logo} alt="logo" />
+          </Link>
+          <p className="eye-catcher">Eerste Zeeuws Vlaamse Aero Club</p>
+          <div className="disclaimer">
+            <p>Justaasweg 5, 4571 NB Axel</p>
+            <p>&copy; EZAC Axel 2023</p>
+          </div>
+        </div>
         <nav>
           <ul>
             <li>
@@ -34,10 +44,6 @@ export default () => (
           <h3>Follow us</h3>
           <a href="https://nl-nl.facebook.com/ezaczweefvliegclub/"><img src={fbImage} alt="Facebook" /></a>
           <a href="https://www.instagram.com/ezac_zweefvliegclub"><img src={instaImage} alt="Instagram" /></a>
-        </div>
-        <div className="disclaimer">
-          <p>Justaasweg 5, 4571 NB Axel</p>
-          <p>&copy; EZAC Axel 2023</p>
         </div>
       </div>
     </div>
