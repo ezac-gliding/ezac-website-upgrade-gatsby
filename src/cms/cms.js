@@ -3,6 +3,7 @@ import { ColorControl, ColorPreview } from 'netlify-cms-widget-colorpicker';
 import GliderPreview from '../components/previews/GliderPreview';
 import HomepageTextPreview from '../components/previews/HomepageTextPreview';
 import ClubTextPreview from '../components/previews/ClubTextPreview';
+import PricePreview from '../components/previews/PricePreview';
 
 // These are special imports because Netlify CMS actually sucks and I've lured you into using it
 // OK no that's not true but the preview styling really sucks and we have to
@@ -30,3 +31,4 @@ CMS.registerPreviewStyle(previewStyles.toString(), { raw: true });
 CMS.registerPreviewTemplate('glider', GliderPreview);
 CMS.registerPreviewTemplate('homepage-text', HomepageTextPreview);
 CMS.registerPreviewTemplate('club-stories', ClubTextPreview);
+CMS.registerPreviewTemplate('prices', PricePreview);
