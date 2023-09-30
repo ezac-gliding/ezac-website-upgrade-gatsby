@@ -1,0 +1,19 @@
+{
+  "order": 1,
+  "title": "Tienrittenkaart",
+  "price": "375",
+  "currency": "€",
+  "color": "#4C6CA4",
+  "features": [
+    {
+      "description": "10 instructie-vluchten"
+    },
+    {
+      "description": "Bepaal of de sport iets voor jou is"
+    },
+    {
+      "description": "Keuze om je lidmaatschap te vervolledigen"
+    }
+  ],
+  "orientation": 170
+}
