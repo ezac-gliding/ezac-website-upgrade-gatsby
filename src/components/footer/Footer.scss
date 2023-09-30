@@ -1,11 +1,40 @@
+@import 'src/styles/constants.scss';
+
 footer.footer {
   display: block;
   padding: 60px 20px;
-  background-color: black;
-  color: white;
+  background-color: $ezac-pale-blue;
+  color: $ezac-dark-blue;
+
+  .disclaimer {
+    p {
+      margin: 5px 0;
+      font-size: 10px;
+      line-height: 14px;
+      color: $ezac-dark-blue;
+    }
+  }
 
   .logo-and-nav {
     display: block;
+
+    .logo {
+      max-width: 160px;
+
+      img {
+        width: 40px;
+        margin-bottom: 16px;
+      }
+
+      .eye-catcher {
+        margin-bottom: 45px;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: "Lora", serif;
+        color: $ezac-dark-blue;
+        line-height: 22px;
+      }
+    }
 
     @media only screen and (min-width: 800px) {
       display: flex;
@@ -17,7 +46,7 @@ footer.footer {
     display: block;
     position: relative;
     margin: 0 auto;
-    max-width: 1300px;
+    max-width: 980px;
 
     @media only screen and (min-width: 800px) {
       display: flex;
@@ -25,21 +54,8 @@ footer.footer {
     }
   }
 
-  h2.emblem {
-    margin: 0;
-    text-transform: uppercase;
-    line-height: calc(15vw - 8px);
-    font-size: 15vw;
-
-    @media only screen and (min-width: 800px) {
-      line-height: 60px;
-      font-size: 72px;
-    }
-  }
-
   nav {
     display: none;
-    margin-left: 50px;
     margin-right: 120px;
     padding: 0 40px;
 
@@ -58,9 +74,10 @@ footer.footer {
           margin-top: 0;
         }
 
-        a, a:visited {
+        a,
+        a:visited {
           font-weight: normal;
-          color: white;
+          color: $ezac-dark-blue;
 
           &.active {
             font-weight: bold;
@@ -73,18 +90,21 @@ footer.footer {
   .right-side {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
 
   .socials {
     display: flex;
     margin-top: 30px;
 
-    h2 {
+    h3 {
       margin-right: 15px;
       margin-bottom: 0;
+      margin-top: 0;
       font-size: 20px;
       line-height: 45px;
+      color: $ezac-dark-blue;
+      font-weight: bold;
 
       text-transform: uppercase;
     }
@@ -96,14 +116,6 @@ footer.footer {
     img {
       margin-right: 10px;
       width: 40px;
-    }
-  }
-
-  .disclaimer {
-    p {
-      margin: 5px 0;
-      font-size: 14px;
-      line-height: 20px;
     }
   }
 }

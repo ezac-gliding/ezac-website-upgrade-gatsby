@@ -9,6 +9,7 @@ import ImageBubbleAlternate from 'components/floating-elements/bubbles/ImageBubb
 import useViewport from 'hooks/useViewport';
 import { useStaticQuery, graphql } from 'gatsby';
 import ReactMarkdown from 'react-markdown';
+import Footer from 'components/footer/Footer';
 import './club.scss';
 import 'src/styles/reset.scss';
 import 'src/styles/general.scss';
@@ -265,6 +266,7 @@ export default function OurClubPage() {
           </div>
         </ParallaxProvider>
       </div>
+      <Footer />
     </div>
   );
 }

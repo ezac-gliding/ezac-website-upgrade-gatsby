@@ -2,6 +2,7 @@ import React from 'react';
 import SEO from 'src/components/seo';
 import { Helmet } from 'react-helmet';
 import Header from 'src/components/header/Header';
+import Footer from 'components/footer/Footer';
 import './404.scss';
 
 const NotFoundPage = () => (
@@ -27,6 +28,7 @@ const NotFoundPage = () => (
       </div>
       <h3>PH-404</h3>
     </div>
+    <Footer />
   </div>
 );
 

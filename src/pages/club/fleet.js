@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import Header from 'src/components/header/Header';
 import Page from 'src/components/UI/Page';
 import Glider from 'src/components/glider/Glider';
+import Footer from 'components/footer/Footer';
 import 'src/styles/reset.scss';
 import 'src/styles/general.scss';
 import './fleet.scss';
@@ -68,7 +69,7 @@ export default function FleetPage() {
           }
         </div>
       </Page>
-
+      <Footer />
     </div>
   );
 }

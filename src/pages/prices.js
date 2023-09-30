@@ -8,6 +8,7 @@ import 'src/styles/general.scss';
 import Page from 'components/UI/Page';
 import Button from 'components/button/Button';
 import OrnamentalBubble from 'components/floating-elements/bubbles/OrnamentalBubble';
+import Footer from 'components/footer/Footer';
 
 const pricesQuery = graphql`
 query {
@@ -174,6 +175,7 @@ export default function PricesPage() {
           </div>
         </section>
       </Page>
+      <Footer />
     </div>
   );
 }
