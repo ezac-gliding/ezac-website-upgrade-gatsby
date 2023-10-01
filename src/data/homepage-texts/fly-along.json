@@ -1,4 +1,19 @@
 {
-  "title": "Onze club",
-  "text": "EZAC, oftewel de Eerste Zeeuws-Vlaamse Aero Club, is een zweefvliegclub met als thuisveld Axel. We hebben een schitterend vliegveld gelegen in het natuurgebied de Smitschorre, een flinke vloot met de modernste zweefvliegtuigen, een gezellige kantine en een eigen verenigingscamping."
+  "title": "Meevliegen",
+  "order": 2,
+  "text": "Als u wilt, kunt met een van onze ervaren piloten meevliegen, of iemand anders een doopvlucht cadeau doen. Reserveer tijdig en op voorhand, want de beschikbare timeslots gaan er snel door.",
+  "align": "left",
+  "image": {
+    "useAlternate": false,
+    "source": "assets/meevliegen.jpeg",
+    "shadow": true,
+    "fromRight": true,
+    "outline": true,
+    "color": "#0179D2",
+    "parallaxSpeed": 4,
+    "rotation": 0,
+    "imagePosX": -100,
+    "imagePosY": 0,
+    "imgScale": "150%"
+  }
 }

@@ -12,6 +12,8 @@ import BubbleThree from 'components/floating-elements/bubbles/BubbleThree';
 import BigSolidBubble from 'components/floating-elements/bubbles/BigSolidBubble';
 import WavyBubble from 'components/floating-elements/bubbles/WavyBubble';
 import AngleBubble from 'components/floating-elements/bubbles/AngleBubble';
+import ImageBubble from 'components/floating-elements/bubbles/ImageBubble';
+import ImageBubbleAlternate from 'components/floating-elements/bubbles/ImageBubbleAlternate';
 import Footer from 'components/footer/Footer';
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import { useStaticQuery, graphql } from 'gatsby';
@@ -27,10 +29,62 @@ query {
       title
       text
       id
+      align
+      order
+      image {
+        color
+        outline
+        shadow
+        parallaxSpeed
+        source
+        useAlternate
+        rotation
+        imagePosX
+        imagePosY
+        imgScale
+      }
     }
   }
 }
 `;
+
+const Bubble = ({
+  id,
+  isMobile,
+  image,
+}) => {
+  if (image.useAlternate) {
+    return (
+      <ImageBubbleAlternate
+        id={id}
+        hasShadow={image.shadow}
+        fill={image.color}
+        scale={isMobile ? '75vw' : '100%'}
+        imgScale={image.imgScale}
+        src={image.source}
+        outlined={image.outline}
+        shadowOffset="10px"
+        x={image.imagePosX}
+        y={image.imagePosY}
+      />
+    );
+  }
+
+  return (
+    <ImageBubble
+      id={id}
+      hasShadow={image.shadow}
+      fill={image.color}
+      scale={isMobile ? '75vw' : '100%'}
+      imgScale={image.imgScale}
+      src={image.source}
+      outlined={image.outline}
+      shadowOffset="10px"
+      x={image.imagePosX}
+      y={image.imagePosY}
+    />
+  );
+};
 
 export default function Index() {
   const scrollPosition = useScroll();
@@ -152,12 +206,33 @@ export default function Index() {
 
           <h2>Welkom op de EZAC</h2>
           {
-            homepageTexts.map(({ id, title, text }) => (
-              <div key={id} className="homepage-text">
-                <h3>{title}</h3>
-                <p>
-                  {text}
-                </p>
+            homepageTexts.sort((a, b) => a.order - b.order).map(({
+              id,
+              title,
+              text,
+              image,
+              align,
+            }) => (
+              <div className="homepage-text" key={id} style={{ flexDirection: align === 'right' ? 'row-reverse' : 'row' }}>
+                {
+                  image ? (
+                    <Bubble
+                      id={id}
+                      title={title}
+                      text={text}
+                      image={image}
+                      isMobile={isMobile}
+                    />
+                  ) : ''
+                }
+
+                <div className="text" style={{ textAlign: align === 'right' ? 'right' : 'left' }}>
+                  <h3>{title}</h3>
+                  <p>
+                    {text}
+                  </p>
+                </div>
+
               </div>
             ))
           }

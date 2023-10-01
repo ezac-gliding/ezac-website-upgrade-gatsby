@@ -73,4 +73,37 @@
       margin-top: 60px;
     }
   }
+
+  .homepage-text {
+    margin: 30px 0;
+    min-height: 250px;
+
+    @media only screen and (min-width: 800px) {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 30px;
+    }
+
+    .image-bubble {
+      margin: 0 auto;
+      width: 280px;
+      height: 280px;
+
+      @media only screen and (min-width: 800px) {
+        margin: 0;
+      }
+    }
+
+    .text {
+      display: flex;
+      margin-top: 20px;
+      flex-direction: column;
+      justify-content: center;
+
+      @media only screen and (min-width: 800px) {
+        margin-top: 0;
+        width: calc(100% - 250px);
+      }
+    }
+  }
 }
