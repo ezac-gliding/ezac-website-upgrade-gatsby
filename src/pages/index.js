@@ -50,7 +50,6 @@ query {
 
 const Bubble = ({
   id,
-  isMobile,
   image,
 }) => {
   if (image.useAlternate) {
@@ -59,7 +58,7 @@ const Bubble = ({
         id={id}
         hasShadow={image.shadow}
         fill={image.color}
-        scale={isMobile ? '75vw' : '100%'}
+        scale="100%"
         imgScale={image.imgScale}
         src={image.source}
         outlined={image.outline}
@@ -75,7 +74,7 @@ const Bubble = ({
       id={id}
       hasShadow={image.shadow}
       fill={image.color}
-      scale={isMobile ? '75vw' : '100%'}
+      scale="100%"
       imgScale={image.imgScale}
       src={image.source}
       outlined={image.outline}
@@ -97,7 +96,6 @@ export default function Index() {
   } = useStaticQuery(homepageTextsQuery);
 
   const valueStyle = useMemo(() => ({
-    opacity: scrollPosition > 220 ? 1 : 0,
     transition: 'opacity 0.3s ease-in-out',
   }), [scrollPosition]);
 
@@ -176,6 +174,12 @@ export default function Index() {
               </Parallax>
             </>
           )
+        }
+
+        {
+          isMobile ? (
+            <Hero />
+          ) : ''
         }
 
         <Page>
