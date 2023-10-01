@@ -110,17 +110,20 @@ export default function Index() {
               <Parallax
                 style={{ top: '-290px', right: '-140px' }}
                 className="floating-bubble"
-                speed={-29}
+                speed={-20}
                 rotate={[24, -10]}
               >
                 <BubbleThree scale="25vw" fill="#4C6CA4" accent="white" />
+              </Parallax>
+              <Parallax
+                speed={29}
+              >
+                <Hero />
               </Parallax>
             </>
           )
         }
 
-
-        <Hero />
         <Page>
           <p className="call-to-action-text">
             Leer&nbsp;
