@@ -22,14 +22,19 @@
     }
 
     .right {
+      margin-top: 10px;
       width: 100%;
+      height: 320px;
 
       @media only screen and (min-width: 800px) {
+        margin-top: 0;
         width: 60%;
+        height: unset;
       }
     }
 
     .floating-label-field:last-of-type {
+
       input,
       textarea,
       select {

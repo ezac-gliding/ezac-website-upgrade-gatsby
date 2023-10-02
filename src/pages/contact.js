@@ -102,9 +102,7 @@ export default function PricesPage() {
             </div>
           </div>
           <div className="right">
-            <div>
-              <textarea name="message" placeholder="Bericht*" value={message} onChange={({ target: { value } }) => setMessage(value)} required />
-            </div>
+            <textarea name="message" placeholder="Bericht*" value={message} onChange={({ target: { value } }) => setMessage(value)} required />
           </div>
 
           <Button type="submit">Versturen</Button>
