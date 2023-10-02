@@ -38,7 +38,7 @@ export default function PricesPage() {
     fetch('/', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: encode({
         'form-name': 'contact',
@@ -46,6 +46,7 @@ export default function PricesPage() {
         email,
         phone,
         message,
+        subject,
       }),
     }).then(() => {
       setIsSubmitted(true);
