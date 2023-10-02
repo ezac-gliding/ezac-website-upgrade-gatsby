@@ -2,29 +2,39 @@
 
 .hero-container {
   padding: 0;
-  height: 500px;
-  background-color: #314B77;
+  margin-top: 80px;
+  overflow: hidden;
+  padding: 10px;
+  margin: 100px auto 20px auto;
 
   @media only screen and (min-width: 800px) {
+    margin-top: 0;
     padding: 20px;
-    border-radius: 20px;
     max-width: 1080px;
-    margin: 120px auto 20px auto;
+    border-radius: 20px;
+    margin: 13vh 20px 20px 20px;
+    background-color: #314B77;
+  }
+
+  @media only screen and (min-width: 1100px) {
+    margin: 100px auto 20px auto;
   }
 
   .video-container {
-    position: relative;
-    height: 100%;
-    background-image: url('./EHAX_sky.jpg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    width: 100%;
     border-radius: 10px;
+    overflow: hidden;
+    /* Keep it the right aspect-ratio */
+    aspect-ratio: 16/9;
+    /* No clicking/hover effects */
+    pointer-events: none;
 
-    .play-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
+    iframe {
+      /* Extend it beyond the viewport... */
+      width: 300%;
+      height: 100%;
+      /* ...and bring it back again */
+      margin-left: -100%;
     }
   }
 }

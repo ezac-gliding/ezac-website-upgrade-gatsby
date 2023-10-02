@@ -52,7 +52,22 @@ collections:
     slug: "{{commit_author}}-{{title}}-{{commit_date}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Order", name: "order", widget: "number", required: true, default: 0}
       - {label: "Text", name: "text", widget: "text"}
+      - {label: "Align", name: "align", widget: "select", options: ["left", "right"], required: true, default: "left"}
+      - label: "Image"
+        name: "image"
+        widget: "object"
+        fields:
+          - {label: "File", name: "source", widget: "image"}
+          - {label: "Image shadow", name: "shadow", widget: "boolean", default: true}
+          - {label: "Shadow Color", name: "color", options: ["white", "#244059", "#fff1a7", "#9DC4FF"], default: "#244059", widget: "select"}
+          - {label: "Image outline (only works when shadow is true)", name: "outline", widget: "boolean", default: false}
+          - {label: "Use alternate bubble type", name: "useAlternate", widget: "boolean", default: false}
+          - {label: "Rotation (deg)", name: "rotation", default: 0, widget: "number"}
+          - {label: "Image position x (px)", name: "imagePosX", default: 0, widget: "number"}
+          - {label: "Image position y (px)", name: "imagePosY", default: 0, widget: "number"}
+          - {label: "Image scale (%)", name: "imgScale", default: 140, widget: "number"}
 
   - name: "club-stories"
     extension: "json"

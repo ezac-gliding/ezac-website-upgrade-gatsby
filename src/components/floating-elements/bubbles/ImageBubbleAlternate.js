@@ -10,13 +10,14 @@ export default function OrnamentalBubble({
   src,
   hasShadow,
   outlined,
+  shadowOffset = '20px',
   fill,
 }) {
   return (
     <div className="image-bubble">
       {
         hasShadow ? (
-          <svg className="shadow" width={scale || '560px'} viewBox="0 0 564 526" fill="none">
+          <svg className="shadow" style={{ top: shadowOffset, left: shadowOffset }} width={scale || '560px'} viewBox="0 0 564 526" fill="none">
             {
               outlined ? (
                 <path strokeWidth={4} stroke={fill} d="M527.033 389.622C436.448 532.623 235.205 564.82 104.875 458.088C40.8948 405.692 0.0615234 326.061 0.0615234 236.887C0.0615234 167.912 24.4915 104.646 65.1669 55.277C245.214 -124.247 681.887 172.448 527.033 389.622Z" />

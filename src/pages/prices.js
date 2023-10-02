@@ -2,6 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Header from 'src/components/header/Header';
+import useViewport from 'hooks/useViewport';
 import './prices.scss';
 import 'src/styles/reset.scss';
 import 'src/styles/general.scss';
@@ -30,6 +31,8 @@ query {
 `;
 
 export default function PricesPage() {
+  const {isMobile} = useViewport();
+
   const {
     allPricesJson: {
       nodes: prices,
@@ -48,11 +51,11 @@ export default function PricesPage() {
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&family=Open+Sans:wght@400;800&display=swap" rel="stylesheet" />
         <title>EZAC | Tarieven</title>
       </Helmet>
 
-      <Page>
+      <Page className={isMobile ? 'offset-from-top' : ''}>
         <div className="top-title">
           <h2>Onze tarieven</h2>
           <p>Ontdek de tarieven en kosten van het zweefvliegen</p>
