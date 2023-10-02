@@ -3,7 +3,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 300;
 }
 
@@ -91,10 +91,13 @@ p {
 
 form {
   &.dark {
-    input, textarea, select {
-      border: 2px solid white;
-      color: white;
-      background: transparent;
+
+    input,
+    textarea,
+    select {
+      border: none;
+      color: #333;
+      background: white;
 
       &::placeholder {
         color: white;
@@ -102,19 +105,23 @@ form {
     }
 
     .floating-label-field {
-      input + label {
+      input+label {
         opacity: 1;
       }
     }
   }
 
-  input, textarea, select {
+  input,
+  textarea,
+  select {
     padding: 15px;
     margin-bottom: 20px;
-    border: 2px solid black;
+    border: none;
     border-radius: 5px;
+    background: #9dc4ff51;
+    color: #3e506c;
 
-    font-size: 24px;
+    font-size: 16px;
 
     transition: border 0.2s ease-in-out;
 
@@ -122,12 +129,16 @@ form {
       border-width: 4px;
       outline: none;
     }
+
+    &::placeholder {
+      color: #415c88;
+    }
   }
 
   .floating-label-field {
     position: relative;
 
-    & > * {
+    &>* {
       transition: all 0.2s ease-in-out;
     }
 
@@ -136,17 +147,19 @@ form {
         opacity: 0;
       }
 
-      &, & + label {
+      &,
+      &+label {
         font: inherit;
         line-height: normal;
-        font-size: 24px;
+        font-size: 16px;
+        color: #415c88;
+        cursor: pointer;
       }
 
-      & + label {
+      &+label {
         position: absolute;
         top: 18px;
-        left: 19px;
-        opacity: 0.7;
+        left: 17px;
       }
 
       &:focus,
@@ -154,10 +167,10 @@ form {
         padding: 24px 16px 8px 16px;
       }
 
-      &:focus + label,
-      &:not(:placeholder-shown) + label {
-        font-size: 12px;
-        top: 15px;
+      &:focus+label,
+      &:not(:placeholder-shown)+label {
+        font-size: 10px;
+        top: 11px;
       }
     }
   }
@@ -171,13 +184,13 @@ html {
     width: 8px;
     height: 8px;
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background: #c8c8c8;
     border-radius: 8px;
     cursor: pointer;
   }
-  
+
   &::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.01);
   }
