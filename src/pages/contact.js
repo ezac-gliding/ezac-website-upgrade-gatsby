@@ -114,7 +114,7 @@ export default function PricesPage() {
         </div>
 
         <div className="address-box">
-          <iframe title="address" style={{ border: 0 }} loading="lazy" allowFullScreen src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJhzMDpTiAw0cRL2OmMzvncSA&key=${process.env.GOOGLE_MAPS_API_KEY}`} />
+          <iframe title="address" style={{ border: 0 }} loading="lazy" allowFullScreen src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJhzMDpTiAw0cRL2OmMzvncSA&key=${process.env.GATSBY_GOOGLE_MAPS_API_KEY}`} />
           <div className="details">
             <h3>
               <strong>Justaasweg 5</strong>
