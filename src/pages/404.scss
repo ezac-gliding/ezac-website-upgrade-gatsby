@@ -1,8 +1,13 @@
 .not-found-banner {
   display: flex;
+  flex-direction: column-reverse;
   margin: 0 auto;
-  padding-top: 200px;
+  padding: 200px 20px;
   max-width: 580px;
+
+  @media only screen and (min-width: 800px) {
+    flex-direction: row;
+  }
 
   .text {
     max-width: 220px;
@@ -24,7 +29,10 @@
     width: 100%;
     align-self: flex-start;
     font-size: 72px;
-    text-align: center;
     font-weight: bold;
+
+    @media only screen and (min-width: 800px) {
+      text-align: center;
+    }
   }
 }

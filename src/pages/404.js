@@ -3,6 +3,7 @@ import SEO from 'src/components/seo';
 import { Helmet } from 'react-helmet';
 import Header from 'src/components/header/Header';
 import Footer from 'components/footer/Footer';
+import ButtonLink from 'src/components/button/ButtonLink';
 import './404.scss';
 
 const NotFoundPage = () => (
@@ -25,6 +26,7 @@ const NotFoundPage = () => (
       <div className="text">
         <h2>Pagina niet gevonden</h2>
         <p>Het ziet er naar uit dat je een verkeerde link of URL ingegeven hebt. Gebruik de navigatie hierboven om verder te gaan</p>
+        <ButtonLink href="/" className="cta-button">Vlieg terug</ButtonLink>
       </div>
       <h3>PH-404</h3>
     </div>
