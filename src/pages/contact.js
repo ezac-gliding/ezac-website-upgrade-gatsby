@@ -20,6 +20,7 @@ export default function PricesPage() {
   const [subject, setSubject] = useState('');
   const { isMobile } = useViewport();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitFailed, setSubmitFailed] = useState(false);
 
   const encode = (data) => Object.keys(data)
     .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
@@ -48,8 +49,13 @@ export default function PricesPage() {
         message,
         subject,
       }),
-    }).then(() => {
-      setIsSubmitted(true);
+    }).then((response) => {
+      if (response.ok) {
+        setIsSubmitted(true);
+        return;
+      }
+
+      setSubmitFailed(true);
     }).catch((error) => console.error(error));
   };
 
@@ -75,38 +81,56 @@ export default function PricesPage() {
           <p>Vragen? We helpen je graag verder.</p>
         </div>
 
-        <form
-          onSubmit={handleSubmit}
-          className={`${isSubmitted ? 'submitted' : ''}`}
-          data-netlify="true"
-          name="contact"
-          method="POST"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <div className="left">
-            <div className="floating-label-field">
-              <input type="text" name="name" placeholder="Name" value={name} onChange={({ target: { value } }) => setName(value)} required />
-              <label onClick={focusPreviousSibling}>Naam & Voornaam*</label>
-            </div>
-            <div className="floating-label-field">
-              <input type="text" name="email" placeholder="E-mail" value={email} onChange={({ target: { value } }) => setEmail(value)} required />
-              <label onClick={focusPreviousSibling}>E-mail*</label>
-            </div>
-            <div className="floating-label-field">
-              <input type="text" name="phone" placeholder="Phone" value={phone} onChange={({ target: { value } }) => setPhone(value)} pattern="[\+0-9\s]+" />
-              <label onClick={focusPreviousSibling}>GSM</label>
-            </div>
-            <div className="floating-label-field">
-              <input type="text" name="subject" placeholder="subject" value={subject} onChange={({ target: { value } }) => setSubject(value)} required />
-              <label onClick={focusPreviousSibling}>Onderwerp*</label>
-            </div>
-          </div>
-          <div className="right">
-            <textarea name="message" placeholder="Bericht*" value={message} onChange={({ target: { value } }) => setMessage(value)} required />
-          </div>
+        {
+          !isSubmitted ? (
+            <form
+              onSubmit={handleSubmit}
+              className={`${isSubmitted ? 'submitted' : ''}`}
+              data-netlify="true"
+              name="contact"
+              method="POST"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <div className="left">
+                <div className="floating-label-field">
+                  <input type="text" name="name" placeholder="Name" value={name} onChange={({ target: { value } }) => setName(value)} required />
+                  <label onClick={focusPreviousSibling}>Naam & Voornaam*</label>
+                </div>
+                <div className="floating-label-field">
+                  <input type="text" name="email" placeholder="E-mail" value={email} onChange={({ target: { value } }) => setEmail(value)} required />
+                  <label onClick={focusPreviousSibling}>E-mail*</label>
+                </div>
+                <div className="floating-label-field">
+                  <input type="text" name="phone" placeholder="Phone" value={phone} onChange={({ target: { value } }) => setPhone(value)} pattern="[\+0-9\s]+" />
+                  <label onClick={focusPreviousSibling}>GSM</label>
+                </div>
+                <div className="floating-label-field">
+                  <input type="text" name="subject" placeholder="subject" value={subject} onChange={({ target: { value } }) => setSubject(value)} required />
+                  <label onClick={focusPreviousSibling}>Onderwerp*</label>
+                </div>
+              </div>
+              <div className="right">
+                <textarea name="message" placeholder="Bericht*" value={message} onChange={({ target: { value } }) => setMessage(value)} required />
+              </div>
 
-          <Button type="submit">Versturen</Button>
-        </form>
+              <Button type="submit">Versturen</Button>
+
+              {
+                submitFailed ? (
+                  <div className="message-bubble fail">
+                    <p>Er was een probleem tijdens het versturen van het formulier. Gelieve je vraag door te sturen via mail naar: voorziter@ezac.nl</p>
+                  </div>
+                ) : ''
+              }
+            </form>
+          ) : (
+            <div className="contact-confirmation">
+              <div className="message-bubble success">
+                <p>Uw bericht werd verstuurd! Wij zullen spoedig contact opnemen met u</p>
+              </div>
+            </div>
+          )
+        }
 
         <div className="top-title">
           <h2>Locatie</h2>
