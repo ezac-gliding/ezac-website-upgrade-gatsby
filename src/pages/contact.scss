@@ -1,0 +1,103 @@
+@import 'src/styles/constants.scss';
+
+.contact-page {
+  form {
+    margin: 0 auto;
+    margin-bottom: 50px;
+    max-width: 800px;
+    border-radius: 20px;
+
+    @media only screen and (min-width: 800px) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 30px;
+    }
+
+    .left {
+      width: 100%;
+
+      @media only screen and (min-width: 800px) {
+        width: calc(40% - 10px);
+      }
+    }
+
+    .right {
+      margin-top: 10px;
+      width: 100%;
+      height: 320px;
+
+      @media only screen and (min-width: 800px) {
+        margin-top: 0;
+        width: 60%;
+        height: unset;
+      }
+    }
+
+    .floating-label-field:last-of-type {
+
+      input,
+      textarea,
+      select {
+        margin-bottom: 0;
+      }
+    }
+
+    input,
+    textarea,
+    select {
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    textarea {
+      resize: none;
+      width: 100%;
+      min-width: 100%;
+      height: 100%;
+    }
+
+    button[type="submit"] {
+      margin-top: 20px;
+    }
+  }
+
+  .address-box {
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: $ezac-pale-yellow;
+    border-radius: 18px;
+    max-width: 800px;
+
+    iframe {
+      width: 100%;
+      height: 450px;
+    }
+
+    @media only screen and (min-width: 800px) {
+      display: flex;
+
+      iframe {
+        width: 50%;
+        height: unset;
+      }
+    }
+
+    .details {
+      width: 100%;
+      padding: 30px;
+      color: $not-quite-black;
+
+      @media only screen and (min-width: 800px) {
+        width: 50%;
+      }
+
+      h3 {
+        margin-bottom: 30px;
+        font-size: 24px;
+        line-height: 28px;
+        color: $ezac-dark-navy;
+      }
+    }
+  }
+}
