@@ -29,7 +29,7 @@ export default function PricesPage() {
   // We do this because the label is in the way for a big portion of our inputs
   const focusPreviousSibling = (e) => {
     e.preventDefault();
-    e.target.previousElementSibling.focus()
+    e.target.previousElementSibling.focus();
   };
 
   const handleSubmit = (e) => {
@@ -72,7 +72,7 @@ export default function PricesPage() {
       <Page className={isMobile ? 'offset-from-top' : ''}>
         <div className="top-title">
           <h2>Contact</h2>
-          <p>Heeft u nog vragen? We helpen je graag verder</p>
+          <p>Vragen? We helpen je graag verder.</p>
         </div>
 
         <form
@@ -107,6 +107,37 @@ export default function PricesPage() {
 
           <Button type="submit">Versturen</Button>
         </form>
+
+        <div className="top-title">
+          <h2>Locatie</h2>
+          <p>Hoe kan ik de vliegclub bereiken?</p>
+        </div>
+
+        <div className="address-box">
+          <iframe title="address" style={{ border: 0 }} loading="lazy" allowFullScreen src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJhzMDpTiAw0cRL2OmMzvncSA&key=${process.env.GOOGLE_MAPS_API_KEY}`} />
+          <div className="details">
+            <h3>
+              <strong>Justaasweg 5</strong>
+              <br />
+              <strong>4571 NB Axel</strong>
+              <br />
+              Nederland
+            </h3>
+            <p>
+              De EZAC bevindt zich op het
+              <strong> natuurgebied de Smitschorre. </strong>
+              De Justaasweg doorkruist dit gebied en laat u toe met de wagen te rijden tot aan de vliegclub.
+              Om de club te bereiken rijdt u best via de golf in.
+            </p>
+
+            <p>
+              <strong> Let wel: Sommige oudere GPS toestellen sturen u via de Lageweg, </strong>
+              maar van die kant staat er een slagboom die de inrit met wagen verhindert.
+              We raden voor die reden aan te navigeren met Google Maps of Waze.
+            </p>
+          </div>
+
+        </div>
       </Page>
       <Footer />
     </div>
