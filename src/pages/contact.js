@@ -118,7 +118,7 @@ export default function PricesPage() {
               {
                 submitFailed ? (
                   <div className="message-bubble fail">
-                    <p>Er was een probleem tijdens het versturen van het formulier. Gelieve je vraag door te sturen via mail naar: voorziter@ezac.nl</p>
+                    <p>Er was een probleem tijdens het versturen van het formulier. Gelieve je vraag door te sturen via mail naar: voorzitter@ezac.nl</p>
                   </div>
                 ) : ''
               }
