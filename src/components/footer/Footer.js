@@ -28,6 +28,9 @@ export default () => (
               <Link activeClassName="active" to="/club">Onze Club</Link>
             </li>
             <li>
+              <Link activeClassName="active" to="/book-a-flight">Meevliegen</Link>
+            </li>
+            <li>
               <Link activeClassName="active" to="/prices">Tarieven</Link>
             </li>
             <li>
