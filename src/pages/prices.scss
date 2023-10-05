@@ -64,6 +64,13 @@
       text-align: center;
     }
 
+    .spaced-features {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      min-height: 350px;
+    }
+
     .feature-list {
       margin-top: 130px;
       text-align: center;

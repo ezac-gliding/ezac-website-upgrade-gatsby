@@ -31,7 +31,7 @@ query {
 `;
 
 export default function PricesPage() {
-  const {isMobile} = useViewport();
+  const { isMobile } = useViewport();
 
   const {
     allPricesJson: {
@@ -85,15 +85,17 @@ export default function PricesPage() {
                   </span>
                 </div>
 
-                <div className="feature-list">
-                  {
-                    features.map(({ description }) => (
-                      <div key={`${id}-${description}`} className="feature">
-                        <i className="material-symbols-outlined">check_circle</i>
-                        <p>{description}</p>
-                      </div>
-                    ))
-                  }
+                <div className="spaced-features">
+                  <div className="feature-list">
+                    {
+                      features.map(({ description }) => (
+                        <div key={`${id}-${description}`} className="feature">
+                          <i className="material-symbols-outlined">check_circle</i>
+                          <p>{description}</p>
+                        </div>
+                      ))
+                    }
+                  </div>
 
                   <Button>Lid worden</Button>
                 </div>
