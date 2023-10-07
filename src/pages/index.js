@@ -112,7 +112,7 @@ export default function Index() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&family=Open+Sans:wght@400;800&display=swap" rel="stylesheet" />
-        <title>EZAC</title>
+        <title>EZAC | Eerste Zeeuws-Vlaamse Aero Club</title>
       </Helmet>
 
       <ParallaxProvider>

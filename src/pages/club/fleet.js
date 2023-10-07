@@ -5,6 +5,7 @@ import Header from 'src/components/header/Header';
 import Page from 'src/components/UI/Page';
 import Glider from 'src/components/glider/Glider';
 import Footer from 'components/footer/Footer';
+import useViewport from 'hooks/useViewport';
 import 'src/styles/reset.scss';
 import 'src/styles/general.scss';
 import './fleet.scss';
@@ -33,6 +34,7 @@ const query = graphql`
 `;
 
 export default function FleetPage() {
+  const { isMobile } = useViewport();
   const {
     allGlidersJson: {
       nodes: gliders,
@@ -45,11 +47,11 @@ export default function FleetPage() {
       <Helmet>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&family=Open+Sans:wght@400;800&display=swap" rel="stylesheet" />
         <title>EZAC | Vloot</title>
       </Helmet>
 
-      <Page className="offset-from-top">
+      <Page className={isMobile ? 'offset-from-top' : ''}>
         <h2 className="top-title">Ontdek onze vloot</h2>
 
         <p>
