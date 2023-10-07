@@ -1,4 +1,7 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+
+import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Header from 'src/components/header/Header';
@@ -7,9 +10,11 @@ import './prices.scss';
 import 'src/styles/reset.scss';
 import 'src/styles/general.scss';
 import Page from 'components/UI/Page';
+import ButtonLink from 'components/button/ButtonLink';
 import Button from 'components/button/Button';
 import OrnamentalBubble from 'components/floating-elements/bubbles/OrnamentalBubble';
 import Footer from 'components/footer/Footer';
+import Select from 'components/UI/Select';
 
 const pricesQuery = graphql`
 query {
@@ -31,6 +36,12 @@ query {
 `;
 
 export default function PricesPage() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [subscription, setSubscription] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitFailed, setSubmitFailed] = useState(false);
   const { isMobile } = useViewport();
 
   const {
@@ -38,6 +49,42 @@ export default function PricesPage() {
       nodes: prices,
     },
   } = useStaticQuery(pricesQuery);
+
+  const encode = (data) => Object.keys(data)
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&');
+
+  // Handy little util which passes the click through to the input
+  // We do this because the label is in the way for a big portion of our inputs
+  const focusPreviousSibling = (e) => {
+    e.preventDefault();
+    e.target.previousElementSibling.focus();
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    fetch('/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: encode({
+        'form-name': 'lidmaatschap',
+        name,
+        email,
+        phone,
+        subscription,
+      }),
+    }).then((response) => {
+      if (response.ok) {
+        setIsSubmitted(true);
+        return;
+      }
+
+      setSubmitFailed(true);
+    }).catch((error) => console.error(error));
+  };
 
   return (
     <div className="prices-page">
@@ -55,7 +102,7 @@ export default function PricesPage() {
         <title>EZAC | Tarieven</title>
       </Helmet>
 
-      <Page className={isMobile ? 'offset-from-top' : ''}>
+      <Page className={`prices-page ${isMobile ? 'offset-from-top' : ''}`}>
         <div className="top-title">
           <h2>Onze tarieven</h2>
           <p>Ontdek de tarieven en kosten van het zweefvliegen</p>
@@ -97,7 +144,7 @@ export default function PricesPage() {
                     }
                   </div>
 
-                  <Button>Lid worden</Button>
+                  <ButtonLink onClick={() => setSubscription(title)} href="#subscription" className="cta-button">Lid worden</ButtonLink>
                 </div>
               </div>
             ))
@@ -179,6 +226,60 @@ export default function PricesPage() {
             </table> */}
           </div>
         </section>
+
+        <div id="subscription" className="middle-title">
+          <h2>Inschrijven</h2>
+          <p>Inschrijven kan je door het formulier hieronder in te vullen</p>
+        </div>
+
+        {
+          !isSubmitted ? (
+            <form
+              onSubmit={handleSubmit}
+              data-netlify="true"
+              name="lidmaatschap"
+              className={`${isSubmitted ? 'submitted' : ''}`}
+              method="POST"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+
+              <Select value={subscription} onChange={setSubscription}>
+                <option>Vliegend lid</option>
+                <option>Tienrittenkaart</option>
+                <option>Donateur</option>
+              </Select>
+
+              <div className="floating-label-field">
+                <input type="text" name="name" placeholder="Name" value={name} onChange={({ target: { value } }) => setName(value)} required />
+                <label onClick={focusPreviousSibling}>Naam & Voornaam*</label>
+              </div>
+              <div className="floating-label-field">
+                <input type="text" name="email" placeholder="E-mail" value={email} onChange={({ target: { value } }) => setEmail(value)} required />
+                <label onClick={focusPreviousSibling}>E-mail*</label>
+              </div>
+              <div className="floating-label-field">
+                <input type="text" name="phone" placeholder="Phone" value={phone} onChange={({ target: { value } }) => setPhone(value)} pattern="[\+0-9\s]+" />
+                <label onClick={focusPreviousSibling}>GSM</label>
+              </div>
+
+              <Button type="submit">Inschrijven</Button>
+
+              {
+                submitFailed ? (
+                  <div className="message-bubble fail">
+                    <p>Er was een probleem tijdens het versturen van het formulier. Gelieve je aanvraag door te sturen via mail naar: voorzitter@ezac.nl</p>
+                  </div>
+                ) : ''
+              }
+            </form>
+          ) : (
+            <div className="contact-confirmation">
+              <div className="message-bubble success">
+                <p>Uw aanvraag voor lidmaatschap werd geregistreerd! Wij zullen spoedig contact opnemen met u.</p>
+              </div>
+            </div>
+          )
+        }
       </Page>
       <Footer />
     </div>
