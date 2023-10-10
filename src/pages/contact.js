@@ -76,10 +76,8 @@ export default function PricesPage() {
       </Helmet>
 
       <Page className={isMobile ? 'offset-from-top' : ''}>
-        <div className="top-title">
-          <h2>Contact</h2>
-          <p>Vragen? We helpen je graag verder.</p>
-        </div>
+        <h2>Contact</h2>
+        <h3>Vragen? We helpen je graag verder.</h3>
 
         {
           !isSubmitted ? (
@@ -132,10 +130,8 @@ export default function PricesPage() {
           )
         }
 
-        <div className="top-title">
-          <h2>Locatie</h2>
-          <p>Hoe kan ik de vliegclub bereiken?</p>
-        </div>
+        <h2>Locatie</h2>
+        <h3>Hoe kan ik de vliegclub bereiken?</h3>
 
         <div className="address-box">
           <iframe title="address" style={{ border: 0 }} loading="lazy" allowFullScreen src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJhzMDpTiAw0cRL2OmMzvncSA&key=${process.env.GATSBY_GOOGLE_MAPS_API_KEY}`} />

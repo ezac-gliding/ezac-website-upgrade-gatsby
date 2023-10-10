@@ -1,11 +1,8 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-
-import React from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 import Header from 'src/components/header/Header';
 import useViewport from 'hooks/useViewport';
-import './contact.scss';
+import './book-a-flight.scss';
 import 'src/styles/reset.scss';
 import 'src/styles/general.scss';
 import Page from 'components/UI/Page';
@@ -13,9 +10,41 @@ import Footer from 'components/footer/Footer';
 
 export default function PricesPage() {
   const { isMobile } = useViewport();
+  const [slots, setSlots] = useState({});
+
+  useEffect(() => {
+    fetch('https://dev.ezac.nl/api/v2/passagiers/slots', {
+      method: 'GET',
+      headers: {
+        'Access-Control-Allow-Origin': 'ezac.nl',
+      },
+    }).then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+
+      console.error('Could not fetch available slots');
+      return {};
+    }).then((result) => {
+      setSlots(result);
+    }).catch((error) => console.error(error));
+  }, []);
+
+  const availableSlots = useMemo(() => {
+    // Filter out all days with no more available slots
+    const availableSlotsUnformatted = Object.entries(slots).filter(([day, slotsForDay]) => Object.values(slotsForDay).some((slotForDay) => slotForDay === ''));
+
+    return availableSlotsUnformatted.map(([day, slotsForDay]) => ({
+      day,
+      slots: Object.entries(slotsForDay).map(([hour, occupant]) => ({
+        hour,
+        occupied: occupant !== '',
+      })),
+    }));
+  }, [slots]);
 
   return (
-    <div className="contact-page">
+    <div className="book-a-flight-page">
       <Header />
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -31,6 +60,19 @@ export default function PricesPage() {
       </Helmet>
 
       <Page className={isMobile ? 'offset-from-top' : ''}>
+        <h2>Vlieg mee</h2>
+        <h3>Reserveer een meevlucht voor jezelf of een vriend</h3>
+
+        <div className="flight-booking-widget">
+          {
+            availableSlots.map(({
+              day,
+              slot
+            }) => (
+              <h4>Day: {day}</h4>
+            ))
+          }
+        </div>
       </Page>
       <Footer />
     </div>
