@@ -114,6 +114,10 @@ export default function PricesPage() {
   };
 
   const scrollTo = (hash) => {
+    if (!isMobile) {
+      return;
+    }
+
     window.location.hash = `#${hash}`;
   };
 
