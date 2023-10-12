@@ -201,20 +201,22 @@ export default function PricesPage() {
               </div>
             ) : (
               <>
-                <a id="days" className="hidden anchor" />
-                <span className="column-title">Selecteer dag</span>
-                <div className="days">
-                  {
-                    availableDays.map(({
-                      day,
-                    }) => (
-                      <span key={day} onClick={() => selectDay(day)} className={`day ${selectedDay === day ? 'selected' : ''}`}>{dayjs(day).format('ddd D MMM')}</span>
-                    ))
-                  }
+                <div className="day-column">
+                  <a id="days" className="hidden anchor" />
+                  <span className="column-title">Selecteer dag</span>
+                  <div className="days">
+                    {
+                      availableDays.map(({
+                        day,
+                      }) => (
+                        <span key={day} onClick={() => selectDay(day)} className={`day ${selectedDay === day ? 'selected' : ''}`}>{dayjs(day).format('ddd D MMM')}</span>
+                      ))
+                    }
+                  </div>
                 </div>
                 {
                   selectedHours && selectedHours.length ? (
-                    <>
+                    <div className="hour-column">
                       <a id="hours" className="hidden anchor" />
                       <span className="column-title">Selecteer uur</span>
                       <div className="hours">
@@ -227,7 +229,7 @@ export default function PricesPage() {
                           ))
                         }
                       </div>
-                    </>
+                    </div>
                   ) : ''
                 }
                 <div className="guide">
