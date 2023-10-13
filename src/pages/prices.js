@@ -105,7 +105,7 @@ export default function PricesPage() {
       <Page className={`prices-page ${isMobile ? 'offset-from-top' : ''}`}>
         <div className="top-title">
           <h2>Onze tarieven</h2>
-          <p>Ontdek de tarieven en kosten van het zweefvliegen</p>
+          <h3>Ontdek de tarieven en kosten van het zweefvliegen</h3>
         </div>
 
         <div className="all-prices">
@@ -229,7 +229,7 @@ export default function PricesPage() {
 
         <div id="subscription" className="middle-title">
           <h2>Inschrijven</h2>
-          <p>Inschrijven kan je door het formulier hieronder in te vullen</p>
+          <h3>Inschrijven kan je door het formulier hieronder in te vullen</h3>
         </div>
 
         {

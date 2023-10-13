@@ -1,7 +1,9 @@
 @import 'src/styles/constants.scss';
 
 .contact-page {
-  text-align: center;
+  .page {
+    text-align: center;
+  }
 
   h2 {
     margin: 0 auto 20px auto;
@@ -55,7 +57,6 @@
     }
 
     .floating-label-field:last-of-type {
-
       input,
       textarea,
       select {
@@ -83,7 +84,7 @@
   }
 
   .address-box {
-    margin: 0 auto;
+    margin: 40px auto;
     overflow: hidden;
     background-color: $ezac-pale-yellow;
     border-radius: 18px;

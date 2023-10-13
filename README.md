@@ -15,6 +15,17 @@
 
 ## 🚀 Quickstart
 
+### Environment
+
+Create a file named `.env.development` in the root of your project, and add the following (make sure to substitute):
+
+```
+GATSBY_GOOGLE_MAPS_API_KEY=<ask Rafaël>
+GATSBY_BASIC_AUTH_KEY=<ask Rafaël or consult docs>
+GATSBY_EZAC_API_URL=<https://dev.ezac.nl> OR <https://ezac.nl>
+```
+
+### Run locally
 ```
 npm install
 npm start

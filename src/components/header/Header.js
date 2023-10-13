@@ -45,6 +45,9 @@ export default function Header({
               <Link partiallyActive activeClassName="active" onClick={closeMenu} to="/club">Onze Club</Link>
             </li>
             <li>
+              <Link partiallyActive activeClassName="active" onClick={closeMenu} to="/book-a-flight">Meevliegen</Link>
+            </li>
+            <li>
               <Link partiallyActive activeClassName="active" onClick={closeMenu} to="/prices">Tarieven</Link>
             </li>
             <li>

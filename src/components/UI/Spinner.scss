@@ -1,0 +1,10 @@
+@import 'src/styles/constants.scss';
+
+.spinner {
+  animation: v1rotate 2s infinite;
+  animation-timing-function: linear;
+
+  @keyframes v1rotate {
+    100% {transform: rotate(360deg);}
+  }
+}
