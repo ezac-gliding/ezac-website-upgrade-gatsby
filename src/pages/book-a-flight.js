@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable jsx-a11y/anchor-has-content */
@@ -15,6 +16,7 @@ import Footer from 'components/footer/Footer';
 import Button from 'components/button/Button';
 import Spinner from 'components/UI/Spinner';
 import Checkmark from 'components/UI/Checkmark';
+import Error from 'components/UI/Error';
 import './book-a-flight.scss';
 import 'src/styles/reset.scss';
 import 'src/styles/general.scss';
@@ -31,6 +33,7 @@ export default function PricesPage() {
   const [formIsSubmitted, setSubmitted] = useState(false);
 
   const [isLoading, setLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [busySubmitting, setBusySubmitting] = useState(false);
   const [CSRFToken, setCSRFToken] = useState();
 
@@ -61,11 +64,16 @@ export default function PricesPage() {
       }
 
       console.error('Could not fetch available slots');
+      setLoading(false);
+      setIsError(true);
       return {};
     }).then((result) => {
       setLoading(false);
       setSlots(result);
-    }).catch((error) => console.error(error));
+    }).catch((error) => {
+      setIsError(true);
+      return console.error(error);
+    });
   }, []);
 
   const availableDays = useMemo(() => {
@@ -167,9 +175,13 @@ export default function PricesPage() {
       }
 
       setBusySubmitting(false);
+      setIsError(true);
       console.error('Could not book the flight!');
       return {};
-    }).catch((error) => console.error(error));
+    }).catch((error) => {
+      setIsError(true);
+      return console.error(error);
+    });
   };
 
   return (
@@ -194,7 +206,12 @@ export default function PricesPage() {
 
         <div className="flight-booking-widget">
           {
-            isLoading ? (
+            isError ? (
+              <div className="error-indicator">
+                <p>Er is een probleem met ons boekingsysteem...</p>
+                <Error />
+              </div>
+            ) : isLoading ? (
               <div className="loading-indicator">
                 <p>Beschikbare data ophalen...</p>
                 <Spinner />
@@ -278,8 +295,8 @@ export default function PricesPage() {
             )
           }
         </div>
-      </Page >
+      </Page>
       <Footer />
-    </div >
+    </div>
   );
 }

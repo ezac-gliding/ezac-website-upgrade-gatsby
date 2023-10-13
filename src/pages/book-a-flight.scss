@@ -4,6 +4,24 @@
   .page {
     text-align: center;
 
+    .error-indicator {
+      width: 100%;
+      background-color: $color-fail;
+
+      p {
+        margin-top: 50px;
+        margin-bottom: 30px;
+        color: darken($color-fail, 50%);
+      }
+
+      .error-icon {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 50px;
+        fill: $ezac-red;
+      }
+    }
+
     a.hidden.anchor {
       display: block;
       position: relative;
