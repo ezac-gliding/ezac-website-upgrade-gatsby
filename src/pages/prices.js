@@ -156,13 +156,16 @@ export default function PricesPage() {
           <div className="explanation">
             <p>
               Naast je lidmaatschap bij de EZAC zijn er nog een aantal kosten buiten de club.
-              De medische keuring en de verzekering (KNVvL). Dit moet je zelf in orde brengen buiten de club, maar we helpen je daarme graag op weg.
-              De verzekering is jaarlijks en de medische keuring is meerdere jaren geldig afhankelijk van je leeftijd.
+              <strong> De medische keuring en de verzekering (KNVvL). </strong>
+              Dit moet je zelf in orde brengen buiten de club, maar we helpen je daarme graag op weg.
+              <strong> De verzekering is jaarlijks en de medische keuring is meerdere jaren geldig afhankelijk van je leeftijd. </strong>
             </p>
 
             <p>
               We hebben de totale kost opgesomd in een kostenplaatje. De totale kostprijs van je eerste jaar ligt iets hoger omwille van het eenmalige entreegeld en de medische keuring.
-              Meeste van de vaste leden betalen iets rond de €1.000 jaarlijks. Daarin zitten alle andere kosten meteen ook vervat, en hoef je niet extra te betalen per start of per minuut, wat in andere clubs vaak wel het geval is.
+              Meeste van de vaste leden betalen iets rond de €1.000 jaarlijks.
+              <strong> Daarin zitten alle andere kosten meteen ook vervat, en hoef je niet extra te betalen per start of per minuut, </strong>
+              wat in andere clubs vaak wel het geval is.
             </p>
 
             <p className="small-letters">
