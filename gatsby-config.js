@@ -15,6 +15,7 @@ module.exports = {
     description: `Zweefvliegen in Zeeuws Vlaanderen.`,
     author: `@ezac-dream-team`,
   },
+  trailingSlash: 'never',
   plugins: [
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',

@@ -16,7 +16,7 @@ import 'src/styles/general.scss';
 
 const clubTextsQuery = graphql`
 query {
-  allClubTextsJson {
+  allClubStoriesJson {
     nodes {
       alignRight
       order
@@ -58,7 +58,7 @@ export default function OurClubPage() {
   const { isMobile } = useViewport();
 
   const {
-    allClubTextsJson: {
+    allClubStoriesJson: {
       nodes: clubTexts,
     },
   } = useStaticQuery(clubTextsQuery);
