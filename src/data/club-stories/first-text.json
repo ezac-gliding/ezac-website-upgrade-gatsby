@@ -1,31 +1,34 @@
 {
-  "backgroundColor": "#FFF1A7",
-  "content": "# Wat maakt de EZAC zo uniek?\n\nDe EZAC is een club bestaande uit zowel Nederlandse als Belgische leden. Alles binnen de club, van onderhoud aan de vliegtuigen, de lier, het veld, **wordt volledig door haar leden ondernomen** zonder betrokkenheid van externe partijen.\n\nDe club en haar leden ondernemen kortom alles zelf en beschikken ook over de nodige expertise. We leren je graag tijdens het winterwerk meer over die technieken, en je leert zelf bij welk onderhoud er bij een zweefvliegtuig hoort, en hoe je dit in de toekomst zelf kan uitvoeren.",
-  "alignRight": false,
-  "textColor": "white",
   "spaceBelow": 280,
-  "order": 0,
   "bubble": {
+    "rotateEnd": 0,
+    "color": "#244059",
+    "rotationStart": -90,
+    "rotateStart": 0,
     "scale": 880,
     "xOffset": -320,
     "yOffset": -150,
-    "rotationStart": -90,
-    "rotationEnd": -100,
-    "color": "#244059",
     "parallaxSpeed": -5,
-    "fromRight": false
+    "fromRight": false,
+    "rotationEnd": -100
   },
+  "order": 0,
+  "backgroundColor": "#FFF1A7",
+  "textColor": "white",
+  "alignRight": false,
+  "title": "Wat maakt de EZAC zo uniek?",
+  "content": "# Wat maakt de EZAC zo uniek?\n\nDe EZAC is een club bestaande uit zowel Nederlandse als Belgische leden. Alles binnen de club, van onderhoud aan de vliegtuigen, de lier, het veld, **wordt volledig door haar leden ondernomen** zonder betrokkenheid van externe partijen.\n\nDe club en haar leden ondernemen kortom alles zelf en beschikken ook over de nodige expertise. We leren je graag tijdens het winterwerk meer over die technieken, en je leert zelf bij welk onderhoud er bij een zweefvliegtuig hoort. Dan beschik je over de nodige kennis om dat in de toekomst zelf uit te voeren op de clubvloot of je eigen vliegtuig.",
   "image": {
-    "useAlternate": false,
-    "source": "assets/working-together.jpg",
-    "shadow": true,
-    "imagePosX": -300,
     "imagePosY": -50,
-    "xOffset": 500,
-    "yOffset": 90,
-    "fromRight": true,
+    "shadow": true,
     "outline": false,
     "color": "#244059",
-    "parallaxSpeed": 4
+    "xOffset": 500,
+    "yOffset": 90,
+    "parallaxSpeed": 4,
+    "fromRight": true,
+    "useAlternate": false,
+    "source": "assets/working-together.jpg",
+    "imagePosX": -300
   }
 }
