@@ -202,7 +202,7 @@ export default function PricesPage() {
 
       <Page className={isMobile ? 'offset-from-top' : ''}>
         <h2>Vlieg mee</h2>
-        <h3>Reserveer een meevlucht voor jezelf of een vriend</h3>
+        <h3>Reserveer een introductievlucht/vlucht voor jezelf, of om cadeau te doen voor iemand anders.</h3>
 
         <div className="flight-booking-widget">
           {

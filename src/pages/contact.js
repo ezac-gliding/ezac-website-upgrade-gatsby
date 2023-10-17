@@ -100,7 +100,7 @@ export default function PricesPage() {
                 </div>
                 <div className="floating-label-field">
                   <input type="text" name="phone" placeholder="Phone" value={phone} onChange={({ target: { value } }) => setPhone(value)} pattern="[\+0-9\s]+" />
-                  <label onClick={focusPreviousSibling}>GSM</label>
+                  <label onClick={focusPreviousSibling}>Mobiel</label>
                 </div>
                 <div className="floating-label-field">
                   <input type="text" name="subject" placeholder="subject" value={subject} onChange={({ target: { value } }) => setSubject(value)} required />

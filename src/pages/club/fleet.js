@@ -55,7 +55,7 @@ export default function FleetPage() {
         <h2 className="top-title">Ontdek onze vloot</h2>
 
         <p>
-          De EZAC bezit een moderne vloot van een- en tweezitters!. De toestellen bezitten up-to-date navigatie en hoogwardige instrumenten.
+          De EZAC bezit een moderne vloot van een- en tweezitters! De toestellen bezitten up-to-date navigatie en hoogwardige instrumenten.
           Elke winter worden de toestellen voorzien van een grondig onderhoud en technisch nazicht.
         </p>
 
