@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import fbImage from 'src/img/fb.svg';
 import instaImage from 'src/img/insta.svg';
+import youtubeImage from 'src/img/youtube.svg';
 import logo from 'src/img/EZAC_logo.svg';
 import './Footer.scss';
 
@@ -47,6 +48,7 @@ export default () => (
           <h3>Follow us</h3>
           <a href="https://nl-nl.facebook.com/ezaczweefvliegclub/"><img src={fbImage} alt="Facebook" /></a>
           <a href="https://www.instagram.com/ezac_zweefvliegclub"><img src={instaImage} alt="Instagram" /></a>
+          <a href="https://www.youtube.com/@ezaczweefvliegclub5682"><img src={youtubeImage} alt="YouTube" /></a>
         </div>
       </div>
     </div>
