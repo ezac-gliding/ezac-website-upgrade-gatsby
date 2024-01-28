@@ -17,6 +17,7 @@ import Button from 'components/button/Button';
 import Spinner from 'components/UI/Spinner';
 import Checkmark from 'components/UI/Checkmark';
 import Error from 'components/UI/Error';
+import Select from 'components/UI/Select';
 import './book-a-flight.scss';
 import 'src/styles/reset.scss';
 import 'src/styles/general.scss';
@@ -31,6 +32,12 @@ export default function PricesPage() {
   const [passengerEmail, setPassengerEmail] = useState('');
   const [passengerPhone, setPassengerPhone] = useState('');
   const [formIsSubmitted, setSubmitted] = useState(false);
+
+  const [waitlistSubmitted, setWaitlistSubmitted] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [waitlistSubmitFailed, setWaitlistSubmitFailed] = useState(false);
 
   const [isLoading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -103,6 +110,10 @@ export default function PricesPage() {
   const guideToDisplay = useMemo(() => {
     if (formIsSubmitted) {
       return 'Uw vlucht werd geboekt! U zult een bevestiging krijgen in uw mailbox.';
+    }
+
+    if (!availableDays.length) {
+      return 'Er zijn geen beschikbare slots meer';
     }
 
     if (availableDays && !selectedDay) {
@@ -184,6 +195,10 @@ export default function PricesPage() {
     });
   };
 
+  const handleSubmitToWaitlist = () => {
+
+  };
+
   return (
     <div className="book-a-flight-page">
       <Header />
@@ -218,21 +233,25 @@ export default function PricesPage() {
               </div>
             ) : (
               <>
-                <div className="day-column">
-                  <a id="days" className="hidden anchor" />
-                  <span className="column-title">Selecteer dag</span>
-                  <div className="days">
-                    {
-                      availableDays.map(({
-                        day,
-                      }) => (
-                        <span key={day} onClick={() => selectDay(day)} className={`day ${selectedDay === day ? 'selected' : ''}`}>{dayjs(day).format('ddd D MMM')}</span>
-                      ))
-                    }
-                  </div>
-                </div>
                 {
-                  selectedHours && selectedHours.length ? (
+                  availableDays.length ? (
+                    <div className="day-column">
+                      <a id="days" className="hidden anchor" />
+                      <span className="column-title">Selecteer dag</span>
+                      <div className="days">
+                        {
+                          availableDays.map(({
+                            day,
+                          }) => (
+                            <span key={day} onClick={() => selectDay(day)} className={`day ${selectedDay === day ? 'selected' : ''}`}>{dayjs(day).format('ddd D MMM')}</span>
+                          ))
+                        }
+                      </div>
+                    </div>
+                  ) : ''
+                }
+                {
+                  availableDays.length && selectedHours && selectedHours.length ? (
                     <div className="hour-column">
                       <a id="hours" className="hidden anchor" />
                       <span className="column-title">Selecteer uur</span>
@@ -295,6 +314,72 @@ export default function PricesPage() {
             )
           }
         </div>
+
+        <h2>Zet jezelf op de wachtlijst</h2>
+        <h3>Als er geen slots meer beschikbaar zijn, kan je jezelf ook aanmelden op onze wachtlijst.</h3>
+
+        {
+          !waitlistSubmitted ? (
+            <form
+              onSubmit={handleSubmitToWaitlist}
+              data-netlify="true"
+              name="lidmaatschap"
+              className={`waitlist ${waitlistSubmitted ? 'submitted' : ''}`}
+              method="POST"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+
+              <div className="floating-label-field">
+                <input type="text" name="name" placeholder="Name" value={name} onChange={({ target: { value } }) => setName(value)} required />
+                <label onClick={focusPreviousSibling}>Naam*</label>
+              </div>
+              <div className="floating-label-field">
+                <input type="text" name="email" placeholder="E-mail" value={email} onChange={({ target: { value } }) => setEmail(value)} required />
+                <label onClick={focusPreviousSibling}>E-mail*</label>
+              </div>
+              <div className="floating-label-field">
+                <input type="text" name="phone" placeholder="Phone" value={phone} onChange={({ target: { value } }) => setPhone(value)} pattern="[\+0-9\s]+" />
+                <label onClick={focusPreviousSibling}>Mobiel</label>
+              </div>
+
+              <Select>
+                {
+                  availableDays.map(({
+                    day,
+                  }) => (
+                    <option>{dayjs(day).format('ddd D MMM')}</option>
+                  ))
+                }
+              </Select>
+
+              <Select>
+                {
+                  availableDays.map(({
+                    day,
+                  }) => (
+                    <option>{dayjs(day).format('ddd D MMM')}</option>
+                  ))
+                }
+              </Select>
+
+              <Button type="submit">Op de wachtlijst zetten</Button>
+
+              {
+                waitlistSubmitFailed ? (
+                  <div className="message-bubble fail">
+                    <p>Er was een probleem tijdens het versturen van het formulier. Gelieve je aanvraag door te sturen via mail naar: voorzitter@ezac.nl</p>
+                  </div>
+                ) : ''
+              }
+            </form>
+          ) : (
+            <div className="contact-confirmation">
+              <div className="message-bubble success">
+                <p>Uw aanvraag voor lidmaatschap werd geregistreerd! Wij zullen spoedig contact opnemen met u.</p>
+              </div>
+            </div>
+          )
+        }
       </Page>
       <Footer />
     </div>

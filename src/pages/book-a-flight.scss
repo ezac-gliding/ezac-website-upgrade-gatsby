@@ -60,6 +60,7 @@
 
     .flight-booking-widget {
       margin-top: 50px;
+      margin-bottom: 80px;
       border: 3px solid #ddd;
       border-radius: 10px;
       overflow: hidden;
@@ -151,7 +152,7 @@
       }
     }
 
-    form {
+    form.personal-details {
       margin-top: 30px;
 
       button {
@@ -165,6 +166,24 @@
           width: 100%;
           background-color: white;
         }
+      }
+    }
+  }
+
+  form.waitlist {
+    margin: 50px auto 0 auto;
+    max-width: 450px;
+
+    input,
+    .ezac-select {
+      width: 100%;
+    }
+
+    .message-bubble {
+      margin-top: 30px;
+
+      p {
+        margin: 0;
       }
     }
   }
