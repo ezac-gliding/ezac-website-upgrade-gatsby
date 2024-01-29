@@ -34,10 +34,13 @@ export default function PricesPage() {
   const [formIsSubmitted, setSubmitted] = useState(false);
 
   const [waitlistSubmitted, setWaitlistSubmitted] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  const [waitlistName, setWaitlistName] = useState('');
+  const [waitlistEmail, setWaitlistEmail] = useState('');
+  const [waitlistPhone, setWaitlistPhone] = useState('');
+  const [waitlistFromDate, setWaitlistFromDate] = useState('');
+  const [waitlistToDate, setWaitlistToDate] = useState('');
   const [waitlistSubmitFailed, setWaitlistSubmitFailed] = useState(false);
+  const [waitlistErrors, setWaitlistErrors] = useState([]);
 
   const [isLoading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -127,6 +130,13 @@ export default function PricesPage() {
     return 'Vul je gegevens in';
   }, [selectedHours, selectedHour, selectedDay, availableDays, formIsSubmitted]);
 
+  useEffect(() => {
+    if (availableDays.length) {
+      setWaitlistFromDate(availableDays[0].day);
+      setWaitlistToDate(availableDays[availableDays.length - 1].day);
+    }
+  }, [availableDays]);
+
   const focusPreviousSibling = (e) => {
     e.preventDefault();
     e.target.previousElementSibling.focus();
@@ -166,7 +176,6 @@ export default function PricesPage() {
 
     setBusySubmitting(true);
 
-    // Load in slots
     fetch(`${process.env.GATSBY_EZAC_API_URL}/api/v2/passagiers?_format=json&naam=${passengerName}&telefoon=${passengerPhone}&email=${passengerEmail}&datum=${selectedDay}&tijd=${selectedHour}`, {
       method: 'POST',
       headers: {
@@ -195,8 +204,50 @@ export default function PricesPage() {
     });
   };
 
-  const handleSubmitToWaitlist = () => {
+  const handleSubmitToWaitlist = (e) => {
+    e.preventDefault();
 
+    if (dayjs(waitlistFromDate).isAfter(dayjs(waitlistToDate).add(1, 'day'), 'day')) {
+      setWaitlistErrors([{
+        id: 'date-range-inverted',
+        reason: 'De opgegeven periode is ongeldig. De start van de periode ligt na het einde',
+      }]);
+      return;
+    }
+
+    if (!waitlistName || !waitlistPhone || !waitlistEmail || !waitlistFromDate || !waitlistToDate) {
+      return;
+    }
+
+    setBusySubmitting(true);
+    setWaitlistErrors([]);
+    setWaitlistSubmitFailed(false);
+    setWaitlistSubmitted(false);
+
+    fetch(`${process.env.GATSBY_EZAC_API_URL}/api/v2/passagiers/wachtlijst?_format=json&naam=${waitlistName}&telefoon=${waitlistPhone}&email=${waitlistEmail}&datum_van=${waitlistFromDate}&datum_tot=${waitlistToDate}`, {
+      method: 'POST',
+      headers: {
+        'Access-Control-Allow-Origin': 'ezac.nl',
+        Authorization: `Basic ${process.env.GATSBY_BASIC_AUTH_KEY}`,
+        'X-CSRF-Token': CSRFToken,
+        'Content-Type': 'application/json',
+      },
+    }).then((response) => {
+      if (response.ok) {
+        setBusySubmitting(false);
+        setWaitlistSubmitted(true);
+
+        return response.json();
+      }
+
+      setBusySubmitting(false);
+      setWaitlistSubmitFailed(true);
+      console.error('Could not book the flight!');
+      return {};
+    }).catch((error) => {
+      setWaitlistSubmitFailed(true);
+      return console.error(error);
+    });
   };
 
   return (
@@ -315,70 +366,86 @@ export default function PricesPage() {
           }
         </div>
 
-        <h2>Zet jezelf op de wachtlijst</h2>
-        <h3>Als er geen slots meer beschikbaar zijn, kan je jezelf ook aanmelden op onze wachtlijst.</h3>
 
         {
-          !waitlistSubmitted ? (
-            <form
-              onSubmit={handleSubmitToWaitlist}
-              data-netlify="true"
-              name="lidmaatschap"
-              className={`waitlist ${waitlistSubmitted ? 'submitted' : ''}`}
-              method="POST"
-            >
-              <input type="hidden" name="form-name" value="contact" />
+          availableDays.length ? (
+            <>
+              <h3>Je kan jezelf hieronder ook inschrijven op de wachtlijst voor een specifieke periode</h3>
+              <form
+                onSubmit={handleSubmitToWaitlist}
+                className={`waitlist ${waitlistSubmitted ? 'submitted' : ''}`}
+              >
+                <input type="hidden" name="form-name" value="contact" />
 
-              <div className="floating-label-field">
-                <input type="text" name="name" placeholder="Name" value={name} onChange={({ target: { value } }) => setName(value)} required />
-                <label onClick={focusPreviousSibling}>Naam*</label>
-              </div>
-              <div className="floating-label-field">
-                <input type="text" name="email" placeholder="E-mail" value={email} onChange={({ target: { value } }) => setEmail(value)} required />
-                <label onClick={focusPreviousSibling}>E-mail*</label>
-              </div>
-              <div className="floating-label-field">
-                <input type="text" name="phone" placeholder="Phone" value={phone} onChange={({ target: { value } }) => setPhone(value)} pattern="[\+0-9\s]+" />
-                <label onClick={focusPreviousSibling}>Mobiel</label>
-              </div>
+                <div className="floating-label-field">
+                  <input type="text" name="name" placeholder="Name" value={waitlistName} onChange={({ target: { value } }) => setWaitlistName(value)} required />
+                  <label onClick={focusPreviousSibling}>Naam*</label>
+                </div>
+                <div className="floating-label-field">
+                  <input type="text" name="email" placeholder="E-mail" value={waitlistEmail} onChange={({ target: { value } }) => setWaitlistEmail(value)} required />
+                  <label onClick={focusPreviousSibling}>E-mail*</label>
+                </div>
+                <div className="floating-label-field">
+                  <input type="text" name="phone" placeholder="Phone" value={waitlistPhone} onChange={({ target: { value } }) => setWaitlistPhone(value)} required pattern="[\+0-9\s]+" />
+                  <label onClick={focusPreviousSibling}>Mobiel*</label>
+                </div>
 
-              <Select>
+                <label>Vanaf wanneer wil je mee vliegen?</label>
+                <Select value={waitlistFromDate} onChange={setWaitlistFromDate}>
+                  {
+                    availableDays.map(({
+                      day,
+                    }) => (
+                      <option key={day} value={day}>{dayjs(day).format('ddd D MMM')}</option>
+                    ))
+                  }
+                </Select>
+
+                <label>Tot wanneer wil je op de wachtlijst?</label>
+                <Select value={waitlistToDate} onChange={setWaitlistToDate}>
+                  {
+                    availableDays.map(({
+                      day,
+                    }) => (
+                      <option key={day} value={day}>{dayjs(day).format('ddd D MMM')}</option>
+                    ))
+                  }
+                </Select>
+
+                <Button type="submit">
+                  {
+                    busySubmitting ? (
+                      <Spinner />
+                    ) : 'Op de wachtlijst zetten'
+                  }
+                </Button>
+
                 {
-                  availableDays.map(({
-                    day,
-                  }) => (
-                    <option>{dayjs(day).format('ddd D MMM')}</option>
+                  waitlistSubmitFailed ? (
+                    <div className="message-bubble fail">
+                      <p>Er was een probleem tijdens het versturen van het formulier. Gelieve je aanvraag door te sturen via mail naar: voorzitter@ezac.nl</p>
+                    </div>
+                  ) : ''
+                }
+                {
+                  waitlistErrors.map(({ id, reason }) => (
+                    <div key={id} className="message-bubble fail">
+                      <p>{reason}</p>
+                    </div>
                   ))
                 }
-              </Select>
-
-              <Select>
                 {
-                  availableDays.map(({
-                    day,
-                  }) => (
-                    <option>{dayjs(day).format('ddd D MMM')}</option>
-                  ))
+                  waitlistSubmitted ? (
+                    <div className="contact-confirmation">
+                      <div className="message-bubble success">
+                        <p>U werd op de wachtlijst gezet van {dayjs(waitlistFromDate).format('dddd D MMMM')} tot {dayjs(waitlistToDate).format('dddd D MMMM')}. U zult hier via email bevestiging ontvangen.</p>
+                      </div>
+                    </div>
+                  ) : ''
                 }
-              </Select>
-
-              <Button type="submit">Op de wachtlijst zetten</Button>
-
-              {
-                waitlistSubmitFailed ? (
-                  <div className="message-bubble fail">
-                    <p>Er was een probleem tijdens het versturen van het formulier. Gelieve je aanvraag door te sturen via mail naar: voorzitter@ezac.nl</p>
-                  </div>
-                ) : ''
-              }
-            </form>
-          ) : (
-            <div className="contact-confirmation">
-              <div className="message-bubble success">
-                <p>Uw aanvraag voor lidmaatschap werd geregistreerd! Wij zullen spoedig contact opnemen met u.</p>
-              </div>
-            </div>
-          )
+              </form>
+            </>
+          ) : ''
         }
       </Page>
       <Footer />
