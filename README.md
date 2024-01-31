@@ -27,7 +27,7 @@ GATSBY_EZAC_API_URL=<https://dev.ezac.nl> OR <https://ezac.nl>
 
 ### Run locally
 ```
-npm install
+npm install --legacy-peer-deps
 npm start
 ```
 
