@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const MOBILE_BREAKPOINT_WIDTH = 800;
+const MOBILE_BREAKPOINT_WIDTH = 766;
 
 /**
  * @author Rafaël Mindreau

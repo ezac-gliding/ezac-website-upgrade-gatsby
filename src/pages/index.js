@@ -224,7 +224,7 @@ export default function Index() {
             <div className="wrapper">
               <Parallax
                 style={{
-                  top: -120,
+                  top: -90,
                   right: 'unset',
                   left: -180,
                   zIndex: isMobile ? 0 : 1, // On mobile you want images to be seen instead of having the bubble in your face
@@ -233,7 +233,7 @@ export default function Index() {
                 speed={isMobile ? 0 : -5}
                 rotate={[-70, -100]}
               >
-                <OrnamentalBubble scale="720px" fill="#244059" />
+                <OrnamentalBubble scale="740px" fill="#244059" />
               </Parallax>
 
               <div className="content" style={{ alignItems: 'flex0end' }}>
@@ -263,23 +263,23 @@ export default function Index() {
 
               <Parallax
                 style={{
-                  top: isMobile ? 500 : -50,
+                  position: isMobile ? 'unset' : 'absolute',
+                  top: isMobile ? 530 : -50,
                   right: 'unset',
-                  left: isMobile ? 0 : 500,
+                  left: isMobile ? '5vw' : 500,
                   zIndex: 3,
                 }}
                 className="floating-bubble image"
                 speed={isMobile ? 0 : 8}
               >
                 <ImageBubble
-                  hasShadow="true"
+                  hasShadow={false}
                   fill="#244059"
                   x={0}
                   y={-50}
-                  scale={isMobile ? '100vw' : '500px'}
+                  scale={isMobile ? '80vw' : '500px'}
                   imgScale="1200px"
                   src="assets/working-together.jpg"
-                  outlined="true"
                 />
               </Parallax>
             </div>
