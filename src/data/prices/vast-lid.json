@@ -9,13 +9,13 @@
       "description": "All-in tarief"
     },
     {
-      "description": "Geen minutengeld"
+      "description": "Geen kosten per start"
     },
     {
-      "description": "Geen kosten per lierstart"
+      "description": "Geen kosten per uur"
     },
     {
-      "description": "Gratis instructie"
+      "description": "Instructie inclusief"
     }
   ],
   "orientation": 12

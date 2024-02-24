@@ -1,0 +1,22 @@
+{
+  "order": 2,
+  "title": "Huisgenoot/Student",
+  "price": "735",
+  "currency": "€",
+  "color": "#84aeed",
+  "features": [
+    {
+      "description": "Volwaardig lid"
+    },
+    {
+      "description": "Je geniet van een korting"
+    },
+    {
+      "description": "Geldig voor huisgenoten"
+    },
+    {
+      "description": "Geldig voor studenten"
+    }
+  ],
+  "orientation": 35
+}
