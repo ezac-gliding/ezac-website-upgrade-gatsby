@@ -5,6 +5,11 @@
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
+
+  &::selection {
+    color: #5d4e00;
+    background: #FFF1A7;
+  }
 }
 
 html {
