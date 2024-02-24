@@ -32,7 +32,8 @@
     "react-markdown": "^8.0.5",
     "react-scroll-parallax": "^3.3.2",
     "react-tiny-popover": "^7.0.1",
-    "sass": "^1.52.3"
+    "sass": "^1.52.3",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "eslint": "^8.17.0",
