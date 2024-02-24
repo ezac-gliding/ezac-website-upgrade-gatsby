@@ -135,6 +135,12 @@ form {
     }
   }
 
+  label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
   .floating-label-field {
     position: relative;
 
