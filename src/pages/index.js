@@ -269,7 +269,7 @@ export default function Index() {
                   zIndex: 3,
                 }}
                 className="floating-bubble image"
-                speed={isMobile ? 0 : 4}
+                speed={isMobile ? 0 : 8}
               >
                 <ImageBubble
                   hasShadow="true"
