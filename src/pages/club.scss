@@ -93,18 +93,53 @@
     }
 
     &.fleet {
+      .wrapper {
+        display: block;
+        text-align: center;
+
+        @media only screen and (min-width: 760px) {
+          display: flex;
+          justify-content: space-between;
+          gap: 20px;
+          text-align: unset;
+        }
+      }
+
+      .glider-blueprint {
+        display: flex;
+        justify-content: center;
+
+        @media only screen and (min-width: 760px) {
+          width: 50%;
+        }
+      }
+
       .content {
-        justify-content: space-around;
+        justify-content: center;
+
+        @media only screen and (min-width: 760px) {
+          width: 50%;
+          max-width: unset;
+        }
+      }
+
+      .story-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @media only screen and (min-width: 760px) {
+          display: block;
+        }
       }
 
       img {
-        margin: 40px 0;
+        width: 60%;
+        filter: brightness(0.7);
         max-width: 320px;
-      }
 
-      .content .story-block {
-        h1 {
-          color: $ezac-dark-navy;
+        @media only screen and (min-width: 760px) {
+          width: 100%;
         }
       }
     }

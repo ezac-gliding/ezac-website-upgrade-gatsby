@@ -54,6 +54,8 @@ query {
 }
 `;
 
+const fleetMarkdownText = '# Ontdek onze vloot\n\nNeem een kijkje naar wat we in huis hebben van vliegtuigen in onze hangaars.';
+
 export default function OurClubPage() {
   const { isMobile } = useViewport();
 
@@ -87,7 +89,7 @@ export default function OurClubPage() {
                 isMobile ? '' : (
                   <>
                     <Parallax
-                      style={{ top: '-52px', left: '-38px' }}
+                      style={{ top: '-52px', left: '55px' }}
                       className="floating-bubble"
                       speed={-4}
                       rotate={[-24, 10]}
@@ -95,7 +97,7 @@ export default function OurClubPage() {
                       <OrnamentalBubble scale="50px" fill="#9DC4FF" />
                     </Parallax>
                     <Parallax
-                      style={{ top: '-48px', left: '-48px' }}
+                      style={{ top: '-48px', left: '45px' }}
                       className="floating-bubble"
                       speed={-7}
                       rotate={[-180, -60]}
@@ -107,20 +109,20 @@ export default function OurClubPage() {
               }
 
               <p className="hero-title">
-                &ldquo;Een unieke&nbsp;
-                <strong>vlieg&shy;club</strong>
-                &nbsp;waar de le&shy;den alles&nbsp;
+                &ldquo;We zijn een&nbsp;
+                <strong>zweef&shy;vlieg&shy;club</strong>
+                &nbsp;waar alle werk&shy;zaam&shy;heden&nbsp;
                 <strong>
-                  zelf onder&shy;nemen
+                  door de le&shy;den zelf
                 </strong>
-                &rdquo;
+                &nbsp;worden uitgevoerd.&rdquo;
               </p>
 
               {
                 isMobile ? '' : (
                   <>
                     <Parallax
-                      style={{ top: '120px', right: '30px' }}
+                      style={{ top: '240px', right: '70px' }}
                       className="floating-bubble"
                       speed={3}
                       rotate={[-180, -60]}
@@ -128,7 +130,7 @@ export default function OurClubPage() {
                       <OrnamentalBubble scale="50px" fill="#4C6CA4" />
                     </Parallax>
                     <Parallax
-                      style={{ top: '100px', right: '0' }}
+                      style={{ top: '220px', right: '80px' }}
                       className="floating-bubble"
                       speed={5}
                       rotate={[-140, -60]}
@@ -247,20 +249,26 @@ export default function OurClubPage() {
             ))
           }
 
-          <div className="block fleet" style={{ backgroundColor: 'white' }}>
+          <div className="block fleet" style={{ backgroundColor: '#9DC4FF', paddingBottom: isMobile ? 30 : 50 }}>
+            <Parallax
+              speed={0}
+            >
+              <svg className="wavy-pattern" width="100vw" viewBox="0 25 505 193.7">
+                <path d="M504.5,26.9c-6.6-1.2-13.3-1.8-20.2-1.8c-49.9,0-92.5,31.6-108.7,75.9l0,0c-10.8,21.9-22,29-43.9,25.8l0,0 c-2.5-0.3-5.1-0.5-7.6-0.5c-19.2,0-36.3,8.7-47.7,22.3l0,0l0,0c-0.7,0.8-1.3,1.6-2,2.5c-7.7,8.2-19.7,5.5-26-9.2 c0-0.1-0.1-0.2-0.1-0.2c-13.2-29.8-43-50.7-77.7-50.7c-37.2,0-68.7,24-80.1,57.3c0,0,0,0.1-0.1,0.1c-17.1,29.2-39.3,8.9-39.3,8.9 l0,0C39.7,140.8,20.9,130-0.5,129.7v63.9h505V26.9z" fill="#9DC4FF" />
+              </svg>
+            </Parallax>
             <div className="wrapper">
-              <div className="content">
-                <div className="story-block">
-                  <h1>Ontdek onze vloot</h1>
-                  <p>Neem een kijkje naar wat we in huis hebben van vliegtuigen in onze hangaars.</p>
-                  <ButtonLink href="./club/fleet" className="cta-button">Ontdek onze vloot</ButtonLink>
-                </div>
+              <div className="glider-blueprint">
+                <img alt="Duo Discus" src="assets/duo-discus.svg" />
+              </div>
 
-                {
-                  !isMobile ? (
-                    <img alt="ASK-21" src="assets/ask21.svg" />
-                  ) : ''
-                }
+              <div className="content">
+                <div className="story-block" style={{ color: '#244059' }}>
+                  <ReactMarkdown>
+                    {fleetMarkdownText}
+                  </ReactMarkdown>
+                  <ButtonLink href="./club/fleet" className="cta-button">Bekijk de vloot</ButtonLink>
+                </div>
               </div>
             </div>
           </div>
