@@ -11,6 +11,7 @@ import Header from 'src/components/header/Header';
 import useViewport from 'hooks/useViewport';
 import dayjs from 'dayjs';
 import locale from 'dayjs/locale/nl'; // eslint-disable-line
+import { v4 as uuid } from 'uuid';
 import Page from 'components/UI/Page';
 import Footer from 'components/footer/Footer';
 import Button from 'components/button/Button';
@@ -208,10 +209,12 @@ export default function PricesPage() {
     e.preventDefault();
 
     if (dayjs(waitlistFromDate).isAfter(dayjs(waitlistToDate).add(1, 'day'), 'day')) {
-      setWaitlistErrors([{
-        id: 'date-range-inverted',
-        reason: 'De opgegeven periode is ongeldig. De start van de periode ligt na het einde',
-      }]);
+      setWaitlistErrors([
+        {
+          id: 'date-range-inverted',
+          reason: 'De opgegeven periode is ongeldig. De start van de periode ligt na het einde',
+        },
+      ]);
       return;
     }
 
@@ -224,7 +227,7 @@ export default function PricesPage() {
     setWaitlistSubmitFailed(false);
     setWaitlistSubmitted(false);
 
-    fetch(`${process.env.GATSBY_EZAC_API_URL}/api/v2/passagiers/wachtlijst?_format=json&naam=${waitlistName}&telefoon=${waitlistPhone}&email=${waitlistEmail}&datum_van=${waitlistFromDate}&datum_tot=${waitlistToDate}`, {
+    fetch(`${process.env.GATSBY_EZAC_API_URL}/api/v2/passagiers/wachtlijst?_format=json&naam=${waitlistName}&telefoon=${waitlistPhone}&email=${waitlistEmail}&datum_van=50-04-2022&datum_tot=${waitlistToDate}`, {
       method: 'POST',
       headers: {
         'Access-Control-Allow-Origin': 'ezac.nl',
@@ -232,7 +235,7 @@ export default function PricesPage() {
         'X-CSRF-Token': CSRFToken,
         'Content-Type': 'application/json',
       },
-    }).then((response) => {
+    }).then(async (response) => {
       if (response.ok) {
         setBusySubmitting(false);
         setWaitlistSubmitted(true);
@@ -242,6 +245,19 @@ export default function PricesPage() {
 
       setBusySubmitting(false);
       setWaitlistSubmitFailed(true);
+
+      const errorResponse = await response.json();
+      console.log(errorResponse);
+
+      if (errorResponse.message) {
+        setWaitlistErrors([
+          {
+            id: uuid(),
+            reason: errorResponse.message,
+          },
+        ]);
+      }
+
       console.error('Could not book the flight!');
       return {};
     }).catch((error) => {
@@ -421,7 +437,7 @@ export default function PricesPage() {
                 </Button>
 
                 {
-                  waitlistSubmitFailed ? (
+                  waitlistSubmitFailed && !waitlistErrors.length ? (
                     <div className="message-bubble fail">
                       <p>Er was een probleem tijdens het versturen van het formulier. Gelieve je aanvraag door te sturen via mail naar: voorzitter@ezac.nl</p>
                     </div>
