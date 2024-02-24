@@ -301,25 +301,26 @@ export default function Index() {
                 align,
               }) => (
                 <div className="homepage-text" key={id} style={{ flexDirection: align === 'right' ? 'row-reverse' : 'row' }}>
-                  {
-                    image ? (
-                      <Bubble
-                        id={id}
-                        title={title}
-                        text={text}
-                        image={image}
-                        isMobile={isMobile}
-                      />
-                    ) : ''
-                  }
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    {
+                      image ? (
+                        <Bubble
+                          id={id}
+                          title={title}
+                          text={text}
+                          image={image}
+                          isMobile={isMobile}
+                        />
+                      ) : ''
+                    }
+                  </div>
 
                   <div className="text" style={{ textAlign: align === 'right' ? 'right' : 'left' }}>
                     <h3>{title}</h3>
-                    <p>
+                    <ReactMarkdown>
                       {text}
-                    </p>
+                    </ReactMarkdown>
                   </div>
-
                 </div>
               ))
             }
