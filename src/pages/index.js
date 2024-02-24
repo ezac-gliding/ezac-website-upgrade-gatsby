@@ -193,18 +193,19 @@ export default function Index() {
 
           <div style={valueStyle} className="club-values">
             <ClubValue title="Teamwork">
-              Een sport zoals zweefvliegen kan niet bestaan zonder
-              <strong> een goede samenwerking tussen clubleden. </strong>
+              Zweefvliegen is een sport
+              <strong> die je samen met de andere clubleden doet. </strong>
+              We vliegen in de periode van de zomertijd (eind maart tot en met eind oktober) In de winterperiode doen we in clubverband het nodige onderhoud
             </ClubValue>
             <ClubValue title="Instructie">
-              Er is
-              <strong> geen extra kost voor instructie. </strong>
-              Je hoeft ook niet op voorhand de theorie te volgen. In het zweefvliegen stap je samen met instructeur in een tweezitter, en ga je dus direct aan de slag met de opleiding.
+              Je zweefvliegopleiding begint meteen met een vlucht in een 2-zitter met instructeur.
+              <strong> Voor de lessen hoef je niet extra te betalen. </strong>
+              De lesvluchten worden elke ochtend in de weekenden gevlogen.
             </ClubValue>
-            <ClubValue title="Minutengeld">
-              Het lidgeld is een
-              <strong> all-in-formule, </strong>
-              wat wilt zeggen dat je niet betaalt voor starts, noch voor het aantal minuten die je vliegt op een bepaald type
+            <ClubValue title="Contributie">
+              Onze contributie is een all-in formule. Je vliegt voor je jaarlijkse contributie een heel vliegseizoen en
+              <strong> je betaalt niet extra voor je starts en lesvluchten. </strong>
+              Als je eerst wilt proberen dan kan dat ook. Hiervoor kun je met een 10-rittenkaart in 10 starts kijken of het zweefvliegen iets voor jou is. Je doet tijdens die 10 vluchten volwaardig mee
             </ClubValue>
           </div>
 
