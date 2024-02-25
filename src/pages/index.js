@@ -170,7 +170,7 @@ export default function Index() {
                 <BubbleThree scale="25vw" fill="#4C6CA4" accent="white" />
               </Parallax>
               <Parallax
-                speed={29}
+                speed={18}
               >
                 <Hero />
               </Parallax>
@@ -184,7 +184,7 @@ export default function Index() {
           ) : ''
         }
 
-        <div className="wide-page">
+        <div className="wide-page" style={{ paddingBottom: 100 }}>
           <div className="wrapper" style={{ position: 'relative', zIndex: 1 }}>
             <p className="call-to-action-text">
               Leer&nbsp;
