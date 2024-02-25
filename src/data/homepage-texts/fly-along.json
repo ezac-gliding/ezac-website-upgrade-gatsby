@@ -1,8 +1,8 @@
 {
   "title": "Meevliegen",
-  "order": 2,
-  "text": "Als u wilt, kunt u met een van onze ervaren piloten meevliegen, of iemand anders een doopvlucht cadeau doen. Reserveer tijdig en op voorhand, want de beschikbare timeslots gaan er snel door.",
-  "align": "left",
+  "order": 3,
+  "text": "Je kunt bij ons ook meevliegen en een kennismakingsvlucht maken. We hebben in de weekenden in de middag een aantal vluchten gereserveerd om gasten mee te laten vliegen. Je kunt je inschrijven op de pagina \"meevliegen\". Reserveer tijdig want de ervaring leert dat de beschikbare timeslots snel gereserveerd zijn.",
+  "align": "right",
   "image": {
     "useAlternate": false,
     "source": "assets/meevliegen.jpeg",

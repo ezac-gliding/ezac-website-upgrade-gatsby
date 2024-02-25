@@ -1,4 +1,5 @@
 {
+  "wavyPattern": "none",
   "spaceBelow": 280,
   "bubble": {
     "rotateEnd": 0,
@@ -17,7 +18,7 @@
   "textColor": "white",
   "alignRight": false,
   "title": "Wat maakt de EZAC zo uniek?",
-  "content": "# Wat maakt de EZAC zo uniek?\n\nDe EZAC is een club bestaande uit zowel Nederlandse als Belgische leden. Alles binnen de club, van onderhoud aan de vliegtuigen, de lier, het veld, **wordt volledig door haar leden ondernomen** zonder betrokkenheid van externe partijen.\n\nDe club en haar leden ondernemen kortom alles zelf en beschikken ook over de nodige expertise. We leren je graag tijdens het winterwerk meer over die technieken, en je leert zelf bij welk onderhoud er bij een zweefvliegtuig hoort. Dan beschik je over de nodige kennis om dat in de toekomst zelf uit te voeren op de clubvloot of je eigen vliegtuig.",
+  "content": "# Wat maakt de EZAC zo uniek?\n\nDe EZAC is een zweefvliegvereniging die uit zowel Nederlandse als Belgische leden bestaat. Het ledenaantal varieert tussen de 80 en 100 leden. Alles wat er binnen de vereniging aangepakt en geregeld moet worden doen de leden zelf. Denk hierbij aan het **onderhoud aan vliegtuigen, veld, rollend materieel waaronder de lier, en onze accommodatie.**\n\n Alle kennis en vaardigheden van de leden wordt hierbij gebruikt en tijdens de winterwerkzaamheden ook aan elkaar overgedragen. **Zo kan de technicus je bijvoorbeeld meer leren over het onderhoud van de vliegtuigen** zodat je over de benodigde kennis beschikt als je eigenaar wordt van een zweefvliegtuig.",
   "image": {
     "imagePosY": -50,
     "shadow": true,

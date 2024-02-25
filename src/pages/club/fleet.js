@@ -55,8 +55,7 @@ export default function FleetPage() {
         <h2 className="top-title">Ontdek onze vloot</h2>
 
         <p>
-          De EZAC bezit een moderne vloot van een- en tweezitters! De toestellen bezitten up-to-date navigatie en hoogwardige instrumenten.
-          Elke winter worden de toestellen voorzien van een grondig onderhoud en technisch nazicht.
+          De EZAC beschikt over een moderne vloot met drie 2-zitters en drie 1-zitters. De ASK-21 en de Twin Astir worden gebruikt voor lesvluchten en de Duo Discus voor overlandvluchten. Als je alleen mag vliegen vlieg je op één van de 1-zitters van onze vloot. Naast deze vloot zijn er in Axel diverse privé vliegtuigen van onze leden gestationeerd.
         </p>
 
         <h3>

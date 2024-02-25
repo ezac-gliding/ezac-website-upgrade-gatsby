@@ -151,21 +151,31 @@ export default function PricesPage() {
           }
         </div>
 
-        <h3>Kostenplaatje</h3>
+        <h3>Lid worden</h3>
         <section className="costs-section">
           <div className="explanation">
             <p>
-              Naast je lidmaatschap bij de EZAC zijn er nog een aantal kosten buiten de club.
-              <strong> De medische keuring en de verzekering (KNVvL). </strong>
-              Dit moet je zelf in orde brengen buiten de club, maar we helpen je daarme graag op weg.
-              <strong> De verzekering is jaarlijks en de medische keuring is meerdere jaren geldig afhankelijk van je leeftijd. </strong>
+              Om te kunnen zweefvliegen moet je rekening houden met een aantal verschillende kostenposten: naast je lidmaatschap zijn er nog
+              <strong> twee bijkomende posten:</strong>
             </p>
 
             <p>
-              We hebben de totale kost opgesomd in een kostenplaatje. De totale kostprijs van je eerste jaar ligt iets hoger omwille van het eenmalige entreegeld en de medische keuring.
-              Meeste van de vaste leden betalen iets rond de €1.000 jaarlijks.
-              <strong> Daarin zitten alle andere kosten meteen ook vervat, en hoef je niet extra te betalen per start of per minuut, </strong>
-              wat in andere clubs vaak wel het geval is.
+              Om zelfstandig te kunnen zweefvliegen moet je
+              <strong> medisch gekeurd </strong>
+              worden en om verzekerd te zijn moet je
+              <strong> lid zijn van de Koninklijke Nederlandse Vereniging voor Luchtvaart (KNVvL)</strong>
+            </p>
+
+            <p>
+              Afhankelijk van je leeftijd moet je eens in de 5 jaar of eens in de 2 jaar worden gekeurd. Lidmaatschap van de KNVvL is een jaarlijkse contributie.
+            </p>
+
+            <p>
+              Voor nieuwe leden hanteren wij daarnaast éénmalig entreegeld.
+            </p>
+
+            <p>
+              Hier vind je een overzicht van de kosten per jaar. Deze kosten zijn inclusief je lesvluchten je kan het hele vliegseizoen vliegen, er zijn geen kosten per start of per uur en je bent lid van onze vereniging waarbij we naast het vliegen het sociale aspect net zo belangrijk als het vliegen vinden.
             </p>
 
             <p className="small-letters">
@@ -232,7 +242,7 @@ export default function PricesPage() {
 
         <div id="subscription" className="middle-title">
           <h2>Inschrijven</h2>
-          <h3>Inschrijven kan je door het formulier hieronder in te vullen</h3>
+          <h3>Vul hier jouw gegevens in, dan nemen we spoedig contact op met je</h3>
         </div>
 
         {
@@ -249,6 +259,7 @@ export default function PricesPage() {
               <Select value={subscription} onChange={setSubscription}>
                 <option>Vliegend lid</option>
                 <option>Tienrittenkaart</option>
+                <option>Huisgenoot/Student</option>
                 <option>Donateur</option>
               </Select>
 
@@ -265,7 +276,7 @@ export default function PricesPage() {
                 <label onClick={focusPreviousSibling}>Mobiel</label>
               </div>
 
-              <Button type="submit">Inschrijven</Button>
+              <Button type="submit">Inschrijving aanvragen</Button>
 
               {
                 submitFailed ? (

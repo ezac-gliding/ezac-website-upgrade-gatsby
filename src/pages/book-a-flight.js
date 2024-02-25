@@ -386,7 +386,7 @@ export default function PricesPage() {
         {
           availableDays.length ? (
             <>
-              <h3>Je kan jezelf hieronder ook inschrijven op de wachtlijst voor een specifieke periode</h3>
+              <h3>Je kunt jezelf hieronder ook inschrijven op de wachtlijst voor een specifieke periode</h3>
               <form
                 onSubmit={handleSubmitToWaitlist}
                 className={`waitlist ${waitlistSubmitted ? 'submitted' : ''}`}

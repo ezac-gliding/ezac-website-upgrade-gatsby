@@ -6,14 +6,20 @@
   "color": "#4C6CA4",
   "features": [
     {
-      "description": "10 instructie-vluchten"
+      "description": "10 lesvluchten"
     },
     {
-      "description": "Bepaal of de sport iets voor jou is"
+      "description": "Ervaar of zweefvliegen een sport voor jou is"
     },
     {
-      "description": "Keuze om je lidmaatschap te vervolledigen"
+      "description": "Je doet volwaardig mee met het vliegbedrijf"
+    },
+    {
+      "description": "Na 10 lesvluchten bepaal je of je lid wilt worden"
+    },
+    {
+      "description": "Kosten voor de 10-rittenkaart worden in mindering gebracht op je contributie"
     }
   ],
-  "orientation": 170
+  "orientation": 70
 }

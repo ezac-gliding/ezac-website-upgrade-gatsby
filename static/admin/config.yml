@@ -86,7 +86,7 @@ collections:
       - label: "Header ornament"
         name: "wavyPattern"
         widget: "select"
-        options: ["pattern-1", "pattern-2"]
+        options: ["none", "pattern-1", "pattern-2"]
         default: "#fff1a7"
         required: false
       - label: "Text color"
