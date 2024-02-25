@@ -259,7 +259,7 @@ export default function PricesPage() {
               <Select value={subscription} onChange={setSubscription}>
                 <option>Vliegend lid</option>
                 <option>Tienrittenkaart</option>
-                <option>Student/Huisgenoot</option>
+                <option>Huisgenoot/Student</option>
                 <option>Donateur</option>
               </Select>
 
