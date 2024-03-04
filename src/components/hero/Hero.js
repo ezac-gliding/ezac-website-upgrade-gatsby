@@ -9,7 +9,7 @@ export default () => {
   const [youtubeCookies, setYoutubeCookies] = useState(false);
 
   useEffect(() => {
-    setYoutubeCookies(getCookie().indexOf('youtube') !== -1);
+    setYoutubeCookies(getCookie()?.indexOf('youtube') !== -1);
   }, []);
 
   return (
