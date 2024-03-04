@@ -6,11 +6,39 @@
   left: 10px;
   width: calc(100% - 20px);
 
+  a {
+    &:link {
+      color: $ezac-dark-navy;
+    }
+
+    &:visited {
+      color: lighten($ezac-dark-navy, 10%);
+    }
+
+    &:hover {
+      color: darken($ezac-dark-navy, 10%);
+    }
+  }
+
+
+  @media only screen and (min-width: 800px) {
+    left: unset;
+    right: 10px;
+    max-width: 420px;
+  }
+
   padding: 20px;
 
   background-color: $ezac-pale-blue;
   border-radius: 10px;
   z-index: 999;
+
+  .close-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    fill: $ezac-dark-navy;
+  }
 
   h1 {
     font-size: 24px;
@@ -30,4 +58,34 @@
 
     font-size: 14px;
   }
+
+  .granular-controls {
+    margin-top: 10px;
+
+    .cookie-option {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      font-weight: bold;
+      line-height: 30px;
+
+      border-bottom: 1px dashed $ezac-dark-navy;
+    }
+  }
+}
+
+.cookie-consent-button {
+  position: fixed;
+  padding: 3px;
+  bottom: 20px;
+  right: 20px;
+
+  width: 50px;
+  height: 50px;
+
+  background-color: white;
+  border-radius: 40px;
+  z-index: 99999;
+
+  cursor: pointer;
 }

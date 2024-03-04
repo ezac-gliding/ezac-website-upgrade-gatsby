@@ -55,4 +55,4 @@ export default () => (
     </div>
     <CookieConsentBanner />
   </footer>
-)
+);

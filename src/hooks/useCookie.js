@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import dayjs from 'dayjs';
 
 /**
@@ -13,16 +12,15 @@ export default (cookieName) => {
     const cookie = cookies.find((c) => c.indexOf(cookieName) !== -1);
 
     if (cookie) {
-      return cookie.split('=')[1];
+      return decodeURIComponent(cookie.split('=')[1]);
     }
 
-    console.error(`Could not find cookie with name: ${cookieName}`);
+    console.warn(`Could not find cookie with name: ${cookieName}`);
     return null;
   };
 
   const setCookie = (value, expires = 7) => {
-    const expiresAt = dayjs();
-    expiresAt.add(expires, 'days');
+    const expiresAt = dayjs().add(expires, 'day');
     const cookieValue = `${encodeURIComponent(value)}; expires=${expiresAt.toDate().toUTCString()}; path=/`;
     document.cookie = `${cookieName}=${cookieValue}`;
   };
