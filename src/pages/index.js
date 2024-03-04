@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 import Header from 'src/components/header/Header';
-import Page from 'src/components/UI/Page';
 import Hero from 'src/components/hero/Hero';
 import ClubValue from 'src/components/home/ClubValue';
 import useScroll from 'src/hooks/useScroll';

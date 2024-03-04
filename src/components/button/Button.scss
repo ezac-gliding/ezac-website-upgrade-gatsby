@@ -24,11 +24,23 @@ a.button {
 
   &.secondary {
     color: white;
-    background-color: $ezac-bright-blue;
+    background-color: $ezac-pale-blue;
+    box-shadow: 0 4px 0 darken($ezac-pale-blue, 8);
 
     &:hover,
     &:active {
-      background-color: lighten($ezac-bright-blue, 10);
+      background-color: lighten($ezac-pale-blue, 10);
+    }
+  }
+
+  &.white {
+    color: $ezac-dark-navy;
+    background-color: white;
+    box-shadow: 0 4px 0 lighten($ezac-dark-navy, 10);
+
+    &:hover,
+    &:active {
+      background-color: lighten($ezac-pale-blue, 10);
     }
   }
 

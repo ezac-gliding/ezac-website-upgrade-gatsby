@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import CookieConsentBanner from 'components/gdpr/CookieConsentBanner';
 import fbImage from 'src/img/fb.svg';
 import instaImage from 'src/img/insta.svg';
 import youtubeImage from 'src/img/youtube.svg';
@@ -52,5 +53,6 @@ export default () => (
         </div>
       </div>
     </div>
+    <CookieConsentBanner />
   </footer>
-)
+);

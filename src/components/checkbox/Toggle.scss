@@ -1,0 +1,55 @@
+@import 'src/styles/constants.scss';
+
+$toggle-width: 60px;
+$toggle-height: 30px;
+$lip: 4px;
+
+.toggle-container {
+  position: relative;
+  width: $toggle-width;
+  height: $toggle-height;
+  border-radius: 15px;
+  background-color: white;
+  transition: all 0.127s ease-in-out;
+  cursor: pointer;
+
+  &.disabled {
+    opacity: 0.4;
+    cursor: not-allowed
+  }
+
+  &.blue {
+    &.toggled {
+      background-color: lighten($ezac-pale-blue, 12);
+
+      .thumb {
+        background-color: lighten($ezac-dark-navy, 7);
+      }
+    }
+  }
+
+  .control {
+    position: relative;
+    opacity: 0;
+    z-index: 3;
+    cursor: pointer;
+  }
+
+  .thumb {
+    display: block;
+    position: absolute;
+    top: $lip;
+    left: $lip;
+
+    background-color: #ccc;
+    border-radius: $toggle-height;
+    width: calc(#{$toggle-height} - #{$lip} * 2);
+    height: calc(#{$toggle-height} - #{$lip} * 2);
+
+    transition: all 0.127s ease-in-out;
+
+    &.toggled {
+      left: calc(#{$toggle-width} - #{$toggle-height} + #{$lip})
+    }
+  }
+}

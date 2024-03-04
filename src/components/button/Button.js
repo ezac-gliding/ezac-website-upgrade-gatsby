@@ -7,4 +7,4 @@ export default ({
   ...props
 }) => (
   <button className={`button ${className}`} {...props}>{children}</button>
-)
+);
