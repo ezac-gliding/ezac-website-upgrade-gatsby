@@ -111,7 +111,10 @@ export default function PricesPage() {
                 <textarea name="message" placeholder="Bericht*" value={message} onChange={({ target: { value } }) => setMessage(value)} required />
               </div>
 
-              <Button type="submit">Versturen</Button>
+              <div className="form-submit">
+                <Button type="submit">Versturen</Button>
+                <a href="https://www.ezac.nl/ezac/system/files/Privacyverklaring_EZAC.pdf">Privacyverklaring</a>
+              </div>
 
               {
                 submitFailed ? (

@@ -81,6 +81,15 @@
     button[type="submit"] {
       margin-top: 20px;
     }
+
+    .form-submit {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      font-size: 14px;
+      text-align: left;
+    }
   }
 
   .address-box {
