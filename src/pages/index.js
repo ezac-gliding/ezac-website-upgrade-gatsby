@@ -186,10 +186,15 @@ export default function Index() {
         <div className="wide-page" style={{ paddingBottom: 100 }}>
           <div className="wrapper" style={{ position: 'relative', zIndex: 1 }}>
             <p className="call-to-action-text">
-              Leer&nbsp;
-              <strong>vliegen</strong>
-              &nbsp;aan de EZAC
+              Kom&nbsp;
+              <strong>zweefvliegen</strong>
+              &nbsp;bij de EZAC in Axel
             </p>
+
+            <h3 className="call-to-action-subtitle">
+              Wil je eens meevliegen, leren zweefvliegen, of ben je al zweefvlieger?
+              Ontdek dan de mogelijkheden en kom zweefvliegen in Axel.
+            </h3>
 
             <ButtonLink href="./prices" className="cta-button">Ontdek onze tarieven</ButtonLink>
 
