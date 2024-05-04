@@ -4,6 +4,23 @@
   .page {
     text-align: center;
 
+    ol {
+      margin: 60px auto;
+      max-width: fit-content;
+      font-size: 18px;
+
+      li {
+        margin: 18px 0;
+        width: fit-content;
+        list-style-type: numbers;
+        text-align: center;
+
+        strong {
+          font-weight: bold;
+        }
+      }
+    }
+
     .error-indicator {
       width: 100%;
       background-color: $color-fail;
@@ -122,6 +139,7 @@
       &.occupied {
         background-color: #ddd;
         color: #999;
+        opacity: 0.3;
         cursor: not-allowed;
       }
     }

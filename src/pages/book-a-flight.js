@@ -121,11 +121,11 @@ export default function PricesPage() {
     }
 
     if (availableDays && !selectedDay) {
-      return 'Kies een dag';
+      return 'Kies uit de lijst de dag waarop je wilt meevliegen';
     }
 
     if (selectedHours && !selectedHour) {
-      return 'Kies een tijdstip';
+      return 'Kies in welke tijdsslot je mee zou willen vliegen op jouw gekozen dag';
     }
 
     return 'Vul je gegevens in';
@@ -284,7 +284,16 @@ export default function PricesPage() {
 
       <Page className={isMobile ? 'offset-from-top' : ''}>
         <h2>Vlieg mee</h2>
-        <h3>Reserveer een introductievlucht/vlucht voor jezelf, of om cadeau te doen voor iemand anders.</h3>
+        <h3>Wat leuk dat je mee wilt komen vliegen. Hoe gaat het in zijn werk?</h3>
+
+        <ol type="1">
+          <li>Reserveer hieronder op een door jou gewenste tijdstip</li>
+          <li>U krijgt daarna een e-mail die u moet <strong>bevestigen</strong></li>
+          <li>Kom <strong>een kwartier op voorhand</strong> bij de startplaats, waar je je aanmeldt</li>
+          <li>Na de vlucht kunt u betalen (bij voorkeur met pin), de kostprijs is <strong>€57.50</strong></li>
+          <li>Let op: Het maximum toegelaten gewicht is <strong>100 kg</strong></li>
+          <li>In geval van ongunstige weersomstandigheden nemen wij contact op met je</li>
+        </ol>
 
         <div className="flight-booking-widget">
           {
@@ -362,7 +371,7 @@ export default function PricesPage() {
                           <label onClick={focusPreviousSibling}>Telefoon*</label>
                         </div>
                         <div className="floating-label-field">
-                          <input type="text" name="passenger-email" placeholder="E-mail" value={passengerEmail} onChange={({ target: { value } }) => setPassengerEmail(value)} required />
+                          <input type="email" name="passenger-email" placeholder="E-mail" value={passengerEmail} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" onChange={({ target: { value } }) => setPassengerEmail(value)} required />
                           <label onClick={focusPreviousSibling}>E-mail*</label>
                         </div>
 
@@ -383,7 +392,7 @@ export default function PricesPage() {
         </div>
 
 
-        {
+        {/* {
           availableDays.length ? (
             <>
               <h3>Je kunt jezelf hieronder ook inschrijven op de wachtlijst voor een specifieke periode</h3>
@@ -462,7 +471,7 @@ export default function PricesPage() {
               </form>
             </>
           ) : ''
-        }
+        } */}
       </Page>
       <Footer />
     </div>
