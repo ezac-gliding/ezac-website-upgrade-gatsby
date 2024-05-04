@@ -95,7 +95,7 @@ export default function PricesPage() {
                   <label onClick={focusPreviousSibling}>Naam & Voornaam*</label>
                 </div>
                 <div className="floating-label-field">
-                  <input type="text" name="email" placeholder="E-mail" value={email} onChange={({ target: { value } }) => setEmail(value)} required />
+                  <input type="email" name="email" placeholder="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value={email} onChange={({ target: { value } }) => setEmail(value)} required />
                   <label onClick={focusPreviousSibling}>E-mail*</label>
                 </div>
                 <div className="floating-label-field">
