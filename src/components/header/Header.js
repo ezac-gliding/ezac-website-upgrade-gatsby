@@ -45,10 +45,10 @@ export default function Header({
               <Link partiallyActive activeClassName="active" onClick={closeMenu} to="/club">Onze Club</Link>
             </li>
             <li>
-              <Link partiallyActive activeClassName="active" onClick={closeMenu} to="/book-a-flight">Meevliegen</Link>
+              <Link partiallyActive activeClassName="active" onClick={closeMenu} to="/book-a-flight">Mee vliegen</Link>
             </li>
             <li>
-              <Link partiallyActive activeClassName="active" onClick={closeMenu} to="/prices">Tarieven</Link>
+              <Link partiallyActive activeClassName="active" onClick={closeMenu} to="/prices">Zelf vliegen</Link>
             </li>
             <li>
               <Link partiallyActive activeClassName="active" onClick={closeMenu} to="/contact">Contact</Link>
