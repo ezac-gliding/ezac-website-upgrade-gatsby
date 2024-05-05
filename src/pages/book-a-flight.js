@@ -6,6 +6,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 import React, { useState, useEffect, useMemo } from 'react';
+import { Link } from "gatsby"
 import { Helmet } from 'react-helmet';
 import Header from 'src/components/header/Header';
 import useViewport from 'hooks/useViewport';
@@ -391,6 +392,20 @@ export default function PricesPage() {
           }
         </div>
 
+        <h2>Arrangementen</h2>
+        <h3>
+          Wil je met een grotere groep meevliegen?
+        </h3>
+
+        <p>
+          Wil je met een grotere groep een keer meevliegen? Wij organiseren arrangementen waarbij een groep mensen mee kunnen vliegen.
+          Maak er een gezellige middag van die eventueel afgesloten kan worden met een gezellige barbecue!
+        </p>
+
+        <p>
+          Bespreek met ons de mogelijkheden, neem <Link to="/contact">contact</Link> met ons op.<br />
+          Afhankelijk van het aantal personen bieden wij u een formule aan op maat.
+        </p>
 
         {/* {
           availableDays.length ? (
