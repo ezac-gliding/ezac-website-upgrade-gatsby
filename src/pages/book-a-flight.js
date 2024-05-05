@@ -284,11 +284,11 @@ export default function PricesPage() {
 
       <Page className={isMobile ? 'offset-from-top' : ''}>
         <h2>Vlieg mee</h2>
-        <h3>Wat leuk dat je mee wilt komen vliegen. Hoe gaat het in zijn werk?</h3>
+        <h3>Wat leuk dat je mee wilt komen meevliegen. Hoe gaat het in zijn werk?</h3>
 
         <ol type="1">
-          <li>Reserveer hieronder op een door jou gewenste tijdstip</li>
-          <li>U krijgt daarna een e-mail die u moet <strong>bevestigen</strong></li>
+          <li>Reserveer hieronder op een door jou gewenste dag en tijdstip</li>
+          <li>Je krijgt daarna een e-mail die je moet <strong>bevestigen</strong></li>
           <li>Kom <strong>een kwartier op voorhand</strong> bij de startplaats, waar je je aanmeldt</li>
           <li>Na de vlucht kunt u betalen (bij voorkeur met pin), de kostprijs is <strong>€57.50</strong></li>
           <li>Let op: Het maximum toegelaten gewicht is <strong>100 kg</strong></li>
