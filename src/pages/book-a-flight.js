@@ -172,7 +172,13 @@ export default function PricesPage() {
   const bookFlight = (e) => {
     e.preventDefault();
 
-    if (!selectedDay || !selectedHour || !passengerEmail || !passengerName || !passengerPhone) {
+    if (!selectedDay
+      || !selectedHour
+      || !passengerEmail
+      || !passengerName
+      || !passengerPhone
+      || busySubmitting
+    ) {
       return;
     }
 
@@ -219,7 +225,13 @@ export default function PricesPage() {
       return;
     }
 
-    if (!waitlistName || !waitlistPhone || !waitlistEmail || !waitlistFromDate || !waitlistToDate) {
+    if (!waitlistName
+      || !waitlistPhone
+      || !waitlistEmail
+      || !waitlistFromDate
+      || !waitlistToDate
+      || busySubmitting
+    ) {
       return;
     }
 
