@@ -410,8 +410,8 @@ export default function PricesPage() {
         </h3>
 
         <p>
-          Wil je met een grotere groep een keer meevliegen? Wij organiseren arrangementen waarbij een groep mensen mee kunnen vliegen.
-          Maak er een gezellige middag van die eventueel afgesloten kan worden met een gezellige barbecue!
+          Wilt u met een grotere groep een keer meevliegen? Wij organiseren arrangementen waarbij je met een groep mee kan vliegen.
+          Je kunt er een heel gezellige dag van maken die eventueel afgesloten kan worden met b.v. een lekkere barbecue!
         </p>
 
         <p>
