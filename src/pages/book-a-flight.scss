@@ -149,6 +149,8 @@
 
       &.selected {
         font-weight: bold;
+        background-color: lighten($ezac-pale-blue, 13);
+        color: $ezac-dark-navy;
       }
 
       &.occupied {

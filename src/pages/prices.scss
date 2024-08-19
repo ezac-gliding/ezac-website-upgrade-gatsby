@@ -1,27 +1,23 @@
 @import 'src/styles/constants.scss';
 
 .prices-page {
-  .columns {
-    display: block;
-    gap: 40px;
-    margin-top: 40px;
-    margin-bottom: 50px;
+  .leren-vliegen {
+    margin-bottom: 60px;
+  }
 
-    text-align: center;
+  h2 {
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
 
+  .prices-title {
     h2 {
-      margin: 0 auto;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
+  }
 
-    @media only screen and (min-width: 800px) {
-      display: flex;
-      justify-content: center;
-
-      .column {
-        width: 50%;
-      }
-    }
+  .centered {
+    text-align: center;
   }
 
   .contact-confirmation {
@@ -36,24 +32,6 @@
     p {
       margin: 0;
       color: inherit;
-    }
-  }
-
-  .top-title {
-    text-align: center;
-
-    h2 {
-      margin: 0 auto;
-      margin-bottom: 20px;
-      font-weight: bold;
-
-      &::after {
-        width: 110%;
-      }
-    }
-
-    p {
-      font-size: 18px;
     }
   }
 
@@ -159,6 +137,8 @@
   }
 
   .costs-section {
+    margin-bottom: 80px;
+
     p.small-letters {
       margin-bottom: 0;
       font-size: 11px;

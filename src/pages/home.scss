@@ -76,12 +76,23 @@
     text-align: center;
   }
 
-  .cta-button {
-    display: block;
-    margin: 40px auto 120px auto;
+  .persona-cta-grid {
+    margin: 80px 0;
 
     @media only screen and (min-width: 800px) {
-      margin: 80px auto;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+  }
+
+  .cta-button {
+    display: block;
+    margin: 40px auto;
+
+    @media only screen and (min-width: 800px) {
+      margin: 60px 0;
     }
   }
 

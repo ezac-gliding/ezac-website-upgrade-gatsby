@@ -20,6 +20,7 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-json',
+    'gatsby-plugin-anchor-links',
     {
       resolve: `gatsby-source-filesystem`,
       options: {

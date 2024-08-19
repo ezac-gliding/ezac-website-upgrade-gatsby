@@ -103,33 +103,27 @@ export default function PricesPage() {
       </Helmet>
 
       <Page className={`prices-page ${isMobile ? 'offset-from-top' : ''}`}>
-        <div className="columns">
-          <div className="column">
-            <h2>Leren vliegen</h2>
-            <p>
-              Zweefvliegen is een sport
-              <strong> die je samen met de andere clubleden doet. </strong>
-              We vliegen in de periode van de zomertijd (eind maart tot en met eind oktober) In de winterperiode doen we in clubverband het nodige onderhoud
-            </p>
-            <p>
-              Je zweefvliegopleiding begint meteen met een vlucht in een 2-zitter met instructeur.
-              <strong> Voor de lessen hoef je niet extra te betalen. </strong>
-              De lesvluchten worden elke ochtend in de weekenden gevlogen.
-            </p>
-          </div>
-          <div className="column">
-            <h2>Ben je al zweefvlieger?</h2>
-            <p>
-              Wat fijn! Neem contact op via ons&nbsp;
-              <Link to="/contact">contactformulier</Link>
-              .
-            </p>
-          </div>
+        <div className="leren-vliegen">
+          <a className="anchor" id="leren-vliegen" />
+          <h2>Leren vliegen</h2>
+          <p className="centered">
+            Zweefvliegen is een sport
+            <strong> die je samen met de andere clubleden doet. </strong>
+            We vliegen in de periode van de zomertijd (eind maart tot en met eind oktober) In de winterperiode doen we in clubverband het nodige onderhoud
+          </p>
+          <p className="centered">
+            Je zweefvliegopleiding begint meteen met een vlucht in een 2-zitter met instructeur.
+            <strong> Voor de lessen hoef je niet extra te betalen. </strong>
+            De lesvluchten worden elke ochtend in de weekenden gevlogen.
+          </p>
+          <p className="centered">
+            Onze instructeurs staan voor je klaar om je op te leiden tot een gebreveteerde piloot.
+          </p>
         </div>
 
-        <div className="top-title">
+        <div className="prices-title">
           <h2>Wat kost zweefvliegen</h2>
-          <h3>Ontdek de tarieven en kosten van het zweefvliegen</h3>
+          <h3 className="centered">Ontdek de tarieven en kosten van het zweefvliegen</h3>
         </div>
 
         <div className="all-prices">
@@ -263,6 +257,14 @@ export default function PricesPage() {
             </table> */}
           </div>
         </section>
+
+        <a className="anchor" id="zelf-vliegen" />
+        <h2>Ben je al zweefvlieger?</h2>
+        <p className="centered">
+          Wat fijn! Neem contact op via ons&nbsp;
+          <Link to="/contact">contactformulier</Link>
+          .
+        </p>
 
         <div id="subscription" className="middle-title">
           <h2>Inschrijven</h2>

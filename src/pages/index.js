@@ -22,6 +22,7 @@ import './home.scss';
 import 'src/styles/reset.scss';
 import 'src/styles/general.scss';
 import useViewport from 'hooks/useViewport';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 
 const homepageTextsQuery = graphql`
 query {
@@ -196,7 +197,11 @@ export default function Index() {
               Ontdek dan de mogelijkheden en kom zweefvliegen in Axel.
             </h3>
 
-            <ButtonLink href="./prices" className="cta-button">Ontdek onze tarieven</ButtonLink>
+            <div className="persona-cta-grid">
+              <AnchorLink to="/book-a-flight" className="button cta-button">Ik wil meevliegen</AnchorLink>
+              <AnchorLink to="/prices#leren-vliegen" className="button cta-button">Ik wil leren vliegen</AnchorLink>
+              <AnchorLink to="/prices#zelf-vliegen" className="button cta-button">Ik ben al zweefvlieger</AnchorLink>
+            </div>
 
             <div style={valueStyle} className="club-values">
               <ClubValue title="Teamwork">
