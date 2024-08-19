@@ -349,9 +349,17 @@ export default function PricesPage() {
                           selectedHours.map(({
                             hour,
                             isOccupied,
-                          }) => (
-                            <span key={hour} onClick={() => selectHour(hour, isOccupied)} className={`hour ${isOccupied ? 'occupied' : 'free'} ${selectedHour === hour ? 'selected' : ''}`}>{hour}</span>
-                          ))
+                          }) => {
+                            if (isOccupied) {
+                              return (
+                                <span key={hour} className="hour occupied">BEZET</span>
+                              );
+                            }
+
+                            return (
+                              <span key={hour} onClick={() => selectHour(hour, isOccupied)} className={`hour free ${selectedHour === hour ? 'selected' : ''}`}>{hour}</span>
+                            );
+                          })
                         }
                       </div>
                     </div>
