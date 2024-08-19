@@ -11,7 +11,7 @@ import { Helmet } from 'react-helmet';
 import Header from 'src/components/header/Header';
 import useViewport from 'hooks/useViewport';
 import dayjs from 'dayjs';
-// import locale from 'dayjs/locale/nl'; // eslint-disable-line
+import locale from 'dayjs/locale/nl'; // eslint-disable-line
 // import { v4 as uuid } from 'uuid';
 import Page from 'components/UI/Page';
 import Footer from 'components/footer/Footer';
