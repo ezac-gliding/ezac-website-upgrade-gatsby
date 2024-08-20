@@ -1,6 +1,10 @@
 @import 'src/styles/constants.scss';
 @import url("https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined");
 
+:root {
+  scroll-behavior: unset;
+}
+
 * {
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
