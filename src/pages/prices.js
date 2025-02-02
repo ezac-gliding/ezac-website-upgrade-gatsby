@@ -109,7 +109,7 @@ export default function PricesPage() {
           <p className="centered">
             Zweefvliegen is een sport
             <strong> die je samen met de andere clubleden doet. </strong>
-            We vliegen in de periode van de zomertijd (eind maart tot en met eind oktober) In de winterperiode doen we in clubverband het nodige onderhoud
+            We vliegen in de periode van de zomertijd (eind maart tot en met eind oktober) In de winterperiode doen we in clubverband het nodige onderhoud.
           </p>
           <p className="centered">
             Je zweefvliegopleiding begint meteen met een vlucht in een 2-zitter met instructeur.
@@ -181,7 +181,7 @@ export default function PricesPage() {
               Om zelfstandig te kunnen zweefvliegen moet je
               <strong> medisch gekeurd </strong>
               worden en om verzekerd te zijn moet je
-              <strong> lid zijn van de Koninklijke Nederlandse Vereniging voor Luchtvaart (KNVvL)</strong>
+              <strong> lid zijn van de Koninklijke Nederlandse Vereniging voor Luchtvaart (KNVvL).</strong>
             </p>
 
             <p>
@@ -193,7 +193,7 @@ export default function PricesPage() {
             </p>
 
             <p>
-              Hier vind je een overzicht van de kosten per jaar. Deze kosten zijn inclusief je lesvluchten je kan het hele vliegseizoen vliegen, er zijn geen kosten per start of per uur en je bent lid van onze vereniging waarbij we naast het vliegen het sociale aspect net zo belangrijk als het vliegen vinden.
+              Hier vind je een overzicht van de kosten per jaar. Deze kosten zijn inclusief je lesvluchten. Je kan het hele vliegseizoen vliegen, er zijn geen kosten per start of per uur en je bent lid van onze vereniging waarbij we naast het vliegen het sociale aspect net zo belangrijk als het vliegen vinden.
             </p>
 
             <p className="small-letters">

@@ -122,7 +122,7 @@ export default function PricesPage() {
     }
 
     if (availableDays && !selectedDay) {
-      return 'Kies uit de lijst de dag waarop je wilt meevliegen';
+      return 'Kies uit de lijst de dag waarop je wilt meev liegen';
     }
 
     if (selectedHours && !selectedHour) {
@@ -292,12 +292,12 @@ export default function PricesPage() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&family=Open+Sans:wght@400;800&display=swap" rel="stylesheet" />
-        <title>EZAC | Meevliegen</title>
+        <title>EZAC | Mee vliegen</title>
       </Helmet>
 
       <Page className={isMobile ? 'offset-from-top' : ''}>
         <h2>Vlieg mee</h2>
-        <h3>Wat leuk dat je mee wilt komen meevliegen. Hoe gaat het in zijn werk?</h3>
+        <h3>Wat leuk dat je mee wilt komen mee vliegen. Hoe gaat het in zijn werk?</h3>
 
         <ol type="1">
           <li>Reserveer hieronder op een door jou gewenste dag en tijdstip.</li>
@@ -432,11 +432,11 @@ export default function PricesPage() {
 
         <h2>Arrangementen</h2>
         <h3>
-          Wil je met een grotere groep meevliegen?
+          Wil je met een grotere groep mee vliegen?
         </h3>
 
         <p>
-          Wilt u met een grotere groep een keer meevliegen? Wij organiseren arrangementen waarbij je met een groep mee kan vliegen.
+          Wilt u met een grotere groep een keer mee vliegen? Wij organiseren arrangementen waarbij je met een groep mee kan vliegen.
           Je kunt er een heel gezellige dag van maken die eventueel afgesloten kan worden met b.v. een lekkere barbecue!
         </p>
 

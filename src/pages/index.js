@@ -193,12 +193,12 @@ export default function Index() {
             </p>
 
             <h3 className="call-to-action-subtitle">
-              Wil je eens meevliegen, leren zweefvliegen, of ben je al zweefvlieger?
+              Wil je eens mee vliegen, leren zweefvliegen, of ben je al zweefvlieger?
               Ontdek dan de mogelijkheden en kom zweefvliegen in Axel.
             </h3>
 
             <div className="persona-cta-grid">
-              <AnchorLink to="/book-a-flight" className="button cta-button">Ik wil meevliegen</AnchorLink>
+              <AnchorLink to="/book-a-flight" className="button cta-button">Ik wil mee vliegen</AnchorLink>
               <AnchorLink to="/prices#leren-vliegen" className="button cta-button">Ik wil leren vliegen</AnchorLink>
               <AnchorLink to="/prices#zelf-vliegen" className="button cta-button">Ik ben al zweefvlieger</AnchorLink>
             </div>
@@ -284,11 +284,11 @@ export default function Index() {
                 <ImageBubble
                   hasShadow={false}
                   fill="#244059"
-                  x={0}
-                  y={-50}
+                  x={-210}
+                  y={0}
                   scale={isMobile ? '80vw' : '500px'}
-                  imgScale="1200px"
-                  src="assets/working-together.jpg"
+                  imgScale="1100px"
+                  src="assets/1-WAT-IS-ZWEEFVLIEGEN-2.JPG"
                 />
               </Parallax>
             </div>
