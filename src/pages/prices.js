@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Header from 'src/components/header/Header';
@@ -15,6 +15,8 @@ import Button from 'components/button/Button';
 import OrnamentalBubble from 'components/floating-elements/bubbles/OrnamentalBubble';
 import Footer from 'components/footer/Footer';
 import Select from 'components/UI/Select';
+import sendMail from 'util/mail';
+import getCSRFToken from 'util/token';
 
 const pricesQuery = graphql`
 query {
@@ -43,16 +45,17 @@ export default function PricesPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitFailed, setSubmitFailed] = useState(false);
   const { isMobile } = useViewport();
+  const [CSRFToken, setCSRFToken] = useState();
+
+  useEffect(() => {
+    getCSRFToken().then((token) => setCSRFToken(token));
+  }, []);
 
   const {
     allPricesJson: {
       nodes: prices,
     },
   } = useStaticQuery(pricesQuery);
-
-  const encode = (data) => Object.keys(data)
-    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-    .join('&');
 
   // Handy little util which passes the click through to the input
   // We do this because the label is in the way for a big portion of our inputs
@@ -64,18 +67,23 @@ export default function PricesPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch('/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: encode({
-        'form-name': 'lidmaatschap',
-        name,
-        email,
-        phone,
-        subscription,
-      }),
+    const annotatedMessage = `
+      <p style="margin-bottom: 30px">Er werd zojuist een aanvraag verstuurd voor een lidmaatschap vanaf de nieuwe EZAC website.</p>
+
+      <p>[Naam en voornaam]: ${name}</p>
+      <p>[E-mail]: ${email}</p>
+      <p>[Mobiel]: ${phone}</p>
+      <p style="margin-bottom: 30px">[Soort lidmaatschap]: ${subscription}</p>
+
+      <p>
+        De bezoeker heeft op de knop <strong>inschrijving aanvragen</strong> gedrukt, en de website heeft de bezoeker geïnformeerd dat we contact op zullen nemen.
+      </p>
+    `;
+
+    sendMail({
+      subject: '[LIDMAATSCHAP] [Prijspagina] Nieuwe aanvraag!',
+      message: annotatedMessage,
+      CSRFToken,
     }).then((response) => {
       if (response.ok) {
         setIsSubmitted(true);

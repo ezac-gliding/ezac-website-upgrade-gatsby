@@ -19,6 +19,7 @@ import Button from 'components/button/Button';
 import Spinner from 'components/UI/Spinner';
 import Checkmark from 'components/UI/Checkmark';
 import Error from 'components/UI/Error';
+import getCSRFToken from 'util/token';
 // import Select from 'components/UI/Select';
 import './book-a-flight.scss';
 import 'src/styles/reset.scss';
@@ -54,13 +55,7 @@ export default function PricesPage() {
     dayjs.locale('nl');
 
     // Get CSRF Token
-    fetch(`${process.env.GATSBY_EZAC_API_URL}/session/token`).then((response) => {
-      if (response.ok) {
-        return response.text();
-      }
-
-      return false;
-    }).then((token) => setCSRFToken(token));
+    getCSRFToken().then((token) => setCSRFToken(token));
 
     // Load in slots
     fetch(`${process.env.GATSBY_EZAC_API_URL}/api/v2/passagiers/slots`, {
