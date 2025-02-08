@@ -95,7 +95,7 @@ export default function PricesPage() {
                   <label onClick={focusPreviousSibling}>Naam & Voornaam*</label>
                 </div>
                 <div className="floating-label-field">
-                  <input type="text" name="email" placeholder="E-mail" value={email} onChange={({ target: { value } }) => setEmail(value)} required />
+                  <input type="email" name="email" placeholder="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value={email} onChange={({ target: { value } }) => setEmail(value)} required />
                   <label onClick={focusPreviousSibling}>E-mail*</label>
                 </div>
                 <div className="floating-label-field">
@@ -111,7 +111,10 @@ export default function PricesPage() {
                 <textarea name="message" placeholder="Bericht*" value={message} onChange={({ target: { value } }) => setMessage(value)} required />
               </div>
 
-              <Button type="submit">Versturen</Button>
+              <div className="form-submit">
+                <Button type="submit">Versturen</Button>
+                <a href="https://www.ezac.nl/ezac/system/files/Privacyverklaring_EZAC.pdf">Privacyverklaring</a>
+              </div>
 
               {
                 submitFailed ? (
@@ -147,13 +150,13 @@ export default function PricesPage() {
               De EZAC bevindt zich op het
               <strong> natuurgebied de Smitschorre. </strong>
               De Justaasweg doorkruist dit gebied en laat u toe met de wagen te rijden tot aan de vliegclub.
-              Om de club te bereiken rijdt u best via de golf in.
+              Om de club te bereiken rijdt u best via de watertoren het domein binnen.
             </p>
 
             <p>
               <strong> Let wel: Sommige oudere GPS toestellen sturen u via de Lageweg, </strong>
               maar van die kant staat er een slagboom die de inrit met wagen verhindert.
-              We raden voor die reden aan te navigeren met Google Maps of Waze.
+              We raden aan om via de oostkant de Smitschorre binnen te rijden.
             </p>
           </div>
 

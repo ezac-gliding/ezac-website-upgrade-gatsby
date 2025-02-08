@@ -6,19 +6,20 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 import React, { useState, useEffect, useMemo } from 'react';
+import { Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Header from 'src/components/header/Header';
 import useViewport from 'hooks/useViewport';
 import dayjs from 'dayjs';
 import locale from 'dayjs/locale/nl'; // eslint-disable-line
-import { v4 as uuid } from 'uuid';
+// import { v4 as uuid } from 'uuid';
 import Page from 'components/UI/Page';
 import Footer from 'components/footer/Footer';
 import Button from 'components/button/Button';
 import Spinner from 'components/UI/Spinner';
 import Checkmark from 'components/UI/Checkmark';
 import Error from 'components/UI/Error';
-import Select from 'components/UI/Select';
+// import Select from 'components/UI/Select';
 import './book-a-flight.scss';
 import 'src/styles/reset.scss';
 import 'src/styles/general.scss';
@@ -34,14 +35,14 @@ export default function PricesPage() {
   const [passengerPhone, setPassengerPhone] = useState('');
   const [formIsSubmitted, setSubmitted] = useState(false);
 
-  const [waitlistSubmitted, setWaitlistSubmitted] = useState('');
-  const [waitlistName, setWaitlistName] = useState('');
-  const [waitlistEmail, setWaitlistEmail] = useState('');
-  const [waitlistPhone, setWaitlistPhone] = useState('');
-  const [waitlistFromDate, setWaitlistFromDate] = useState('');
-  const [waitlistToDate, setWaitlistToDate] = useState('');
-  const [waitlistSubmitFailed, setWaitlistSubmitFailed] = useState(false);
-  const [waitlistErrors, setWaitlistErrors] = useState([]);
+  // const [waitlistSubmitted, setWaitlistSubmitted] = useState('');
+  // const [waitlistName, setWaitlistName] = useState('');
+  // const [waitlistEmail, setWaitlistEmail] = useState('');
+  // const [waitlistPhone, setWaitlistPhone] = useState('');
+  // const [waitlistFromDate, setWaitlistFromDate] = useState('');
+  // const [waitlistToDate, setWaitlistToDate] = useState('');
+  // const [waitlistSubmitFailed, setWaitlistSubmitFailed] = useState(false);
+  // const [waitlistErrors, setWaitlistErrors] = useState([]);
 
   const [isLoading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -89,7 +90,7 @@ export default function PricesPage() {
 
   const availableDays = useMemo(() => {
     // Filter out all days with no more available slots
-    const availableSlotsUnformatted = Object.entries(slots).filter(([day, slotsForDay]) => Object.values(slotsForDay).some((slotForDay) => slotForDay === ''));
+    const availableSlotsUnformatted = Object.entries(slots).filter(([, slotsForDay]) => Object.values(slotsForDay).some((slotForDay) => slotForDay === ''));
 
     return availableSlotsUnformatted.map(([day, slotsForDay]) => ({
       day,
@@ -121,22 +122,22 @@ export default function PricesPage() {
     }
 
     if (availableDays && !selectedDay) {
-      return 'Kies een dag';
+      return 'Kies uit de lijst de dag waarop je wilt meev liegen';
     }
 
     if (selectedHours && !selectedHour) {
-      return 'Kies een tijdstip';
+      return 'Kies in welke tijdsslot je mee zou willen vliegen op jouw gekozen dag';
     }
 
     return 'Vul je gegevens in';
   }, [selectedHours, selectedHour, selectedDay, availableDays, formIsSubmitted]);
 
-  useEffect(() => {
-    if (availableDays.length) {
-      setWaitlistFromDate(availableDays[0].day);
-      setWaitlistToDate(availableDays[availableDays.length - 1].day);
-    }
-  }, [availableDays]);
+  // useEffect(() => {
+  //   if (availableDays.length) {
+  //     setWaitlistFromDate(availableDays[0].day);
+  //     setWaitlistToDate(availableDays[availableDays.length - 1].day);
+  //   }
+  // }, [availableDays]);
 
   const focusPreviousSibling = (e) => {
     e.preventDefault();
@@ -171,7 +172,13 @@ export default function PricesPage() {
   const bookFlight = (e) => {
     e.preventDefault();
 
-    if (!selectedDay || !selectedHour || !passengerEmail || !passengerName || !passengerPhone) {
+    if (!selectedDay
+      || !selectedHour
+      || !passengerEmail
+      || !passengerName
+      || !passengerPhone
+      || busySubmitting
+    ) {
       return;
     }
 
@@ -205,66 +212,72 @@ export default function PricesPage() {
     });
   };
 
-  const handleSubmitToWaitlist = (e) => {
-    e.preventDefault();
+  // const handleSubmitToWaitlist = (e) => {
+  //   e.preventDefault();
 
-    if (dayjs(waitlistFromDate).isAfter(dayjs(waitlistToDate).add(1, 'day'), 'day')) {
-      setWaitlistErrors([
-        {
-          id: 'date-range-inverted',
-          reason: 'De opgegeven periode is ongeldig. De start van de periode ligt na het einde',
-        },
-      ]);
-      return;
-    }
+  //   if (dayjs(waitlistFromDate).isAfter(dayjs(waitlistToDate).add(1, 'day'), 'day')) {
+  //     setWaitlistErrors([
+  //       {
+  //         id: 'date-range-inverted',
+  //         reason: 'De opgegeven periode is ongeldig. De start van de periode ligt na het einde',
+  //       },
+  //     ]);
+  //     return;
+  //   }
 
-    if (!waitlistName || !waitlistPhone || !waitlistEmail || !waitlistFromDate || !waitlistToDate) {
-      return;
-    }
+  //   if (!waitlistName
+  //     || !waitlistPhone
+  //     || !waitlistEmail
+  //     || !waitlistFromDate
+  //     || !waitlistToDate
+  //     || busySubmitting
+  //   ) {
+  //     return;
+  //   }
 
-    setBusySubmitting(true);
-    setWaitlistErrors([]);
-    setWaitlistSubmitFailed(false);
-    setWaitlistSubmitted(false);
+  //   setBusySubmitting(true);
+  //   setWaitlistErrors([]);
+  //   setWaitlistSubmitFailed(false);
+  //   setWaitlistSubmitted(false);
 
-    fetch(`${process.env.GATSBY_EZAC_API_URL}/api/v2/passagiers/wachtlijst?_format=json&naam=${waitlistName}&telefoon=${waitlistPhone}&email=${waitlistEmail}&datum_van=50-04-2022&datum_tot=${waitlistToDate}`, {
-      method: 'POST',
-      headers: {
-        'Access-Control-Allow-Origin': 'ezac.nl',
-        Authorization: `Basic ${process.env.GATSBY_BASIC_AUTH_KEY}`,
-        'X-CSRF-Token': CSRFToken,
-        'Content-Type': 'application/json',
-      },
-    }).then(async (response) => {
-      if (response.ok) {
-        setBusySubmitting(false);
-        setWaitlistSubmitted(true);
+  //   fetch(`${process.env.GATSBY_EZAC_API_URL}/api/v2/passagiers/wachtlijst?_format=json&naam=${waitlistName}&telefoon=${waitlistPhone}&email=${waitlistEmail}&datum_van=50-04-2022&datum_tot=${waitlistToDate}`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Access-Control-Allow-Origin': 'ezac.nl',
+  //       Authorization: `Basic ${process.env.GATSBY_BASIC_AUTH_KEY}`,
+  //       'X-CSRF-Token': CSRFToken,
+  //       'Content-Type': 'application/json',
+  //     },
+  //   }).then(async (response) => {
+  //     if (response.ok) {
+  //       setBusySubmitting(false);
+  //       setWaitlistSubmitted(true);
 
-        return response.json();
-      }
+  //       return response.json();
+  //     }
 
-      setBusySubmitting(false);
-      setWaitlistSubmitFailed(true);
+  //     setBusySubmitting(false);
+  //     setWaitlistSubmitFailed(true);
 
-      const errorResponse = await response.json();
-      console.log(errorResponse);
+  //     const errorResponse = await response.json();
+  //     console.log(errorResponse);
 
-      if (errorResponse.message) {
-        setWaitlistErrors([
-          {
-            id: uuid(),
-            reason: errorResponse.message,
-          },
-        ]);
-      }
+  //     if (errorResponse.message) {
+  //       setWaitlistErrors([
+  //         {
+  //           id: uuid(),
+  //           reason: errorResponse.message,
+  //         },
+  //       ]);
+  //     }
 
-      console.error('Could not book the flight!');
-      return {};
-    }).catch((error) => {
-      setWaitlistSubmitFailed(true);
-      return console.error(error);
-    });
-  };
+  //     console.error('Could not book the flight!');
+  //     return {};
+  //   }).catch((error) => {
+  //     setWaitlistSubmitFailed(true);
+  //     return console.error(error);
+  //   });
+  // };
 
   return (
     <div className="book-a-flight-page">
@@ -279,12 +292,37 @@ export default function PricesPage() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&family=Open+Sans:wght@400;800&display=swap" rel="stylesheet" />
-        <title>EZAC | Meevliegen</title>
+        <title>EZAC | Mee vliegen</title>
       </Helmet>
 
       <Page className={isMobile ? 'offset-from-top' : ''}>
         <h2>Vlieg mee</h2>
-        <h3>Reserveer een introductievlucht/vlucht voor jezelf, of om cadeau te doen voor iemand anders.</h3>
+        <h3>Wat leuk dat je mee wilt komen mee vliegen. Hoe gaat het in zijn werk?</h3>
+
+        <ol type="1">
+          <li>Reserveer hieronder op een door jou gewenste dag en tijdstip.</li>
+          <li>
+            Je krijgt daarna een e-mail die je moet&nbsp;
+            <strong>bevestigen</strong>
+            .
+          </li>
+          <li>
+            Kom&nbsp;
+            <strong>een kwartier op voorhand</strong>
+            &nbsp;bij de startplaats, waar je je aanmeldt.
+          </li>
+          <li>
+            Na de vlucht kunt u betalen (bij voorkeur met pin), de kostprijs is
+            <strong>&nbsp;€57.50</strong>
+            .
+          </li>
+          <li>
+            Let op: Het maximum toegelaten gewicht is
+            <strong>&nbsp;100 kg</strong>
+            .
+          </li>
+          <li>In geval van ongunstige weersomstandigheden nemen wij contact op met je.</li>
+        </ol>
 
         <div className="flight-booking-widget">
           {
@@ -327,9 +365,17 @@ export default function PricesPage() {
                           selectedHours.map(({
                             hour,
                             isOccupied,
-                          }) => (
-                            <span key={hour} onClick={() => selectHour(hour, isOccupied)} className={`hour ${isOccupied ? 'occupied' : 'free'} ${selectedHour === hour ? 'selected' : ''}`}>{hour}</span>
-                          ))
+                          }) => {
+                            if (isOccupied) {
+                              return (
+                                <span key={hour} className="hour occupied">BEZET</span>
+                              );
+                            }
+
+                            return (
+                              <span key={hour} onClick={() => selectHour(hour, isOccupied)} className={`hour free ${selectedHour === hour ? 'selected' : ''}`}>{hour}</span>
+                            );
+                          })
                         }
                       </div>
                     </div>
@@ -340,7 +386,9 @@ export default function PricesPage() {
                   {
                     selectedHour && selectedDay && !formIsSubmitted ? (
                       <p className="selected-date-summary">
-                        {dayjs(selectedDay).format('dddd D MMMM')} om {selectedHour}
+                        {dayjs(selectedDay).format('dddd D MMMM')}
+                        &nbsp;om&nbsp;
+                        {selectedHour}
                       </p>
                     ) : ''
                   }
@@ -362,7 +410,7 @@ export default function PricesPage() {
                           <label onClick={focusPreviousSibling}>Telefoon*</label>
                         </div>
                         <div className="floating-label-field">
-                          <input type="text" name="passenger-email" placeholder="E-mail" value={passengerEmail} onChange={({ target: { value } }) => setPassengerEmail(value)} required />
+                          <input type="email" name="passenger-email" placeholder="E-mail" value={passengerEmail} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" onChange={({ target: { value } }) => setPassengerEmail(value)} required />
                           <label onClick={focusPreviousSibling}>E-mail*</label>
                         </div>
 
@@ -382,8 +430,25 @@ export default function PricesPage() {
           }
         </div>
 
+        <h2>Arrangementen</h2>
+        <h3>
+          Wil je met een grotere groep mee vliegen?
+        </h3>
 
-        {
+        <p>
+          Wilt u met een grotere groep een keer mee vliegen? Wij organiseren arrangementen waarbij je met een groep mee kan vliegen.
+          Je kunt er een heel gezellige dag van maken die eventueel afgesloten kan worden met b.v. een lekkere barbecue!
+        </p>
+
+        <p>
+          Bespreek met ons de mogelijkheden, neem&nbsp;
+          <Link to="/contact">contact</Link>
+          &nbsp;met ons op.
+          <br />
+          Afhankelijk van het aantal personen bieden wij u een formule aan op maat.
+        </p>
+
+        {/* {
           availableDays.length ? (
             <>
               <h3>Je kunt jezelf hieronder ook inschrijven op de wachtlijst voor een specifieke periode</h3>
@@ -398,7 +463,7 @@ export default function PricesPage() {
                   <label onClick={focusPreviousSibling}>Naam*</label>
                 </div>
                 <div className="floating-label-field">
-                  <input type="text" name="email" placeholder="E-mail" value={waitlistEmail} onChange={({ target: { value } }) => setWaitlistEmail(value)} required />
+                  <input type="email" name="email" placeholder="E-mail" value={waitlistEmail} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" onChange={({ target: { value } }) => setWaitlistEmail(value)} required />
                   <label onClick={focusPreviousSibling}>E-mail*</label>
                 </div>
                 <div className="floating-label-field">
@@ -462,7 +527,7 @@ export default function PricesPage() {
               </form>
             </>
           ) : ''
-        }
+        } */}
       </Page>
       <Footer />
     </div>

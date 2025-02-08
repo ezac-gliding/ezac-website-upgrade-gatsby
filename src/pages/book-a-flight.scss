@@ -4,6 +4,38 @@
   .page {
     text-align: center;
 
+    ol {
+      margin: 60px auto;
+      padding: 10px;
+      max-width: fit-content;
+
+      font-size: 18px;
+      line-height: 28px;
+      text-align: center;
+
+      background-color: lighten($ezac-pale-blue, 10);
+
+      border-radius: 18px;
+
+      li {
+        margin: 18px auto;
+        width: fit-content;
+
+        strong {
+          font-weight: bold;
+        }
+      }
+
+      @media only screen and (min-width: 800px) {
+        max-width: unset;
+        padding: 20px 30px;
+
+        li {
+          list-style-type: numbers;
+        }
+      }
+    }
+
     .error-indicator {
       width: 100%;
       background-color: $color-fail;
@@ -117,11 +149,14 @@
 
       &.selected {
         font-weight: bold;
+        background-color: lighten($ezac-pale-blue, 13);
+        color: $ezac-dark-navy;
       }
 
       &.occupied {
         background-color: #ddd;
         color: #999;
+        opacity: 0.7;
         cursor: not-allowed;
       }
     }

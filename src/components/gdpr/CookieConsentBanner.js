@@ -117,7 +117,12 @@ export default function CookieConsentBanner() {
           <Button onClick={toggleGranularControl} className="white">Aanpassen</Button>
         )
       }
-      <Button onClick={handleStrict} className="white">Strict noodzakelijk</Button>
+      <Button onClick={handleStrict} className="white">Strikt noodzakelijk</Button>
+      {
+        showGranularControls && (
+          <Button onClick={() => setShowBanner(false)} className="white">Opslaan</Button>
+        )
+      }
       <Button onClick={handleAccept} className="white">Accepteer alles</Button>
     </div>
   );

@@ -22,6 +22,7 @@ import './home.scss';
 import 'src/styles/reset.scss';
 import 'src/styles/general.scss';
 import useViewport from 'hooks/useViewport';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 
 const homepageTextsQuery = graphql`
 query {
@@ -186,12 +187,21 @@ export default function Index() {
         <div className="wide-page" style={{ paddingBottom: 100 }}>
           <div className="wrapper" style={{ position: 'relative', zIndex: 1 }}>
             <p className="call-to-action-text">
-              Leer&nbsp;
-              <strong>vliegen</strong>
-              &nbsp;aan de EZAC
+              Kom&nbsp;
+              <strong>zweefvliegen</strong>
+              &nbsp;bij de EZAC in Axel
             </p>
 
-            <ButtonLink href="./prices" className="cta-button">Ontdek onze tarieven</ButtonLink>
+            <h3 className="call-to-action-subtitle">
+              Wil je eens mee vliegen, leren zweefvliegen, of ben je al zweefvlieger?
+              Ontdek dan de mogelijkheden en kom zweefvliegen in Axel.
+            </h3>
+
+            <div className="persona-cta-grid">
+              <AnchorLink to="/book-a-flight" className="button cta-button">Ik wil mee vliegen</AnchorLink>
+              <AnchorLink to="/prices#leren-vliegen" className="button cta-button">Ik wil leren vliegen</AnchorLink>
+              <AnchorLink to="/prices#zelf-vliegen" className="button cta-button">Ik ben al zweefvlieger</AnchorLink>
+            </div>
 
             <div style={valueStyle} className="club-values">
               <ClubValue title="Teamwork">
@@ -274,11 +284,11 @@ export default function Index() {
                 <ImageBubble
                   hasShadow={false}
                   fill="#244059"
-                  x={0}
-                  y={-50}
+                  x={-210}
+                  y={0}
                   scale={isMobile ? '80vw' : '500px'}
-                  imgScale="1200px"
-                  src="assets/working-together.jpg"
+                  imgScale="1100px"
+                  src="assets/1-WAT-IS-ZWEEFVLIEGEN-2.JPG"
                 />
               </Parallax>
             </div>

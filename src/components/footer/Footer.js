@@ -30,10 +30,10 @@ export default () => (
               <Link activeClassName="active" to="/club">Onze Club</Link>
             </li>
             <li>
-              <Link activeClassName="active" to="/book-a-flight">Meevliegen</Link>
+              <Link activeClassName="active" to="/book-a-flight">Mee vliegen</Link>
             </li>
             <li>
-              <Link activeClassName="active" to="/prices">Tarieven</Link>
+              <Link activeClassName="active" to="/prices">Zelf vliegen</Link>
             </li>
             <li>
               <Link activeClassName="active" to="/contact">Contact</Link>
