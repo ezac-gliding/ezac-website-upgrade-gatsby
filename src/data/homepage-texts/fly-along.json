@@ -5,15 +5,15 @@
   "align": "right",
   "image": {
     "useAlternate": false,
-    "source": "assets/meevliegen.jpeg",
+    "source": "assets/4-MEEVLIEGEN.JPG",
     "shadow": true,
     "fromRight": true,
     "outline": true,
     "color": "#0179D2",
     "parallaxSpeed": 4,
     "rotation": 0,
-    "imagePosX": -100,
+    "imagePosX": -430,
     "imagePosY": 0,
-    "imgScale": "150%"
+    "imgScale": "170%"
   }
 }

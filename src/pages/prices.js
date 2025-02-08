@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 import React, { useState } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Header from 'src/components/header/Header';
 import useViewport from 'hooks/useViewport';
@@ -103,9 +103,27 @@ export default function PricesPage() {
       </Helmet>
 
       <Page className={`prices-page ${isMobile ? 'offset-from-top' : ''}`}>
-        <div className="top-title">
-          <h2>Onze tarieven</h2>
-          <h3>Ontdek de tarieven en kosten van het zweefvliegen</h3>
+        <div className="leren-vliegen">
+          <a className="anchor" id="leren-vliegen" />
+          <h2>Leren vliegen</h2>
+          <p className="centered">
+            Zweefvliegen is een sport
+            <strong> die je samen met de andere clubleden doet. </strong>
+            We vliegen in de periode van de zomertijd (eind maart tot en met eind oktober) In de winterperiode doen we in clubverband het nodige onderhoud.
+          </p>
+          <p className="centered">
+            Je zweefvliegopleiding begint meteen met een vlucht in een 2-zitter met instructeur.
+            <strong> Voor de lessen hoef je niet extra te betalen. </strong>
+            De lesvluchten worden elke ochtend in de weekenden gevlogen.
+          </p>
+          <p className="centered">
+            Onze instructeurs staan voor je klaar om je op te leiden tot een gebreveteerde piloot.
+          </p>
+        </div>
+
+        <div className="prices-title">
+          <h2>Wat kost zweefvliegen</h2>
+          <h3 className="centered">Ontdek de tarieven en kosten van het zweefvliegen</h3>
         </div>
 
         <div className="all-prices">
@@ -163,7 +181,7 @@ export default function PricesPage() {
               Om zelfstandig te kunnen zweefvliegen moet je
               <strong> medisch gekeurd </strong>
               worden en om verzekerd te zijn moet je
-              <strong> lid zijn van de Koninklijke Nederlandse Vereniging voor Luchtvaart (KNVvL)</strong>
+              <strong> lid zijn van de Koninklijke Nederlandse Vereniging voor Luchtvaart (KNVvL).</strong>
             </p>
 
             <p>
@@ -175,7 +193,7 @@ export default function PricesPage() {
             </p>
 
             <p>
-              Hier vind je een overzicht van de kosten per jaar. Deze kosten zijn inclusief je lesvluchten je kan het hele vliegseizoen vliegen, er zijn geen kosten per start of per uur en je bent lid van onze vereniging waarbij we naast het vliegen het sociale aspect net zo belangrijk als het vliegen vinden.
+              Hier vind je een overzicht van de kosten per jaar. Deze kosten zijn inclusief je lesvluchten. Je kan het hele vliegseizoen vliegen, er zijn geen kosten per start of per uur en je bent lid van onze vereniging waarbij we naast het vliegen het sociale aspect net zo belangrijk als het vliegen vinden.
             </p>
 
             <p className="small-letters">
@@ -240,6 +258,14 @@ export default function PricesPage() {
           </div>
         </section>
 
+        <a className="anchor" id="zelf-vliegen" />
+        <h2>Ben je al zweefvlieger?</h2>
+        <p className="centered">
+          Wat fijn! Neem contact op via ons&nbsp;
+          <Link to="/contact">contactformulier</Link>
+          .
+        </p>
+
         <div id="subscription" className="middle-title">
           <h2>Inschrijven</h2>
           <h3>Vul hier jouw gegevens in, dan nemen we spoedig contact op met je</h3>
@@ -268,7 +294,7 @@ export default function PricesPage() {
                 <label onClick={focusPreviousSibling}>Naam & Voornaam*</label>
               </div>
               <div className="floating-label-field">
-                <input type="text" name="email" placeholder="E-mail" value={email} onChange={({ target: { value } }) => setEmail(value)} required />
+                <input type="email" name="email" placeholder="E-mail" value={email} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" onChange={({ target: { value } }) => setEmail(value)} required />
                 <label onClick={focusPreviousSibling}>E-mail*</label>
               </div>
               <div className="floating-label-field">

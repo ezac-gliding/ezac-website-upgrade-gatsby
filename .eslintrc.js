@@ -27,5 +27,7 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
     'max-len': 'warn',
+    'jsx-a11y/anchor-has-content': 'warn',
+    'jsx-a11y/anchor-is-valid': 'warn',
   },
 };

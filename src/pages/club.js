@@ -36,6 +36,7 @@ query {
         useAlternate
         xOffset
         yOffset
+        imageScale
       }
       wavyPattern
       bubble {
@@ -223,7 +224,7 @@ export default function OurClubPage() {
                               x={image.imagePosX}
                               y={image.imagePosY}
                               scale={isMobile ? '75vw' : '500px'}
-                              imgScale="1000px"
+                              imgScale={`${image.imageScale}px`}
                               src={image.source}
                               outlined={image.outline}
                             />
@@ -235,7 +236,7 @@ export default function OurClubPage() {
                               x={image.imagePosX}
                               y={image.imagePosY}
                               scale={isMobile ? '75vw' : '500px'}
-                              imgScale="1000px"
+                              imgScale={`${image.imageScale}px`}
                               src={image.source}
                               outlined={image.outline}
                             />

@@ -79,7 +79,17 @@
     }
 
     button[type="submit"] {
+      margin-top: 0;
+    }
+
+    .form-submit {
+      display: flex;
       margin-top: 20px;
+      align-items: center;
+      gap: 20px;
+
+      font-size: 14px;
+      text-align: left;
     }
   }
 

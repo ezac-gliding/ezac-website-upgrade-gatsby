@@ -1,6 +1,25 @@
 @import 'src/styles/constants.scss';
 
 .prices-page {
+  .leren-vliegen {
+    margin-bottom: 60px;
+  }
+
+  h2 {
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+
+  .prices-title {
+    h2 {
+      margin-bottom: 20px;
+    }
+  }
+
+  .centered {
+    text-align: center;
+  }
+
   .contact-confirmation {
     height: 368px;
     padding: 50px 0;
@@ -13,24 +32,6 @@
     p {
       margin: 0;
       color: inherit;
-    }
-  }
-
-  .top-title {
-    text-align: center;
-
-    h2 {
-      margin: 0 auto;
-      margin-bottom: 20px;
-      font-weight: bold;
-
-      &::after {
-        width: 110%;
-      }
-    }
-
-    p {
-      font-size: 18px;
     }
   }
 
@@ -136,6 +137,8 @@
   }
 
   .costs-section {
+    margin-bottom: 80px;
+
     p.small-letters {
       margin-bottom: 0;
       font-size: 11px;
