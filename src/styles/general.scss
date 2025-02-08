@@ -66,13 +66,15 @@ h2 {
 
   // The yellow strip underneath the title is described here
   &:after {
+    $stripe-overextension: 8px;
+
     content: '';
     position: absolute;
     bottom: -3px;
-    left: -7px;
+    left: -$stripe-overextension;
     z-index: -1;
 
-    width: 104%;
+    width: calc(100% + #{$stripe-overextension * 2});
     height: 12px;
     border-radius: 12px;
     background-color: $ezac-bright-yellow;
