@@ -42,7 +42,7 @@ module.exports = {
       options: {
         name: "Eerste Zeeuws-Vlaamse Aero Club",
         short_name: "EZAC",
-        start_url: `https://public.ezac.nl`,
+        start_url: "/",
         background_color: "#003082",
         theme_color: "#0469FF",
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
