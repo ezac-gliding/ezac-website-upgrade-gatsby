@@ -84,6 +84,7 @@ export default function PricesPage() {
       subject: '[LIDMAATSCHAP] [Prijspagina] Nieuwe aanvraag!',
       message: annotatedMessage,
       CSRFToken,
+      type: 'lid-worden',
     }).then((response) => {
       if (response.ok) {
         setIsSubmitted(true);
@@ -315,7 +316,10 @@ export default function PricesPage() {
               {
                 submitFailed ? (
                   <div className="message-bubble fail">
-                    <p>Er was een probleem tijdens het versturen van het formulier. Gelieve je aanvraag door te sturen via mail naar: voorzitter@ezac.nl</p>
+                    <p>
+                      Er was een probleem tijdens het versturen van het formulier. Gelieve je aanvraag door te sturen via&nbsp;
+                      <Link to="/contact">contactformulier</Link>
+                    </p>
                   </div>
                 ) : ''
               }

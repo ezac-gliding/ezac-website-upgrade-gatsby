@@ -62,8 +62,9 @@ export default function PricesPage() {
     `;
 
     sendMail({
-      subject: '[WEBSITE] [Conactpagina] Nieuw bericht!',
+      subject: '[WEBSITE] [Contactpagina] Nieuw bericht!',
       message: annotatedMessage,
+      type: 'contact',
       CSRFToken,
     }).then((response) => {
       if (response.ok) {
@@ -135,7 +136,7 @@ export default function PricesPage() {
               {
                 submitFailed ? (
                   <div className="message-bubble fail">
-                    <p>Er was een probleem tijdens het versturen van het formulier. Gelieve jouw vraag door te sturen via mail naar: voorzitter@ezac.nl</p>
+                    <p>Er was een probleem tijdens het versturen van het formulier. Gelieve telefonisch contact op te nemen met ons als dit probleem zich blijft voordoen.</p>
                   </div>
                 ) : ''
               }
