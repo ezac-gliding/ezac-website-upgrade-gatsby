@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import Header from 'src/components/header/Header';
 import useViewport from 'hooks/useViewport';
@@ -11,6 +11,8 @@ import 'src/styles/general.scss';
 import Page from 'components/UI/Page';
 import Button from 'components/button/Button';
 import Footer from 'components/footer/Footer';
+import getCSRFToken from 'util/token';
+import sendMail from 'util/mail';
 
 export default function PricesPage() {
   const [name, setName] = useState('');
@@ -21,10 +23,11 @@ export default function PricesPage() {
   const { isMobile } = useViewport();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitFailed, setSubmitFailed] = useState(false);
+  const [CSRFToken, setCSRFToken] = useState();
 
-  const encode = (data) => Object.keys(data)
-    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-    .join('&');
+  useEffect(() => {
+    getCSRFToken().then((token) => setCSRFToken(token));
+  }, []);
 
   // Handy little util which passes the click through to the input
   // We do this because the label is in the way for a big portion of our inputs
@@ -36,19 +39,33 @@ export default function PricesPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch('/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: encode({
-        'form-name': 'contact',
-        name,
-        email,
-        phone,
-        message,
-        subject,
-      }),
+    const annotatedMessage = `
+      <p style="margin-bottom: 30px">Er werd zojuist een mail verstuurd via het contactformulier van de nieuwe EZAC website.</p>
+
+      <p>Waar komt dit vandaan?
+      <p style="margin-bottom: 30px">De nieuwe EZAC website.</p>
+
+      <p>Welk formulier werd ingevuld?</p>
+      <p style="margin-bottom: 30px">Het contactformulier op /contact.</p>
+
+      <p style="margin-bottom: 30px">Volgende velden op het formulier werden ingevuld:</p>
+
+      <p>[Naam en voornaam]: ${name}</p>
+      <p>[E-mail]: ${email}</p>
+      <p>[Mobiel]: ${phone}</p>
+      <p style="margin-bottom: 30px">[Onderwerp]: ${subject}</p>
+
+      <p>
+        [Bericht]:<br />
+        ${message}
+      </p>
+    `;
+
+    sendMail({
+      subject: '[WEBSITE] [Contactpagina] Nieuw bericht!',
+      message: annotatedMessage,
+      type: 'contact',
+      CSRFToken,
     }).then((response) => {
       if (response.ok) {
         setIsSubmitted(true);
@@ -119,7 +136,7 @@ export default function PricesPage() {
               {
                 submitFailed ? (
                   <div className="message-bubble fail">
-                    <p>Er was een probleem tijdens het versturen van het formulier. Gelieve je vraag door te sturen via mail naar: voorzitter@ezac.nl</p>
+                    <p>Er was een probleem tijdens het versturen van het formulier. Gelieve telefonisch contact op te nemen met ons als dit probleem zich blijft voordoen.</p>
                   </div>
                 ) : ''
               }
@@ -127,7 +144,7 @@ export default function PricesPage() {
           ) : (
             <div className="contact-confirmation">
               <div className="message-bubble success">
-                <p>Uw bericht werd verstuurd! Wij zullen spoedig contact opnemen met u</p>
+                <p>Jouw bericht werd verstuurd! We zullen spoedig contact opnemen met je</p>
               </div>
             </div>
           )
