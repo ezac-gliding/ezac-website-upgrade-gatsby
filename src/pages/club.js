@@ -260,7 +260,7 @@ export default function OurClubPage() {
             </Parallax>
             <div className="wrapper">
               <div className="glider-blueprint">
-                <img alt="Duo Discus" src="assets/duo-discus.svg" />
+                <img alt="Duo Discus" src="/assets/duo-discus.svg" />
               </div>
 
               <div className="content">
