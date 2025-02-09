@@ -11,9 +11,9 @@ srcDirs.forEach((srcDir) => {
 module.exports = {
   siteMetadata: {
     title: `EZAC`,
-    siteUrl: `https://ezac.nl`,
+    siteUrl: `https://public.ezac.nl`,
     description: `Zweefvliegen in Zeeuws Vlaanderen.`,
-    author: `@ezac-dream-team`,
+    author: `EZAC IT`,
   },
   trailingSlash: 'never',
   plugins: [
@@ -42,7 +42,7 @@ module.exports = {
       options: {
         name: "Eerste Zeeuws-Vlaamse Aero Club",
         short_name: "EZAC",
-        start_url: `https://www.ezac.nl`,
+        start_url: `https://public.ezac.nl`,
         background_color: "#003082",
         theme_color: "#0469FF",
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
